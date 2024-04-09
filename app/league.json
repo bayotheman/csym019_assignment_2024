@@ -20,25 +20,30 @@
     "fixtures": [
             {
               "month": "April",
-              "year": "",
-              "matches": [
+              "year": "2024",
+              "days": [
                 {
                   "date": "Sunday 7th April",
-                  "time": "24 hours format 00:00",
                   "competition": {
                         "name": "",
-                        "round": "",
-                        "status": ""
+                        "round": ""
                   },
-                  "team": {
-                    "first": "",
-                    "second": ""
-                  },
-                  "home_team": "",
-                  "away_team": "",
-                  "home_score": "",
-                  "away_score": "",
-                  "status": "FT, HT"
+                  "matches": [
+                    {
+                      "time": "24 hours format 00:00",
+                      "teams": {
+                        "first": {
+                          "name": "",
+                          "score": 0
+                        },
+                        "second":{
+                          "name": "",
+                          "score": 0
+                        },
+                        "status": "FT, HT"
+                      }
+                    }
+                  ]
                 }
               ]
             }
