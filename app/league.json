@@ -25,8 +25,15 @@
                 {
                   "date": "Sunday 7th April",
                   "time": "24 hours format 00:00",
-                  "competition": "",
-                  "": "",
+                  "competition": {
+                        "name": "",
+                        "round": "",
+                        "status": ""
+                  },
+                  "team": {
+                    "first": "",
+                    "second": ""
+                  },
                   "home_team": "",
                   "away_team": "",
                   "home_score": "",
@@ -35,7 +42,6 @@
                 }
               ]
             }
-
 
     ],
 
