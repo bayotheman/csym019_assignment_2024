@@ -1,0 +1,59 @@
+{
+    "table":[
+              {
+                "position": 1,
+                "name": "Arsenal",
+                "logo_url": "",
+                "played": 31,
+                "won": 22,
+                "drawn": 5,
+                "lost": 4,
+                "for": 75,
+                "against": 24,
+                "gd": 51,
+                "points": 71,
+                "form": ["W","W","W","D", "W","W"]
+              }
+
+            ],
+
+    "fixtures": [
+            {
+              "month": "April",
+              "year": "",
+              "matches": [
+                {
+                  "date": "Sunday 7th April",
+                  "time": "24 hours format 00:00",
+                  "competition": "",
+                  "": "",
+                  "home_team": "",
+                  "away_team": "",
+                  "home_score": "",
+                  "away_score": "",
+                  "status": "FT, HT"
+                }
+              ]
+            }
+
+
+    ],
+
+
+    "top_scorers": [
+            {
+              "position": 1,
+              "name": "Erling Haaland",
+              "club": "Manchester City",
+              "goals": 19,
+              "assists": 5,
+              "played": 25,
+              "goals_per_90": 0.81,
+              "mins_per_goal": 111,
+              "total_shots": 79,
+              "goal_conversion": "24%",
+              "shot_accuracy": "58%"
+            }
+    ]
+
+}
