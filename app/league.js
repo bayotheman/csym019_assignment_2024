@@ -47,30 +47,48 @@ function loadTable(){
         let points = tableEntry['points'];
         let form = tableEntry['form'];
 
+
+
+
         table.appendChild(tableRow);
         let positionElement= tableRow.appendChild(document.createElement("td"));
         let teamParentElement= tableRow.appendChild(document.createElement("td"));
         let teamContainer= document.createElement("span");
+        // teamContainer.setAttribute("style", "align-items:last");
+        // teamContainer.setAttribute("style", "width:10%;");
         // teamContainer.style.display="flex"
         // teamContainer.setAttribute("style", "display:flex");
-        teamContainer.setAttribute("style", "align-items:last");
+
 
         let logoContainer= tableRow.appendChild(document.createElement("span"))
+        logoContainer.setAttribute("style", "width:10%;");
         let logoImage= tableRow.appendChild(document.createElement("img"));
 
 
         let playedElement= tableRow.appendChild(document.createElement("td"));
+        playedElement.setAttribute("style", "text-align:center");
         let wonElement= tableRow.appendChild(document.createElement("td"));
+        wonElement.setAttribute("style", "text-align:center");
         let drawnElement= tableRow.appendChild(document.createElement("td"));
+        drawnElement.setAttribute("style", "text-align:center");
         let lostElement= tableRow.appendChild(document.createElement("td"));
+        lostElement.setAttribute("style", "text-align:center");
         let goalForElement= tableRow.appendChild(document.createElement("td"));
+        goalForElement.setAttribute("style", "text-align:center");
         let againstElement= tableRow.appendChild(document.createElement("td"));
+        againstElement.setAttribute("style", "text-align:center");
         let gdElement= tableRow.appendChild(document.createElement("td"));
+        gdElement.setAttribute("style", "text-align:center");
         let pointsElement= tableRow.appendChild(document.createElement("td"));
+        pointsElement.setAttribute("style", "text-align:center");
+        pointsElement.style.fontSize ="large";
+        pointsElement.style.fontWeight ="bold";
+
         // let formElement= tableRow.appendChild(document.createElement("td"));
 
 
         positionElement.innerHTML=position;
+        positionElement.setAttribute("style", "text-align:center");
 
         teamParentElement.append(teamContainer);
         teamContainer.appendChild(logoContainer);

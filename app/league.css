@@ -9,7 +9,11 @@
 
 /* Basic styling */
 body {
-    font-family: Monospaced, monospace;
+    font-family: 'ReithSerif', serif;
+    src: url(https://static.files.bbci.co.uk/fonts/reith/2.512/BBCReithSerif_W_ExBd.woff2) ;
+    /*format('woff2'),url(https://static.files.bbci.co.uk/fonts/reith/2.512/BBCReithSerif_W_ExBd.woff) format('woff');*/
+    /*font-display: swap;*/
+    /*font-family: Helvetica, helvetica, serif;*/
     background-color: #f5f5f5;
 }
 
@@ -49,7 +53,10 @@ svg{
 }
 
 #league_table{
-    background-color: lightgrey;
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    /*align-content: center;*/
 }
 
 tr{
@@ -64,15 +71,16 @@ tr{
     border-bottom: 2px solid rgb(160 160 160);
     /*text-align: center;*/
     /*column-count: 10;*/
-    background-color: darkgrey;
+    background-color: #F5F5F5;
     /*color: #000000;*/
 }
 
-.premier-league-table {
+#premier-league-table {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    align-items: center;
     /*margin-bottom: 20px;*/
 }
 
@@ -87,4 +95,19 @@ footer {
     font-size: 16px;
     font-weight: bold;
 }
+tr{
+    /*align-items: self-start;*/
+    text-align: start;
+}
+th{
+    text-align: end;
+    font-size: small;
+    padding: 10px;
+    margin: 50px;
+    font-weight: bold;
+    /*-webkit-font-smoothing: antialiased;*/
+
+}
+
+
 
