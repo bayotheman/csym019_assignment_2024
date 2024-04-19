@@ -3,17 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Premier League Table - Football - BBC Sport</title>
-<!--    <meta data-rh="true" name="description" content="Find out which football teams are-->
-<!--        leading the pack or at the foot of the table in the English Premier League on BBC Sport">-->
-    <script src="league.js"></script>
+    <title>Premier League Table</title>
+    <link rel="stylesheet" href="league.css">
+<!--    <script type="text/javascript" src="league.js"></script>-->
+    <script type="module" src="./league.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-  <header id="header"> Premier League Table</header>
-  <div id="root">
+<script type="module" src="./league.js"></script>
+<header>
 
+</header>
 
-  </div>
+<main>
+    <div></div>
+    <section class="premier-league-table">
 
+        <h1 id="table_tile">Premier League Table</h1>
+
+       <table id="league_table">
+<!--           <caption>League table</caption>-->
+           <thead id="table_head">
+               <tr>
+                   <th scope="col">Position</th>
+<!--                   <th scope="col"></th>-->
+                   <th scope="col">Team</th>
+                   <th scope="col">Played</th>
+                   <th scope="col">Won</th>
+                   <th scope="col">Drawn</th>
+                   <th scope="col">Lost</th>
+                   <th scope="col">For</th>
+                   <th scope="col">Against</th>
+                   <th scope="col">GD</th>
+                   <th scope="col">Points</th>
+                   <th scope="col">Form</th>
+               </tr>
+           </thead>
+           <tbody id="table_row">
+<!--               <tr>-->
+<!--               </tr>-->
+           </tbody>
+       </table>
+    </section>
+</main>
+
+<footer>
+    <!-- Footer content -->
+</footer>
 </body>
 </html>

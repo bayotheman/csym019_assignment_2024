@@ -1,0 +1,90 @@
+
+
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+body {
+    font-family: Monospaced, monospace;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #ffffff;
+    color: #000;
+    padding: 20px;
+}
+
+#table_tile{
+    font-size: xx-large;
+    color: #000;
+    font-weight: bolder;
+}
+
+/*main {*/
+/*    display: grid;*/
+/*    grid-template-columns: 100%;*/
+/*    grid-template-rows: auto;*/
+/*    !*padding: 20px;*!*/
+/*}*/
+
+svg{
+    display: inline-block;
+    width: 10px; /* Adjust the width and height as needed */
+    height: 10px;
+    border-radius: 10%; /* Makes the container a circle */
+    overflow: hidden; /* Ensures the SVG doesn't overflow */
+}
+
+ img {
+    width: 5%;
+    height: auto;
+    /*display: block;*/
+    border: none; /* Remove any default border */
+    padding: 5px;
+}
+
+#league_table{
+    background-color: lightgrey;
+}
+
+tr{
+
+}
+/*td{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+
+#table_head{
+    border-bottom: 2px solid rgb(160 160 160);
+    /*text-align: center;*/
+    /*column-count: 10;*/
+    background-color: darkgrey;
+    /*color: #000000;*/
+}
+
+.premier-league-table {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    /*margin-bottom: 20px;*/
+}
+
+footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+#table_row{
+    font-size: 16px;
+    font-weight: bold;
+}
+
