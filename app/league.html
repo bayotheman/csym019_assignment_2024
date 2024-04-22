@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="league.css">
 <!--    <script type="text/javascript" src="league.js"></script>-->
     <script type="module" src="./league.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
 <script type="module" src="./league.js"></script>
 <header>
+    <div id="top-level-header"><h1>SPORT</h1></div>
 
 </header>
 
@@ -20,31 +22,41 @@
     <div></div>
     <section id="premier-league-table">
 
-        <h1 id="table_tile">Premier League Table</h1>
+        <div id="league_table_div">
+            <h2 id="table_tile">Premier League Table</h2>
+<!--            <div id="search_bar">-->
+<!--                <div>-->
+<!--&lt;!&ndash;                    <img id="search_icon_div" src="https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg" alt=""></img>&ndash;&gt;-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <input type="search" placeholder="  Enter a team or competition " name="search" />-->
+<!--                </div>-->
 
-       <table id="league_table">
-<!--           <caption>League table</caption>-->
-           <thead id="table_head">
-               <tr>
-                   <th scope="col">Position</th>
-<!--                   <th scope="col"></th>-->
-                   <th scope="col">Team</th>
-                   <th scope="col">Played</th>
-                   <th scope="col">Won</th>
-                   <th scope="col">Drawn</th>
-                   <th scope="col">Lost</th>
-                   <th scope="col">For</th>
-                   <th scope="col">Against</th>
-                   <th scope="col">GD</th>
-                   <th scope="col">Points</th>
-                   <th scope="col">Form</th>
-               </tr>
-           </thead>
-           <tbody id="table_row">
-<!--               <tr>-->
-<!--               </tr>-->
-           </tbody>
-       </table>
+<!--            </div>-->
+            <table id="league_table">
+                <!--           <caption>League table</caption>-->
+                <thead id="table_head">
+                <tr>
+                    <th scope="col">Position</th>
+<!--                    <th scope="col"></th>-->
+                    <th scope="col">Team</th>
+                    <th scope="col">Played</th>
+                    <th scope="col">Won</th>
+                    <th scope="col">Drawn</th>
+                    <th scope="col">Lost</th>
+                    <th scope="col">For</th>
+                    <th scope="col">Against</th>
+                    <th scope="col">GD</th>
+                    <th scope="col">Points</th>
+                    <th scope="col">Form</th>
+                </tr>
+                </thead>
+                <tbody id="table_row">
+                </tbody>
+            </table>
+        </div>
+
+
     </section>
 </main>
 

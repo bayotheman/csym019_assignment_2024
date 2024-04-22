@@ -1,5 +1,5 @@
 {
-    "table":[
+    "teams":[
       {
         "position": 1,
         "name": "Manchester City",
@@ -12,7 +12,40 @@
         "against": 24,
         "gd": 51,
         "points": 73,
-        "form": ["W","W","W","D", "W","W"]
+        "form": ["W","W","W","D", "W","W"],
+        "fixtures": [
+          {
+            "month":{
+                "name": "",
+                "matches": [
+                  {
+                    "date": "",
+                    "time": "",
+                    "home": false,
+                    "opponent": "",
+                    "scorer_list_for_opponent": [],
+                    "scorer_list_for_": []
+                  },
+                  {
+
+                  }
+
+                ]
+            }
+          }
+        ],
+        "players": [
+          {
+            "id": 1,
+            "name": "",
+            "number": "",
+            "goals" : 0,
+            "assist" : 0
+          },
+          {
+
+          }
+        ]
       },
       {
         "position": 2,
