@@ -251,13 +251,9 @@
 
 
 
-
-
-
-
-
 function updateTableHelper(response) {
     let teams = response["teams"];
+    console.log(teams);
     $.each(teams, function(i, team) {
 
     })
@@ -266,7 +262,7 @@ function updateTableHelper(response) {
 function displayError() {
 
 }
-
+let count = 0;
 (function updateTable(){
     setTimeout(function () {
         $.ajax({
@@ -274,14 +270,17 @@ function displayError() {
             type:"GET",
             dataType:"json",
             success:function(response){
+                count+=1;
+                console.log(count);
                 updateTableHelper(response);
+                updateTable();
             },
             error:function(){
                 displayError();
             },
         });
 
-    }, 100);
+    }, 1000);
 })();
 
 
