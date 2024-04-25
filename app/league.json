@@ -78,8 +78,8 @@
         "away_team": "Arsenal",
         "home_goals": ["Erling Haaland", "Kevin Debryne", "Bernado Silva"],
         "away_goals": ["Bukayo Saka"],
-        "home_team_stats": [],
-        "away_team_stats": []
+        "home_team_players_stats": [],
+        "away_team_players_stats": []
       },
       {
         "date": "",
@@ -88,8 +88,8 @@
         "away_team": "Manchester City",
         "home_goals": ["Bukayo Saka", "Bukayo Saka", "Kai Harvetz"],
         "away_goals": ["Erling Haaland", "Kevin Debryne", "Erling Haaland"],
-        "home_team_stats": [],
-        "away_team_stats": []
+        "home_team_players_stats": [],
+        "away_team_players_stats": []
       }
 
     ],
@@ -137,7 +137,7 @@
               "assists": 5,
               "played": 25,
               "goals_per_90": 0.81,
-              "mins_per_goal": 111,
+              "total_minutes_played": 111,
               "total_shots": 79,
               "goal_conversion": "24%",
               "shot_accuracy": "58%"

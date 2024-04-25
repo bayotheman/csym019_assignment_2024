@@ -1,0 +1,505 @@
+{
+  "teams":[
+    {
+      "name": "Manchester City",
+      "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
+      "played": 0,
+      "won": 0,
+      "drawn": 0,
+      "lost": 0,
+      "gf": 0,
+      "ga": 0,
+      "gd": 0,
+      "points": 0,
+      "form": [],
+      "players": [
+        {
+          "name": "Haaland",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        },
+        {
+          "name": "Debryne",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        },
+        {
+          "name": "Silva",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        }
+      ]
+    },
+    {
+      "name": "Arsenal",
+      "logo": "https://upload.wikimedia.org/wikipedia/sco/5/53/Arsenal_FC.svg",
+      "played": 0,
+      "won": 0,
+      "drawn": 0,
+      "lost": 0,
+      "gf": 0,
+      "ga": 0,
+      "gd": 0,
+      "points": 0,
+      "form": [],
+      "players": [
+        {
+          "name": "Saka",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        },
+        {
+          "name": "Harvetz",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        },
+        {
+          "name": "Patey",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        }
+      ]
+    },
+
+    {
+      "name": "Manchester United",
+      "logo": "https://upload.wikimedia.org/wikipedia/sco/5/53/Arsenal_FC.svg",
+      "played": 0,
+      "won": 0,
+      "drawn": 0,
+      "lost": 0,
+      "gf": 0,
+      "ga": 0,
+      "gd": 0,
+      "points": 0,
+      "form": [],
+      "players": [
+        {
+          "name": "Anthony",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        },
+        {
+          "name": "Gernacho",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        },
+        {
+          "name": "Rashford",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        }
+      ]
+    },
+    {
+      "name": "Chelsea",
+      "logo": "https://upload.wikimedia.org/wikipedia/sco/5/53/Arsenal_FC.svg",
+      "played": 0,
+      "won": 0,
+      "drawn": 0,
+      "lost": 0,
+      "gf": 0,
+      "ga": 0,
+      "gd": 0,
+      "points": 0,
+      "form": [],
+      "players": [
+        {
+          "name": "Palmer",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        },
+        {
+          "name": "Madueke",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        },
+        {
+          "name": "Jackson",
+          "goals": 0,
+          "assists": 0,
+          "played": 0,
+          "goals_per_90": 0,
+          "total_minutes_played": 0,
+          "total_shots": 0,
+          "shots_on_target": 0,
+          "goal_conversion": 0,
+          "shot_accuracy": 0
+        }
+      ]
+    }
+
+  ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "fixtures": [
+      {
+        "date": "",
+        "month": "",
+        "home_team": "Manchester City",
+        "away_team": "Arsenal",
+        "home_goals": 3,
+        "away_goals": 1,
+        "home_team_players_stats": [
+          {
+            "name": "Haaland",
+            "goals": 0,
+            "assists": 2,
+            "goals_in_90": 1,
+            "total_shots": 5,
+            "minutes_played" : 50,
+            "shots_on_target": 5
+          },
+          {
+            "name": "Silva",
+            "goals": 0,
+            "assists": 1,
+            "goals_in_90": 0,
+            "minutes_played" : 90,
+            "total_shots": 2,
+            "shots_on_target": 2
+          },
+          {
+            "name": "Debryne",
+            "goals": 3,
+            "assists": 0,
+            "goals_in_90": 0,
+            "minutes_played" : 90,
+            "total_shots": 3,
+            "shots_on_target": 2
+          }
+        ],
+        "away_team_players_stats": [
+          {
+            "name": "Saka",
+            "goals": 1,
+            "assists": 0,
+            "goals_in_90": 1,
+            "minutes_played" : 90,
+            "total_shots": 5,
+            "shots_on_target": 3
+          }
+        ]
+      },
+      {
+        "date": "",
+        "month": "",
+        "home_team": "Arsenal",
+        "away_team": "Manchester City",
+        "home_goals": 3,
+        "away_goals": 5,
+        "home_team_players_stats": [
+          {
+            "name": "Saka",
+            "goals": 2,
+            "assists": 0,
+            "goals_in_90": 2,
+            "total_shots": 5,
+            "minutes_played" : 90,
+            "shots_on_target": 3
+          },
+          {
+            "name": "Harvertz",
+            "goals": 1,
+            "assists": 0,
+            "goals_in_90": 1,
+            "total_shots": 2,
+            "minutes_played" : 90,
+            "shots_on_target": 2
+          },
+          {
+            "name": "Patey",
+            "goals": 0,
+            "assists": 0,
+            "goals_in_90": 0,
+            "total_shots": 0,
+            "minutes_played" : 90,
+            "shots_on_target": 0
+          }
+        ],
+        "away_team_players_stats": [
+          {
+            "name": "Haaland",
+            "goals": 3,
+            "assists": 0,
+            "goals_in_90": 2,
+            "total_shots": 7,
+            "minutes_played" : 90,
+            "shots_on_target": 6
+          },
+          {
+            "name": "Debryne",
+            "goals": 1,
+            "assists": 2,
+            "goals_in_90": 1,
+            "total_shots": 2,
+            "minutes_played" : 90,
+            "shots_on_target": 2
+          },
+          {
+            "name": "Silva",
+            "goals": 1,
+            "assists": 0,
+            "goals_in_90": 0,
+            "total_shots": 8,
+            "minutes_played" : 90,
+            "shots_on_target": 5
+          }
+        ]
+      },
+    {
+      "date": "",
+      "month": "",
+      "home_team": "Manchester City",
+      "away_team": "Manchester United",
+      "home_goals": 0,
+      "away_goals": 1,
+      "home_team_players_stats": [
+        {
+          "name": "Haaland",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 7,
+          "minutes_played" : 90,
+          "shots_on_target": 6
+        },
+        {
+          "name": "Debryne",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "shots_on_target": 2
+        },
+        {
+          "name": "Silva",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 90,
+          "shots_on_target": 1
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Rashford",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 4,
+          "minutes_played" : 90,
+          "shots_on_target": 4
+        },
+        {
+          "name": "Gernacho",
+          "goals": 0,
+          "assists": 1,
+          "goals_in_90": 0,
+          "total_shots": 7,
+          "minutes_played" : 90,
+          "shots_on_target": 3
+        }
+      ]
+    },
+    {
+      "date": "",
+      "month": "",
+      "home_team": "Manchester United",
+      "away_team": "Manchester City",
+      "home_goals": 1,
+      "away_goals": 2,
+      "home_team_players_stats": [
+        {
+          "name": "Anthony",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 1,
+          "minutes_played" : 90,
+          "shots_on_target": 1
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Haaland",
+          "goals": 2,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 5,
+          "minutes_played" : 90,
+          "shots_on_target": 2
+        }
+      ]
+    },
+    {
+      "date": "",
+      "month": "",
+      "home_team": "Manchester United",
+      "away_team": "Chelsea",
+      "home_goals": 1,
+      "away_goals": 2,
+      "home_team_players_stats": [
+        {
+          "name": "Palmer",
+          "goals": 2,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 4,
+          "minutes_played" : 90,
+          "shots_on_target": 4
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Anthony",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 3,
+          "minutes_played" : 90,
+          "shots_on_target": 2
+        }
+      ]
+    },
+    {
+      "date": "",
+      "month": "",
+      "home_team": "Chelsea",
+      "away_team": "Arsenal",
+      "home_goals": 0,
+      "away_goals": 5,
+      "home_team_players_stats": [],
+      "away_team_players_stats": [
+        {
+          "name": "Harvetz",
+          "goals": 2,
+          "assists": 1,
+          "goals_in_90": 2,
+          "total_shots": 2,
+          "minutes_played" : 90,
+          "shots_on_target": 2
+        },
+        {
+          "name": "Saka",
+          "goals": 3,
+          "assists": 0,
+          "goals_in_90": 3,
+          "total_shots": 5,
+          "minutes_played" : 90,
+          "shots_on_target": 3
+        }
+      ]
+    }
+
+  ]
+
+
+
+
+}

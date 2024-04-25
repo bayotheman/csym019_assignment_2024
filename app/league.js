@@ -1,14 +1,13 @@
 
-// window.onload = createTeamMap;
 
-const map ={};
+const registeredTeams ={};
 function createTeamMap(response) {
     let teams = response["teams"];
     $.each(teams, function(i, team) {
-        map[team["name"]] = team;
+        registeredTeams[team["name"]] = team;
     });
-    console.log("map before:")
-    console.log(map);
+    // console.log("map before:")
+    // console.log(teamsMap);
 }
 // function updateTable(response) {
 //     let rank = [];
@@ -101,17 +100,17 @@ function updateTable(response) {
         let homeTeamName = fixture["home_team"];
         let awayTeamName = fixture["away_team"];
 
-        let home = map[homeTeamName];
-        let away = map[awayTeamName];
+        let home = registeredTeams[homeTeamName];
+        let away = registeredTeams[awayTeamName];
 
         let homeGoals = 0;
         if(fixture["home_goals"] !== undefined){
-            homeGoals = fixture["home_goals"].length;
+            homeGoals = fixture["home_goals"];
         }
 
         let awayGoals = 0;
         if(fixture["away_goals"] !== undefined){
-            awayGoals = fixture["away_goals"].length;
+            awayGoals = fixture["away_goals"];
         }
 
         home['gf'] += homeGoals;
@@ -151,7 +150,7 @@ function updateTable(response) {
     });
 
     //populate league table data
-    let rank  = Object.values(map);
+    let rank  = Object.values(registeredTeams);
     //sort league table data from top to bottom
     rank.sort((a, b) => {
         if(a["points"] < b["points"]){
@@ -167,268 +166,117 @@ function updateTable(response) {
             return 0;
         }
     });
-    console.log("rank");
+    console.log("table rank");
     console.log(rank);
     // updateTableRecord(rank);
 }
 
+const registeredPlayers ={};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function updateTable3(response) {
-    let rank = [];
-    let map = {}
-
+function populateRegisteredPlayersMap(response){
     let teams = response["teams"];
-    let fixtures = response["fixtures"];
+    // let fixtures = response["fixtures"];
+    $.each(teams, function(i, team){
+        team = teams[i];
+        let players = team["players"];
+        $.each(players, function (j, player) {
+            player = players[j];
+            player["team"] = team["name"];
+            registeredPlayers[player["name"]] = player;
+        });
 
-    // console.log("length of teams:" + teams.length);
-    $.each(teams, function(i, team)
-            // for (let i = 0; i < teams.length; i++)
-        {
-            // let team = teams[i];
-            let teamName = team["name"];
-            let points = team["points"];
-            let played = team["played"];
-            let won = team["won"];
-            let lost = team["lost"];
-            let drawn = team["drawn"];
-            let gf = team["gf"];
-            let ga = team["ga"];
-            let form = team["form"];
-
-            // console.log("fixtures:");
-            // console.log(fixtures);
-            // for(let j = 0; j < fixtures.length; j++)
-            $.each(fixtures, function(j, fixture)
-            {
-
-                fixture = fixtures[j];
-                let homeTeamName = fixture["home_team"];
-                let awayTeamName = fixture["away_team"];
-
-                team["played"] += 1;
-                // console.log("fixture:");
-                // console.log(fixture);
-                let homeGoals = 0;
-                if(fixture["home_goals"] !== undefined){
-                    homeGoals = fixture["home_goals"].length;
-                }
-
-                let awayGoals = 0;
-                if(fixture["away_goals"] !== undefined){
-                    awayGoals = fixture["away_goals"].length;
-                }
-
-                let home = {
-                    name: homeTeamName,
-                    gf : homeGoals,
-                    ga : awayGoals,
-                    played : 1,
-                    drawn : 0,
-                    won: 0,
-                    lost : 0,
-                    points : 0,
-                    form : []
-                };
-
-                let away = {
-                    name: awayTeamName,
-                    gf : awayGoals,
-                    ga : homeGoals,
-                    played : 1,
-                    drawn : 0,
-                    won: 0,
-                    lost : 0,
-                    points : 0,
-                    form : []
-                };
-
-                if(homeGoals > awayGoals){
-                    home["won"] = 1;
-                    home["points"] = 3;
-                    home["form"].push("W");
-                    away["lost"] = 1;
-                    away["form"].push("L");
-                }else if (awayGoals > homeGoals){
-                    away["won"] = 1;
-                    away["points"] = 3;
-                    away["form"].push("W");
-                    home["lost"] = 1;
-                    home["form"].push("L");
-                }else{
-                    home["drawn"] = 1;
-                    home["points"] = 1;
-                    away["drawn"] = 1;
-                    away["points"] = 1;
-                }
-
-
-
-
-            });
-
-            let gd = gf - ga;
-
-            let entry = {
-                name : team["name"],
-                logo : team["logo"],
-                played : played,
-                won : won,
-                lost : lost,
-                drawn : drawn,
-                gf : gf,
-                ga : ga,
-                gd : gd,
-                points : points,
-                form: form
-            }
-            rank.push(entry);
-        }
-    );
-    console.log("rank:");
-    console.log(rank);
-    updateTableRecord(rank);
+    });
+    // console.log("Scorers map:");
+    // console.log(scorersMap);
 }
 
-// function updateTable2(response) {
-//     let teams = {
-//
-//     };
-//     let fixtures = response["fixtures"];
-//     // console.log("length of teams:" + teams.length);
-//     $.each(fixtures, function(i, fixture)
-//             // for (let i = 0; i < teams.length; i++)
-//         {
-//             let homeTeam = fixture["home_team"];
-//             let awayTeam = fixture["away_team"];
-//             let homeGoals = 0;
-//             if(fixture["home_goals"] !== undefined){
-//                 homeGoals = fixture['home_goals'].length;
-//             }
-//             let awayGoals = 0;
-//             if(fixture["away_goals"] !== undefined){
-//                 homeGoals = fixture['away_goals'].length;
-//             }
-//
-//             let played = 1;
-//
-//
-//             let teamA = {
-//                 name : homeTeam,
-//                 logo : "",
-//                 played : played++,
-//                 won : ,
-//                 lost : lost,
-//                 drawn : drawn,
-//                 gf : gf,
-//                 ga : ga,
-//                 gd : gd,
-//                 points : points,
-//                 form: form
-//             }
-//
-//             let teamB = {
-//                 name : fixture["name"],
-//                 logo : fixture["logo"],
-//                 played : played,
-//                 won : won,
-//                 lost : lost,
-//                 drawn : drawn,
-//                 gf : gf,
-//                 ga : ga,
-//                 gd : gd,
-//                 points : points,
-//                 form: form
-//             }
-//
-//
-//
-//
-//
-//             $.each(fixtures, function(j, fixture)
-//             {
-//                 fixture = fixtures[j];
-//                 // console.log("fixture:");
-//                 // console.log(fixture);
-//                 // console.log("gf:");
-//                 // let gfSize =  fixture["gf"];
-//                 // console.log(gfSize);
-//                 // let gaSize =  fixture["ga"];
-//                 played += 1;
-//                 let goalScored = 0;
-//                 if(fixture["gf"] !== undefined){
-//                     goalScored = fixture["gf"].length;
-//                 }
-//                 let goalsConceded = 0;
-//                 if(fixture["ga"] !== undefined){
-//                     goalsConceded = fixture["ga"].length;
-//                 }
-//                 if(goalScored > goalsConceded){
-//                     //team wins
-//                     // console.log("win");
-//                     points += 3;
-//                     won += 1;
-//                     form.push("W");
-//                 }else if(goalScored === goalsConceded){ // team draws
-//                     points +=1 ;
-//                     drawn += 1;
-//                     form.push("D");
-//                 }else{
-//                     //team losses
-//                     lost += 1;
-//                     form.push("L");
-//                 }
-//                 gf += goalScored;
-//                 ga += goalsConceded;
-//             });
-//
-//             let gd = gf - ga;
-//
-//             let entry = {
-//                 name : fixture["name"],
-//                 logo : fixture["logo"],
-//                 played : played,
-//                 won : won,
-//                 lost : lost,
-//                 drawn : drawn,
-//                 gf : gf,
-//                 ga : ga,
-//                 gd : gd,
-//                 points : points,
-//                 form: form
-//             }
-//             teams.push(entry);
-//         }
-//     );
-//     console.log("rank:");
-//     console.log(teams);
-//     updateTableRecord(teams);
-// }
+function updateTopScorersTable(response){
+    let fixtures = response["fixtures"];
+    let scorersMap = {};
+    let haalandCount = 0;
+    $.each(fixtures, function(i, fixture){
+        fixture = fixtures[i];
+        console.log("fixture");
+        console.log(fixture);
+        let homePlayersStats = fixture["home_team_players_stats"];
+        let awayPlayersStats = fixture["away_team_players_stats"];
+        console.log("home players stats");
+        console.log(homePlayersStats);
+        console.log("away players stats");
+        console.log(awayPlayersStats);
 
+        let players = [];
+
+        if(homePlayersStats !== undefined ){
+            Array.prototype.push.apply(players, homePlayersStats);
+        }
+        if(awayPlayersStats !== undefined ){
+            Array.prototype.push.apply(players, awayPlayersStats);
+        }
+
+        // console.log("players list concat");
+        // console.log(players);
+
+        $.each(players, function (j, player) {
+            player = players[j];
+            let playerName = player["name"]
+            console.log("player");
+            console.log(player);
+            if(playerName=== "Haaland") haalandCount++;
+            // let stat = {
+            //     name : playerName,
+            //     played : 0,
+            //     goals: 0,
+            //     assists : 0,
+            //     goals_per_90 : 0,
+            //     mins_per_goal : 0,
+            //     total_shots : 0,
+            //     shots_on_target:0,
+            //     goal_conversion: 0,
+            //     shot_accuracy:0
+            // }
+            // if(playersStats[playerName] !== undefined){
+            //     stat = playersStats[playerName];
+            // }
+            let stat = registeredPlayers[playerName];
+            if(stat !== undefined){
+                stat["played"] += 1;
+                stat["goals"] += player["goals"];
+                stat["assists"] += player["assists"] ;
+                stat["goals_per_90"] += player["goals_in_90"];
+                stat["total_minutes_played"] += player["minutes_played"];
+                stat["total_shots"] += player["total_shots"];
+                stat["shots_on_target"] += player["shots_on_target"];
+                stat["goal_conversion"] = 0;
+                stat["shot_accuracy"] = 0;
+
+                if(stat["goals"] > 0){
+                    scorersMap[playerName] = stat;
+                }
+            }
+
+        });
+
+    });
+    console.log("Haaland match count: " + haalandCount);
+    let scorersList = Object.values(scorersMap);
+    scorersList.sort((a, b) => {
+            if (a["goals"] < b["goals"]) {
+                return 1;
+            } else if (a["goals"] > b["goals"]) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+    );
+
+    console.log("Scorers list:");
+    console.log(scorersList);
+}
 function displayError() {
 
 }
-let count = 0;
 (function loadTable(){
     setTimeout(function () {
         $.ajax({
@@ -436,10 +284,33 @@ let count = 0;
             type:"GET",
             dataType:"json",
             success:function(response){
-                // count+=1;
-                // console.log(count);
+                // populateRegisteredPlayersMap(response);
                 updateTable(response);
+                // updateTopScorersTable(response);
                 loadTable();
+            },
+            error:function(){
+                displayError();
+            },
+        });
+
+    }, 1000);
+})();
+
+//process list top scorers independent of league table
+(function topScorers(){
+    setTimeout(function () {
+        $.ajax({
+            url:"league_v1.json",
+            type:"GET",
+            dataType:"json",
+            success:function(response){
+                // console.log("Top score API call ");
+                populateRegisteredPlayersMap(response);
+                // console.log("registered players");
+                // console.log(registeredPlayers);
+                updateTopScorersTable(response);
+                topScorers();
             },
             error:function(){
                 displayError();
@@ -965,24 +836,6 @@ function updateTableRecord(tableData){
 //
 //     }
 //     // let tableRow = table.appendChild(document.createElement("tr"));
-// }
-
-
-// function makeAjaxRequest(){
-//     if (window.XMLHttpRequest) {
-//         xhr = new XMLHttpRequest();
-//     } else {
-//         if (window.ActiveXObject) {
-//             xhr = new ActiveXObject("Microsoft.XMLHTTP");
-//         }
-//     }
-//     if(xhr){
-//         xhr.open("GET","league.json",true);
-//         xhr.send();
-//         xhr.onreadystatechange = showContents; //determine the success of the request and start processing
-//     } else{
-//         //handle error to alert user
-//     }
 // }
 
 

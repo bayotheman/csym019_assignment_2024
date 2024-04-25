@@ -97,7 +97,7 @@
           "assists":{"type":"number"},
           "played":{"type":"number"},
           "goals_per_90":{"type":"number"},
-          "mins_per_goal":{"type":"number"},
+          "total_minutes_played":{"type":"number"},
           "total_shots":{"type":"number"},
           "goal_conversion":{"type":"string"},
           "shot_accuracy":{"type":"string"}
