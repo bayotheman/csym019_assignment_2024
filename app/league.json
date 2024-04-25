@@ -27,7 +27,12 @@
                     "scorer_list_for_": []
                   },
                   {
-
+                    "date": "",
+                    "time": "",
+                    "home": true,
+                    "opponent": "",
+                    "scorer_list_for_opponent": [],
+                    "scorer_list_for_": []
                   }
 
                 ]
@@ -47,6 +52,7 @@
           }
         ]
       },
+
       {
         "position": 2,
         "name": "Arsenal",
@@ -65,6 +71,30 @@
             ],
 
     "fixtures": [
+      {
+        "date": "",
+        "month": "",
+        "home_team": "Manchester City",
+        "away_team": "Arsenal",
+        "home_goals": ["Erling Haaland", "Kevin Debryne", "Bernado Silva"],
+        "away_goals": ["Bukayo Saka"],
+        "home_team_stats": [],
+        "away_team_stats": []
+      },
+      {
+        "date": "",
+        "month": "",
+        "home_team": "Arsenal",
+        "away_team": "Manchester City",
+        "home_goals": ["Bukayo Saka", "Bukayo Saka", "Kai Harvetz"],
+        "away_goals": ["Erling Haaland", "Kevin Debryne", "Erling Haaland"],
+        "home_team_stats": [],
+        "away_team_stats": []
+      }
+
+    ],
+
+    "matches": [
             {
               "month": "April",
               "year": "2024",
