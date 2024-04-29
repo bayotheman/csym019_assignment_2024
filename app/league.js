@@ -166,9 +166,9 @@ function updateTable(response) {
             return 0;
         }
     });
-    console.log("table rank");
-    console.log(rank);
-    // updateTableRecord(rank);
+    // console.log("table rank");
+    // console.log(rank);
+    updateTableRecord(rank);
 }
 
 const registeredPlayers ={};
@@ -196,14 +196,14 @@ function updateTopScorersTable(response){
     let haalandCount = 0;
     $.each(fixtures, function(i, fixture){
         fixture = fixtures[i];
-        console.log("fixture");
-        console.log(fixture);
+        // console.log("fixture");
+        // console.log(fixture);
         let homePlayersStats = fixture["home_team_players_stats"];
         let awayPlayersStats = fixture["away_team_players_stats"];
-        console.log("home players stats");
-        console.log(homePlayersStats);
-        console.log("away players stats");
-        console.log(awayPlayersStats);
+        // console.log("home players stats");
+        // console.log(homePlayersStats);
+        // console.log("away players stats");
+        // console.log(awayPlayersStats);
 
         let players = [];
 
@@ -220,8 +220,8 @@ function updateTopScorersTable(response){
         $.each(players, function (j, player) {
             player = players[j];
             let playerName = player["name"]
-            console.log("player");
-            console.log(player);
+            // console.log("player");
+            // console.log(player);
             if(playerName=== "Haaland") haalandCount++;
             // let stat = {
             //     name : playerName,
@@ -258,7 +258,7 @@ function updateTopScorersTable(response){
         });
 
     });
-    console.log("Haaland match count: " + haalandCount);
+    // console.log("Haaland match count: " + haalandCount);
     let scorersList = Object.values(scorersMap);
     scorersList.sort((a, b) => {
             if (a["goals"] < b["goals"]) {
@@ -271,8 +271,8 @@ function updateTopScorersTable(response){
         }
     );
 
-    console.log("Scorers list:");
-    console.log(scorersList);
+    // console.log("Scorers list:");
+    // console.log(scorersList);
 }
 function displayError() {
 
@@ -320,172 +320,489 @@ function displayError() {
     }, 1000);
 })();
 
-function updateTableRecord(tableData){
-    console.log("inside loadTable");
-    // console.log(data['table']);
-    // let tableData = data['table'];
-    // console.log(data['table']);
 
-    let table = document.getElementById('league_table');
-    for(let i = 0; i < tableData.length; i++){
-        let tableEntry = tableData[i];
-        let tableRow = document.getElementById(String(i));
-        console.log("table row: ");
-        console.log(tableRow);
+// function updateTableEntry(id, tableEntry){
+//     let team = tableEntry['name'];
+//     let logo = tableEntry['logo'];
+//     let played = tableEntry['played'];
+//     let won = tableEntry['won'];
+//     let drawn = tableEntry['drawn'];
+//     let lost = tableEntry['lost'];
+//     let goalFor = tableEntry['gf'];
+//     let against = tableEntry['ga'];
+//     let gd = tableEntry['gd'];
+//     let points = tableEntry['points'];
+//     let form = tableEntry['form'];
+//
+//     let tableRow = document.getElementById(String(id));
+//    tableRow.getElementsByClassName("team")[0].innerText = team;
+//    tableRow.getElementsByClassName("played").innerText = played;
+//    tableRow.getElementsByClassName("won").innerText = won;
+//    tableRow.getElementsByClassName("drawn").innerText = drawn;
+//    tableRow.getElementsByClassName("lost").innerText = lost;
+//    tableRow.getElementsByClassName("gd").innerText = gd;
+//    tableRow.getElementsByClassName("points").innerText = points;
+// }
+function updateTableEntry(id, tableEntry){
+    console.log("table entry: " + id );
+    console.log(tableEntry);
+    let tableRow = document.getElementById(String(id));
+    console.log("table row: ");
+    console.log(tableRow);
 
-        let position = String(i + 1);
-        let team = tableEntry['name'];
-        let logo = tableEntry['logo'];
-        let played = tableEntry['played'];
-        let won = tableEntry['won'];
-        let drawn = tableEntry['drawn'];
-        let lost = tableEntry['lost'];
-        let goalFor = tableEntry['gf'];
-        let against = tableEntry['ga'];
-        let gd = tableEntry['gd'];
-        let points = tableEntry['points'];
-        let form = tableEntry['form'];
+    let position = String(id + 1);
+    let team = tableEntry['name'];
+    let logo = tableEntry['logo'];
+    let played = tableEntry['played'];
+    let won = tableEntry['won'];
+    let drawn = tableEntry['drawn'];
+    let lost = tableEntry['lost'];
+    let goalFor = tableEntry['gf'];
+    let against = tableEntry['ga'];
+    let gd = tableEntry['gd'];
+    let points = tableEntry['points'];
+    let form = tableEntry['form'];
+    let formLength = form.length;
+    // let formRank = form.slice(formLength, form.length);
 
-        // let positionElement= tableRow.appendChild(document.createElement("td"));
-        // let teamParentElement= tableRow.appendChild(document.createElement("td"));
-        // let teamContainer= document.createElement("span");
-        // // teamContainer.setAttribute("style", "align-items:last");
-        // // teamContainer.setAttribute("style", "width:10%;");
-        // // teamContainer.style.display="flex"
-        // // teamContainer.setAttribute("style", "display:flex");
-        //
-        //
-        // let logoContainer= tableRow.appendChild(document.createElement("span"))
-        // logoContainer.setAttribute("style", "width:10%");
-        // let logoImage= tableRow.appendChild(document.createElement("img"));
-        //
-        //
-        // let playedElement= tableRow.appendChild(document.createElement("td"));
-        // playedElement.setAttribute("style", "text-align:center");
-        // let wonElement= tableRow.appendChild(document.createElement("td"));
-        // wonElement.setAttribute("style", "text-align:center");
-        // let drawnElement= tableRow.appendChild(document.createElement("td"));
-        // drawnElement.setAttribute("style", "text-align:center");
-        // let lostElement= tableRow.appendChild(document.createElement("td"));
-        // lostElement.setAttribute("style", "text-align:center");
-        // let goalForElement= tableRow.appendChild(document.createElement("td"));
-        // goalForElement.setAttribute("style", "text-align:center");
-        // let againstElement= tableRow.appendChild(document.createElement("td"));
-        // againstElement.setAttribute("style", "text-align:center");
-        // let gdElement= tableRow.appendChild(document.createElement("td"));
-        // gdElement.setAttribute("style", "text-align:center");
-        // let pointsElement= tableRow.appendChild(document.createElement("td"));
-        // pointsElement.setAttribute("style", "text-align:center");
-        // pointsElement.style.fontSize ="large";
-        // pointsElement.style.fontWeight ="bold";
-        //
-        // // let formElement= tableRow.appendChild(document.createElement("td"));
-        //
-        //
-        // positionElement.innerHTML=position;
-        // positionElement.setAttribute("style", "text-align:center");
-        //
-        // teamParentElement.append(teamContainer);
-        // teamContainer.appendChild(logoContainer);
-        // let text = document.createElement("b");
-        // text.style.padding = "10px"
-        // text.style.border = "none";
-        // text.innerHTML = team;
-        //
-        // logoContainer.appendChild(logoImage)
-        // teamContainer.appendChild(text);
-        // logoImage.src = logo;
-        // logoImage.alt = "SVG Image";
-        //
-        //
-        // // logoElement.innerHTML=logo;
-        // playedElement.innerHTML=played;
-        // wonElement.innerHTML=won;
-        // drawnElement.innerHTML=drawn;
-        // lostElement.innerHTML=lost;
-        // goalForElement.innerHTML=goalFor;
-        // againstElement.innerHTML=against;
-        // gdElement.innerHTML=gd;
-        // pointsElement.innerHTML= points;
-        //
+    // table.appendChild(tableRow);
+    let positionElement= tableRow.getElementsByClassName("position")[0];
+    // positionElement.setAttribute("style", "text-align:center");
+    positionElement.style.textAlign = "center";
+
+    // let teamParentElement= tableRow.getElementsByClassName("logo")[0];
+    // let teamContainer= teamParentElement.getElementsByClassName("team_container")[0];
+    // teamContainer.setAttribute("style", "width:10%;");
+
+    let teamContainer= tableRow.getElementsByClassName("logo")[0];
+    // teamContainer.setAttribute("style", "width:80%;");
+
+    let logoContainer= teamContainer.getElementsByClassName("logo_container")[0];
+    // logoContainer.setAttribute("style", "width:10%");
+    let logoImage= teamContainer.getElementsByClassName("image")[0];
+    console.log("logoImage element: ");
+    console.log(logoImage);
+
+    let playedElement= tableRow.getElementsByClassName("played")[0];
+    // playedElement.setAttribute("style", "text-align:center");
+    let wonElement= tableRow.getElementsByClassName("won")[0];
+    // wonElement.setAttribute("style", "text-align:center");
+    let drawnElement= tableRow.getElementsByClassName("drawn")[0];
+    // drawnElement.setAttribute("style", "text-align:center");
+    let lostElement= tableRow.getElementsByClassName("lost")[0];
+    // lostElement.setAttribute("style", "text-align:center");
+    let goalForElement= tableRow.getElementsByClassName("for")[0];
+    // goalForElement.setAttribute("style", "text-align:center");
+    let againstElement= tableRow.getElementsByClassName("against")[0];
+    // againstElement.setAttribute("style", "text-align:center");
+    let gdElement= tableRow.getElementsByClassName("gd")[0];
+    // gdElement.setAttribute("style", "text-align:center");
+    let pointsElement= tableRow.getElementsByClassName("points")[0];
 
 
-        // table.appendChild(tableRow);
-        let positionElement= tableRow.getElementsByClassName("position")[0];
-        // positionElement.setAttribute("style", "text-align:center");
-        // positionElement.style.textAlign = "center";
+    let formElement= tableRow.getElementsByClassName("form")[0];
+    let formStructure = formElement.getElementsByClassName("form_structure")[0];
+    for(j = 0; j < form.length && formLength < 6; j++) {
+        console.log("formStructure");
+        console.log(formStructure);
+        let li = formStructure.getElementsByTagName("li")[j];
 
-        let teamParentElement= tableRow.getElementsByClassName("team");
-        let teamContainer= tableRow.getElementsByClassName("team_container")[0];
-        teamContainer.setAttribute("style", "align-items:last");
-        teamContainer.setAttribute("style", "width:10%;");
-        teamContainer.style.display="flex"
-        teamContainer.setAttribute("style", "display:flex");
-
-
-        let logoContainer= teamContainer.getElementsByClassName("logo_container")[0];
-        // logoContainer.setAttribute("style", "width:10%");
-        let logoImage= logoContainer.getElementsByClassName("image");
-        console.log("logoImage element: ");
-        console.log(logoImage);
-
-        let playedElement= tableRow.getElementsByClassName("played")[0];
-        playedElement.setAttribute("style", "text-align:center");
-        let wonElement= tableRow.getElementsByClassName("won")[0];
-        wonElement.setAttribute("style", "text-align:center");
-        let drawnElement= tableRow.getElementsByClassName("drawn")[0];
-        drawnElement.setAttribute("style", "text-align:center");
-        let lostElement= tableRow.getElementsByClassName("lost")[0];
-        lostElement.setAttribute("style", "text-align:center");
-        let goalForElement= tableRow.getElementsByClassName("for")[0];
-        goalForElement.setAttribute("style", "text-align:center");
-        let againstElement= tableRow.getElementsByClassName("against")[0];
-        againstElement.setAttribute("style", "text-align:center");
-        let gdElement= tableRow.getElementsByClassName("gd")[0];
-        gdElement.setAttribute("style", "text-align:center");
-        let pointsElement= tableRow.getElementsByClassName("points")[0];
-        pointsElement.setAttribute("style", "text-align:center");
-        pointsElement.style.fontSize ="large";
-        pointsElement.style.fontWeight ="bold";
-
-        // let formElement= tableRow.getElementsByClassName("form");;
-
-
-        positionElement.innerHTML=position;
-        // positionElement.setAttribute("style", "text-align:center");
-
-        // teamParentElement.append(teamContainer);
-        // teamContainer.appendChild(logoContainer);
-        let text = tableRow.getElementsByTagName("b")[0];
-        text.style.padding = "10px"
-        text.style.border = "none";
-        text.innerHTML = team;
-
-        // logoContainer[0] = logoImage
-        // teamContainer.appendChild(text);
-        logoImage.src = logo;
-        // logoImage.alt = "SVG Image";
-
-
-        // logoElement.innerHTML=logo;
-        playedElement.innerHTML=played;
-        wonElement.innerHTML=won;
-        drawnElement.innerHTML=drawn;
-        lostElement.innerHTML=lost;
-        goalForElement.innerHTML=goalFor;
-        againstElement.innerHTML=against;
-        gdElement.innerHTML=gd;
-        pointsElement.innerHTML= points;
-
-
-        // tableRow.appendChild(positionElement);
-
-
-
+        console.log("li");
+        console.log(li);
+        let formTagDiv = li.getElementsByClassName("form_tag")[0];
+        console.log("form tag div");
+        console.log(formTagDiv);
+        let outcome = form[j];
+        formTagDiv.innerText = outcome;
+        switch (outcome){
+            case "W":
+                formTagDiv.style.backgroundColor="forestgreen";
+                break;
+            case "L":
+                formTagDiv.style.backgroundColor="red";
+                break;
+            case "D":
+                formTagDiv.style.backgroundColor="dimgray";
+                break;
+        }
 
     }
-    // let tableRow = table.appendChild(document.createElement("tr"));
+
+
+    let text = tableRow.getElementsByTagName("b")[0];
+    text.innerText = team;
+    logoImage.src = logo;
+    playedElement.innerText=played;
+    wonElement.innerText=won;
+    drawnElement.innerText=drawn;
+    lostElement.innerText=lost;
+    goalForElement.innerText=goalFor;
+    againstElement.innerText=against;
+    gdElement.innerText=gd;
+    pointsElement.innerText= points;
+
 }
+// function updateTableEntry(id, tableEntry){
+//     console.log("table entry: " + id );
+//     console.log(tableEntry);
+//     let tableRow = document.getElementById(String(id));
+//     console.log("table row: ");
+//     console.log(tableRow);
+//
+//     let position = String(id + 1);
+//     let team = tableEntry['name'];
+//     let logo = tableEntry['logo'];
+//     let played = tableEntry['played'];
+//     let won = tableEntry['won'];
+//     let drawn = tableEntry['drawn'];
+//     let lost = tableEntry['lost'];
+//     let goalFor = tableEntry['gf'];
+//     let against = tableEntry['ga'];
+//     let gd = tableEntry['gd'];
+//     let points = tableEntry['points'];
+//     let form = tableEntry['form'];
+//
+//     // table.appendChild(tableRow);
+//     let positionElement= tableRow.getElementsByClassName("position")[0];
+//     positionElement.setAttribute("style", "text-align:center");
+//     positionElement.style.textAlign = "center";
+//
+//     let teamParentElement= tableRow.getElementsByClassName("logo")[0];
+//     let teamContainer= teamParentElement.getElementsByClassName("team_container")[0];
+//
+//     teamContainer.setAttribute("style", "width:10%;");
+//
+//
+//
+//     let logoContainer= teamContainer.getElementsByClassName("logo_container")[0];
+//     logoContainer.setAttribute("style", "width:10%");
+//     let logoImage= logoContainer.getElementsByClassName("image")[0];
+//     console.log("logoImage element: ");
+//     console.log(logoImage);
+//
+//     let playedElement= tableRow.getElementsByClassName("played")[0];
+//     // playedElement.setAttribute("style", "text-align:center");
+//     let wonElement= tableRow.getElementsByClassName("won")[0];
+//     // wonElement.setAttribute("style", "text-align:center");
+//     let drawnElement= tableRow.getElementsByClassName("drawn")[0];
+//     // drawnElement.setAttribute("style", "text-align:center");
+//     let lostElement= tableRow.getElementsByClassName("lost")[0];
+//     // lostElement.setAttribute("style", "text-align:center");
+//     let goalForElement= tableRow.getElementsByClassName("for")[0];
+//     // goalForElement.setAttribute("style", "text-align:center");
+//     let againstElement= tableRow.getElementsByClassName("against")[0];
+//     // againstElement.setAttribute("style", "text-align:center");
+//     let gdElement= tableRow.getElementsByClassName("gd")[0];
+//     // gdElement.setAttribute("style", "text-align:center");
+//     let pointsElement= tableRow.getElementsByClassName("points")[0];
+//
+//
+//     // let formElement= tableRow.getElementsByClassName("form");;
+//
+//     let text = tableRow.getElementsByTagName("b")[0];
+//     text.style.padding = "10px"
+//     text.style.margin = "20px"
+//     text.style.border = "none";
+//     text.innerText = team;
+//     logoImage.src = logo;
+//     playedElement.innerText=played;
+//     wonElement.innerText=won;
+//     drawnElement.innerText=drawn;
+//     lostElement.innerText=lost;
+//     goalForElement.innerText=goalFor;
+//     againstElement.innerText=against;
+//     gdElement.innerText=gd;
+//     pointsElement.innerText= points;
+//
+// }
+
+function updateTableRecord(tableData){
+    console.log("inside loadTable");
+    for(let i = 0; i < 5; i++){
+        updateTableEntry(i, tableData[i] );
+    }
+}
+
+// function updateTableRecord(tableData){
+//     console.log("inside loadTable");
+//     // console.log(data['table']);
+//     // let tableData = data['table'];
+//     // console.log(data['table']);
+//
+//     let table = document.getElementById('league_table');
+//     for(let i = 0; i < 4; i++){
+//         let tableEntry = tableData[i];
+//         console.log("table entry: " + i );
+//         console.log(tableEntry);
+//         let tableRow = document.getElementById(String(i));
+//         console.log("table row: ");
+//         console.log(tableRow);
+//
+//         let position = String(i + 1);
+//         let team = tableEntry['name'];
+//         let logo = tableEntry['logo'];
+//         let played = tableEntry['played'];
+//         let won = tableEntry['won'];
+//         let drawn = tableEntry['drawn'];
+//         let lost = tableEntry['lost'];
+//         let goalFor = tableEntry['gf'];
+//         let against = tableEntry['ga'];
+//         let gd = tableEntry['gd'];
+//         let points = tableEntry['points'];
+//         let form = tableEntry['form'];
+//
+//         // table.appendChild(tableRow);
+//         let positionElement= tableRow.getElementsByClassName("position")[0];
+//         positionElement.setAttribute("style", "text-align:center");
+//         positionElement.style.textAlign = "center";
+//
+//         let teamParentElement= tableRow.getElementsByClassName("team")[0];
+//         let teamContainer= teamParentElement.getElementByClassName("team_container");
+//         teamContainer.style.display="flex"
+//         teamContainer.setAttribute("style", "align-items:last");
+//         teamContainer.setAttribute("style", "width:10%;");
+//
+//         teamContainer.setAttribute("style", "display:flex");
+//
+//
+//         let logoContainer= teamContainer.getElementsByClassName("logo_container")[0];
+//         // logoContainer.setAttribute("style", "width:10%");
+//         let logoImage= logoContainer.getElementsByClassName("image");
+//         console.log("logoImage element: ");
+//         console.log(logoImage);
+//
+//         let playedElement= tableRow.getElementsByClassName("played")[0];
+//         playedElement.setAttribute("style", "text-align:center");
+//         let wonElement= tableRow.getElementsByClassName("won")[0];
+//         wonElement.setAttribute("style", "text-align:center");
+//         let drawnElement= tableRow.getElementsByClassName("drawn")[0];
+//         drawnElement.setAttribute("style", "text-align:center");
+//         let lostElement= tableRow.getElementsByClassName("lost")[0];
+//         lostElement.setAttribute("style", "text-align:center");
+//         let goalForElement= tableRow.getElementsByClassName("for")[0];
+//         goalForElement.setAttribute("style", "text-align:center");
+//         let againstElement= tableRow.getElementsByClassName("against")[0];
+//         againstElement.setAttribute("style", "text-align:center");
+//         let gdElement= tableRow.getElementsByClassName("gd")[0];
+//         gdElement.setAttribute("style", "text-align:center");
+//         let pointsElement= tableRow.getElementsByClassName("points")[0];
+//         pointsElement.setAttribute("style", "text-align:center");
+//         pointsElement.style.fontSize ="large";
+//         pointsElement.style.fontWeight ="bold";
+//
+//         // let formElement= tableRow.getElementsByClassName("form");;
+//
+//
+//         positionElement.innerHTML=position;
+//         // positionElement.setAttribute("style", "text-align:center");
+//
+//         // teamParentElement.append(teamContainer);
+//         // teamContainer.appendChild(logoContainer);
+//         let text = tableRow.getElementsByTagName("b")[0];
+//         text.style.padding = "10px"
+//         text.style.border = "none";
+//         text.innerHTML = team;
+//
+//         // logoContainer[0] = logoImage
+//         // teamContainer.appendChild(text);
+//         logoImage.src = logo;
+//         // logoImage.alt = "SVG Image";
+//
+//
+//         // logoElement.innerHTML=logo;
+//         playedElement.innerHTML=played;
+//         wonElement.innerHTML=won;
+//         drawnElement.innerHTML=drawn;
+//         lostElement.innerHTML=lost;
+//         goalForElement.innerHTML=goalFor;
+//         againstElement.innerHTML=against;
+//         gdElement.innerHTML=gd;
+//         pointsElement.innerHTML= points;
+//
+//
+//         // tableRow.appendChild(positionElement);
+//
+//
+//
+//
+//     }
+//     // let tableRow = table.appendChild(document.createElement("tr"));
+// }
+//
+//
+//
+//
+//
+
+
+
+
+// function updateTableRecord(tableData){
+//     console.log("inside loadTable");
+//     // console.log(data['table']);
+//     // let tableData = data['table'];
+//     // console.log(data['table']);
+//
+//     let table = document.getElementById('league_table');
+//     for(let i = 0; i < tableData.length; i++){
+//         let tableEntry = tableData[i];
+//         let tableRow = document.getElementById(String(i));
+//         console.log("table row: ");
+//         console.log(tableRow);
+//
+//         let position = String(i + 1);
+//         let team = tableEntry['name'];
+//         let logo = tableEntry['logo'];
+//         let played = tableEntry['played'];
+//         let won = tableEntry['won'];
+//         let drawn = tableEntry['drawn'];
+//         let lost = tableEntry['lost'];
+//         let goalFor = tableEntry['gf'];
+//         let against = tableEntry['ga'];
+//         let gd = tableEntry['gd'];
+//         let points = tableEntry['points'];
+//         let form = tableEntry['form'];
+//
+//         // let positionElement= tableRow.appendChild(document.createElement("td"));
+//         // let teamParentElement= tableRow.appendChild(document.createElement("td"));
+//         // let teamContainer= document.createElement("span");
+//         // // teamContainer.setAttribute("style", "align-items:last");
+//         // // teamContainer.setAttribute("style", "width:10%;");
+//         // // teamContainer.style.display="flex"
+//         // // teamContainer.setAttribute("style", "display:flex");
+//         //
+//         //
+//         // let logoContainer= tableRow.appendChild(document.createElement("span"))
+//         // logoContainer.setAttribute("style", "width:10%");
+//         // let logoImage= tableRow.appendChild(document.createElement("img"));
+//         //
+//         //
+//         // let playedElement= tableRow.appendChild(document.createElement("td"));
+//         // playedElement.setAttribute("style", "text-align:center");
+//         // let wonElement= tableRow.appendChild(document.createElement("td"));
+//         // wonElement.setAttribute("style", "text-align:center");
+//         // let drawnElement= tableRow.appendChild(document.createElement("td"));
+//         // drawnElement.setAttribute("style", "text-align:center");
+//         // let lostElement= tableRow.appendChild(document.createElement("td"));
+//         // lostElement.setAttribute("style", "text-align:center");
+//         // let goalForElement= tableRow.appendChild(document.createElement("td"));
+//         // goalForElement.setAttribute("style", "text-align:center");
+//         // let againstElement= tableRow.appendChild(document.createElement("td"));
+//         // againstElement.setAttribute("style", "text-align:center");
+//         // let gdElement= tableRow.appendChild(document.createElement("td"));
+//         // gdElement.setAttribute("style", "text-align:center");
+//         // let pointsElement= tableRow.appendChild(document.createElement("td"));
+//         // pointsElement.setAttribute("style", "text-align:center");
+//         // pointsElement.style.fontSize ="large";
+//         // pointsElement.style.fontWeight ="bold";
+//         //
+//         // // let formElement= tableRow.appendChild(document.createElement("td"));
+//         //
+//         //
+//         // positionElement.innerHTML=position;
+//         // positionElement.setAttribute("style", "text-align:center");
+//         //
+//         // teamParentElement.append(teamContainer);
+//         // teamContainer.appendChild(logoContainer);
+//         // let text = document.createElement("b");
+//         // text.style.padding = "10px"
+//         // text.style.border = "none";
+//         // text.innerHTML = team;
+//         //
+//         // logoContainer.appendChild(logoImage)
+//         // teamContainer.appendChild(text);
+//         // logoImage.src = logo;
+//         // logoImage.alt = "SVG Image";
+//         //
+//         //
+//         // // logoElement.innerHTML=logo;
+//         // playedElement.innerHTML=played;
+//         // wonElement.innerHTML=won;
+//         // drawnElement.innerHTML=drawn;
+//         // lostElement.innerHTML=lost;
+//         // goalForElement.innerHTML=goalFor;
+//         // againstElement.innerHTML=against;
+//         // gdElement.innerHTML=gd;
+//         // pointsElement.innerHTML= points;
+//         //
+//
+//
+//         // table.appendChild(tableRow);
+//         let positionElement= tableRow.getElementsByClassName("position")[0];
+//         // positionElement.setAttribute("style", "text-align:center");
+//         // positionElement.style.textAlign = "center";
+//
+//         let teamParentElement= tableRow.getElementsByClassName("team");
+//         let teamContainer= tableRow.getElementsByClassName("team_container")[0];
+//         teamContainer.setAttribute("style", "align-items:last");
+//         teamContainer.setAttribute("style", "width:10%;");
+//         teamContainer.style.display="flex"
+//         teamContainer.setAttribute("style", "display:flex");
+//
+//
+//         let logoContainer= teamContainer.getElementsByClassName("logo_container")[0];
+//         // logoContainer.setAttribute("style", "width:10%");
+//         let logoImage= logoContainer.getElementsByClassName("image");
+//         console.log("logoImage element: ");
+//         console.log(logoImage);
+//
+//         let playedElement= tableRow.getElementsByClassName("played")[0];
+//         playedElement.setAttribute("style", "text-align:center");
+//         let wonElement= tableRow.getElementsByClassName("won")[0];
+//         wonElement.setAttribute("style", "text-align:center");
+//         let drawnElement= tableRow.getElementsByClassName("drawn")[0];
+//         drawnElement.setAttribute("style", "text-align:center");
+//         let lostElement= tableRow.getElementsByClassName("lost")[0];
+//         lostElement.setAttribute("style", "text-align:center");
+//         let goalForElement= tableRow.getElementsByClassName("for")[0];
+//         goalForElement.setAttribute("style", "text-align:center");
+//         let againstElement= tableRow.getElementsByClassName("against")[0];
+//         againstElement.setAttribute("style", "text-align:center");
+//         let gdElement= tableRow.getElementsByClassName("gd")[0];
+//         gdElement.setAttribute("style", "text-align:center");
+//         let pointsElement= tableRow.getElementsByClassName("points")[0];
+//         pointsElement.setAttribute("style", "text-align:center");
+//         pointsElement.style.fontSize ="large";
+//         pointsElement.style.fontWeight ="bold";
+//
+//         // let formElement= tableRow.getElementsByClassName("form");;
+//
+//
+//         positionElement.innerHTML=position;
+//         // positionElement.setAttribute("style", "text-align:center");
+//
+//         // teamParentElement.append(teamContainer);
+//         // teamContainer.appendChild(logoContainer);
+//         let text = tableRow.getElementsByTagName("b")[0];
+//         text.style.padding = "10px"
+//         text.style.border = "none";
+//         text.innerHTML = team;
+//
+//         // logoContainer[0] = logoImage
+//         // teamContainer.appendChild(text);
+//         logoImage.src = logo;
+//         // logoImage.alt = "SVG Image";
+//
+//
+//         // logoElement.innerHTML=logo;
+//         playedElement.innerHTML=played;
+//         wonElement.innerHTML=won;
+//         drawnElement.innerHTML=drawn;
+//         lostElement.innerHTML=lost;
+//         goalForElement.innerHTML=goalFor;
+//         againstElement.innerHTML=against;
+//         gdElement.innerHTML=gd;
+//         pointsElement.innerHTML= points;
+//
+//
+//         // tableRow.appendChild(positionElement);
+//
+//
+//
+//
+//     }
+//     // let tableRow = table.appendChild(document.createElement("tr"));
+// }
 
 
 
