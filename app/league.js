@@ -9,85 +9,6 @@ function createTeamMap(response) {
     // console.log("map before:")
     // console.log(teamsMap);
 }
-// function updateTable(response) {
-//     let rank = [];
-//     let teams = response["teams"];
-//     // console.log("length of teams:" + teams.length);
-//     $.each(teams, function(i, team)
-//             // for (let i = 0; i < teams.length; i++)
-//         {
-//             // let team = teams[i];
-//             let points = team["points"];
-//             let played = team["played"];
-//             let won = team["won"];
-//             let lost = team["lost"];
-//             let drawn = team["drawn"];
-//             let gf = team["gf"];
-//             let ga = team["ga"];
-//             let form = team["form"];
-//             let fixtures = team["fixtures"];
-//             // console.log("fixtures:");
-//             // console.log(fixtures);
-//             // for(let j = 0; j < fixtures.length; j++)
-//             $.each(fixtures, function(j, fixture)
-//             {
-//                 fixture = fixtures[j];
-//                 // console.log("fixture:");
-//                 // console.log(fixture);
-//                 // console.log("gf:");
-//                 // let gfSize =  fixture["gf"];
-//                 // console.log(gfSize);
-//                 // let gaSize =  fixture["ga"];
-//                 played += 1;
-//                 let goalScored = 0;
-//                 if(fixture["gf"] !== undefined){
-//                     goalScored = fixture["gf"].length;
-//                 }
-//                 let goalsConceded = 0;
-//                 if(fixture["ga"] !== undefined){
-//                     goalsConceded = fixture["ga"].length;
-//                 }
-//                 if(goalScored > goalsConceded){
-//                     //team wins
-//                     // console.log("win");
-//                     points += 3;
-//                     won += 1;
-//                     form.push("W");
-//                 }else if(goalScored === goalsConceded){ // team draws
-//                     points +=1 ;
-//                     drawn += 1;
-//                     form.push("D");
-//                 }else{
-//                     //team losses
-//                     lost += 1;
-//                     form.push("L");
-//                 }
-//                 gf += goalScored;
-//                 ga += goalsConceded;
-//             });
-//
-//             let gd = gf - ga;
-//
-//             let entry = {
-//                 name : team["name"],
-//                 logo : team["logo"],
-//                 played : played,
-//                 won : won,
-//                 lost : lost,
-//                 drawn : drawn,
-//                 gf : gf,
-//                 ga : ga,
-//                 gd : gd,
-//                 points : points,
-//                 form: form
-//             }
-//             rank.push(entry);
-//         }
-//     );
-//     console.log("rank:");
-//     console.log(rank);
-//     updateTableRecord(rank);
-// }
 
 function updateTable(response) {
     createTeamMap(response);
@@ -222,7 +143,6 @@ function updateTopScorersTable(response){
             let playerName = player["name"]
             // console.log("player");
             // console.log(player);
-            if(playerName=== "Haaland") haalandCount++;
             // let stat = {
             //     name : playerName,
             //     played : 0,
@@ -321,34 +241,12 @@ function displayError() {
 })();
 
 
-// function updateTableEntry(id, tableEntry){
-//     let team = tableEntry['name'];
-//     let logo = tableEntry['logo'];
-//     let played = tableEntry['played'];
-//     let won = tableEntry['won'];
-//     let drawn = tableEntry['drawn'];
-//     let lost = tableEntry['lost'];
-//     let goalFor = tableEntry['gf'];
-//     let against = tableEntry['ga'];
-//     let gd = tableEntry['gd'];
-//     let points = tableEntry['points'];
-//     let form = tableEntry['form'];
-//
-//     let tableRow = document.getElementById(String(id));
-//    tableRow.getElementsByClassName("team")[0].innerText = team;
-//    tableRow.getElementsByClassName("played").innerText = played;
-//    tableRow.getElementsByClassName("won").innerText = won;
-//    tableRow.getElementsByClassName("drawn").innerText = drawn;
-//    tableRow.getElementsByClassName("lost").innerText = lost;
-//    tableRow.getElementsByClassName("gd").innerText = gd;
-//    tableRow.getElementsByClassName("points").innerText = points;
-// }
 function updateTableEntry(id, tableEntry){
-    console.log("table entry: " + id );
-    console.log(tableEntry);
+    // console.log("table entry: " + id );
+    // console.log(tableEntry);
     let tableRow = document.getElementById(String(id));
-    console.log("table row: ");
-    console.log(tableRow);
+    // console.log("table row: ");
+    // console.log(tableRow);
 
     let position = String(id + 1);
     let team = tableEntry['name'];
@@ -380,8 +278,8 @@ function updateTableEntry(id, tableEntry){
     let logoContainer= teamContainer.getElementsByClassName("logo_container")[0];
     // logoContainer.setAttribute("style", "width:10%");
     let logoImage= teamContainer.getElementsByClassName("image")[0];
-    console.log("logoImage element: ");
-    console.log(logoImage);
+    // console.log("logoImage element: ");
+    // console.log(logoImage);
 
     let playedElement= tableRow.getElementsByClassName("played")[0];
     // playedElement.setAttribute("style", "text-align:center");
@@ -402,6 +300,37 @@ function updateTableEntry(id, tableEntry){
 
     let formElement= tableRow.getElementsByClassName("form")[0];
     let formStructure = formElement.getElementsByClassName("form_structure")[0];
+    // for(let j = 0, k = 5; j < form.length && formLength < 6 ; j++,k--) {
+    //     console.log("formStructure");
+    //     console.log(formStructure);
+    //     let li = formStructure.getElementsByTagName("li")[k];
+    //
+    //     console.log("li");
+    //     console.log(li);
+    //     let formTagDiv = li.getElementsByClassName("form_tag")[0];
+    //     console.log("form tag div");
+    //     console.log(formTagDiv);
+    //     let outcome = form[j];
+    //     formTagDiv.innerText = outcome;
+    //     switch (outcome){
+    //         case "W":
+    //             formTagDiv.style.backgroundColor="forestgreen";
+    //             break;
+    //         case "L":
+    //             formTagDiv.style.backgroundColor="red";
+    //             break;
+    //         case "D":
+    //             formTagDiv.style.backgroundColor="dimgray";
+    //             break;
+    //     }
+    //
+    // }
+    // if(form.length > 1){
+    //     let divider = formStructure.getElementsByClassName("form_divider")[0];
+    //     divider.innerText = "|";
+    // }
+
+
     for(j = 0; j < form.length && formLength < 6; j++) {
         console.log("formStructure");
         console.log(formStructure);
@@ -442,86 +371,44 @@ function updateTableEntry(id, tableEntry){
     pointsElement.innerText= points;
 
 }
-// function updateTableEntry(id, tableEntry){
-//     console.log("table entry: " + id );
-//     console.log(tableEntry);
-//     let tableRow = document.getElementById(String(id));
-//     console.log("table row: ");
-//     console.log(tableRow);
-//
-//     let position = String(id + 1);
-//     let team = tableEntry['name'];
-//     let logo = tableEntry['logo'];
-//     let played = tableEntry['played'];
-//     let won = tableEntry['won'];
-//     let drawn = tableEntry['drawn'];
-//     let lost = tableEntry['lost'];
-//     let goalFor = tableEntry['gf'];
-//     let against = tableEntry['ga'];
-//     let gd = tableEntry['gd'];
-//     let points = tableEntry['points'];
-//     let form = tableEntry['form'];
-//
-//     // table.appendChild(tableRow);
-//     let positionElement= tableRow.getElementsByClassName("position")[0];
-//     positionElement.setAttribute("style", "text-align:center");
-//     positionElement.style.textAlign = "center";
-//
-//     let teamParentElement= tableRow.getElementsByClassName("logo")[0];
-//     let teamContainer= teamParentElement.getElementsByClassName("team_container")[0];
-//
-//     teamContainer.setAttribute("style", "width:10%;");
-//
-//
-//
-//     let logoContainer= teamContainer.getElementsByClassName("logo_container")[0];
-//     logoContainer.setAttribute("style", "width:10%");
-//     let logoImage= logoContainer.getElementsByClassName("image")[0];
-//     console.log("logoImage element: ");
-//     console.log(logoImage);
-//
-//     let playedElement= tableRow.getElementsByClassName("played")[0];
-//     // playedElement.setAttribute("style", "text-align:center");
-//     let wonElement= tableRow.getElementsByClassName("won")[0];
-//     // wonElement.setAttribute("style", "text-align:center");
-//     let drawnElement= tableRow.getElementsByClassName("drawn")[0];
-//     // drawnElement.setAttribute("style", "text-align:center");
-//     let lostElement= tableRow.getElementsByClassName("lost")[0];
-//     // lostElement.setAttribute("style", "text-align:center");
-//     let goalForElement= tableRow.getElementsByClassName("for")[0];
-//     // goalForElement.setAttribute("style", "text-align:center");
-//     let againstElement= tableRow.getElementsByClassName("against")[0];
-//     // againstElement.setAttribute("style", "text-align:center");
-//     let gdElement= tableRow.getElementsByClassName("gd")[0];
-//     // gdElement.setAttribute("style", "text-align:center");
-//     let pointsElement= tableRow.getElementsByClassName("points")[0];
-//
-//
-//     // let formElement= tableRow.getElementsByClassName("form");;
-//
-//     let text = tableRow.getElementsByTagName("b")[0];
-//     text.style.padding = "10px"
-//     text.style.margin = "20px"
-//     text.style.border = "none";
-//     text.innerText = team;
-//     logoImage.src = logo;
-//     playedElement.innerText=played;
-//     wonElement.innerText=won;
-//     drawnElement.innerText=drawn;
-//     lostElement.innerText=lost;
-//     goalForElement.innerText=goalFor;
-//     againstElement.innerText=against;
-//     gdElement.innerText=gd;
-//     pointsElement.innerText= points;
-//
-// }
 
 function updateTableRecord(tableData){
     console.log("inside loadTable");
-    for(let i = 0; i < 5; i++){
+    for(let i = 0; i < 10; i++){
         updateTableEntry(i, tableData[i] );
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function updateTableRecord(tableData){
 //     console.log("inside loadTable");
