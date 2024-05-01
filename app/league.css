@@ -1,6 +1,6 @@
 
 body {
-    /*font-family: Arial, sans-serif;*/
+    font-family: Arial, sans-serif;
     /*font-family: "Microsoft Sans Serif", monospace;*/
     background-color: #f5f5f5;
     margin: 0;
@@ -43,10 +43,47 @@ body {
 /*    margin: 20px auto;*/
 /*}*/
 
-h1 {
+#top-level-header-layer-1 h1{
     text-align: left;
-    margin: 20px auto;
+    font-weight: bold;
+    color: #000000;
+    padding: 20px 0 20px 0;
+    margin: 10px 10px 0 50px;
+    height: 80px;
+    /*background-color: yellow;*/
 }
+#top-level-header-layer-1{
+    background-color: #FFD700;
+    border-color: #DAA520;
+
+    border-bottom-style: double;
+}
+
+#top-level-header-layer-2{
+    background-color: #FFD700;
+    border-top-color: black;
+}
+
+#top-level-header-layer-2 div{
+    font-weight: normal;
+    color: #000000;
+    background-color: #FFD700;
+    border-color: #DAA520;
+    padding: 5px 0 5px 0;
+    margin: 0 10px 0 50px;
+}
+
+
+#top-level-header-lower-banner{
+    color: white;
+    padding: 5px 0 5px 50px;
+    background-color: #000000;
+}
+
+/*h1 {*/
+/*    text-align: left;*/
+/*    margin: 20px 0 20px 0;*/
+/*}*/
 
 h2 {
     text-align: left;
@@ -55,10 +92,42 @@ h2 {
     font-weight: bolder;
 }
 
-#league_table_div{
-    padding: 0;
-    margin: 0;
+/*#league_table_div{*/
+/*    padding: 0;*/
+/*    margin: 0;*/
 
+/*}*/
+
+#league_table_div {
+    padding: 40px;
+    margin: 10px;
+    align-content: center;
+    /*display: flex;*/
+    /*align-items: center;*/
+
+}
+
+#table_title{
+    font-size: xx-large;
+    color: #000;
+    padding: 0;
+    margin: 10px 0 20px 0;
+    font-weight: bolder;
+}
+
+
+/* table size  adjustment rule*/
+table {
+    width: 100%;
+    /*align-items: center;*/
+    border-collapse: collapse;
+}
+
+#league_table{
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    /*align-content: center;*/
 }
 
     /*table header rules*/
@@ -198,7 +267,12 @@ h2 {
 
 
 
-
+footer {
+        background-color: #000000;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
 
 
 
@@ -232,35 +306,7 @@ h2 {
 /*    margin-right: 5px; !* Adjust the space between cells *!*/
 /*}*/
 
-#league_table_div {
-    padding: 40px;
-    margin: 10px;
-    align-content: center;
-    /*display: flex;*/
-    /*align-items: center;*/
 
-}
-
-#table_title{
-    font-size: xx-large;
-    color: #000;
-    font-weight: bolder;
-}
-
-
-/* table size  adjustment rule*/
-table {
-    width: 100%;
-    /*align-items: center;*/
-    border-collapse: collapse;
-}
-
-#league_table{
-    background-color: white;
-    border-collapse: collapse;
-    border-spacing: 0;
-    /*align-content: center;*/
-}
 
 td {
     padding: 4px;
