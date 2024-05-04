@@ -1,6 +1,6 @@
 
 
-const registeredTeams ={};
+let registeredTeams ={};
 function createTeamMap(response) {
     let teams = response["teams"];
     $.each(teams, function(i, team) {
@@ -10,7 +10,7 @@ function createTeamMap(response) {
     // console.log(teamsMap);
 }
 
-function updateTable(response) {
+function updateLeagueTable(response) {
     createTeamMap(response);
     let fixtures = response["fixtures"];
 
@@ -89,10 +89,10 @@ function updateTable(response) {
     });
     // console.log("table rank");
     // console.log(rank);
-    updateTableRecord(rank);
+    updateLeagueTableRecord(rank);
 }
 
-const registeredPlayers ={};
+let registeredPlayers ={};
 
 function populateRegisteredPlayersMap(response){
     let teams = response["teams"];
@@ -110,17 +110,29 @@ function populateRegisteredPlayersMap(response){
     // console.log("Scorers map:");
     // console.log(scorersMap);
 }
-
 function updateTopScorersTable(response){
     let fixtures = response["fixtures"];
     let scorersMap = {};
-    let haalandCount = 0;
+    // registeredPlayers = {};
     $.each(fixtures, function(i, fixture){
         fixture = fixtures[i];
-        // console.log("fixture");
-        // console.log(fixture);
+        console.log("fixture");
+        console.log(fixture);
         let homePlayersStats = fixture["home_team_players_stats"];
+        for(let i = 0; i < homePlayersStats.length ; i++){
+            let player = homePlayersStats[i];
+            player["team"] = fixture["home_team"];
+            // console.log("home players stats: ");
+            // console.log(player);
+        }
         let awayPlayersStats = fixture["away_team_players_stats"];
+        for(let i = 0; i < awayPlayersStats.length ; i++){
+            // awayPlayersStats[i]["team"] = fixture["away_team"];
+            let player = awayPlayersStats[i];
+            player["team"] = fixture["away_team"];
+            // console.log("away players stats: ");
+            // console.log(player);
+        }
         // console.log("home players stats");
         // console.log(homePlayersStats);
         // console.log("away players stats");
@@ -128,33 +140,18 @@ function updateTopScorersTable(response){
 
         let players = [];
 
-        if(homePlayersStats !== undefined ){
-            Array.prototype.push.apply(players, homePlayersStats);
-        }
-        if(awayPlayersStats !== undefined ){
-            Array.prototype.push.apply(players, awayPlayersStats);
-        }
+        Array.prototype.push.apply(players, homePlayersStats);
+        Array.prototype.push.apply(players, awayPlayersStats);
 
         // console.log("players list concat");
         // console.log(players);
 
         $.each(players, function (j, player) {
             player = players[j];
-            let playerName = player["name"]
+            let playerName = player["name"];
+            let playerTeam = player["team"];
             // console.log("player");
             // console.log(player);
-            // let stat = {
-            //     name : playerName,
-            //     played : 0,
-            //     goals: 0,
-            //     assists : 0,
-            //     goals_per_90 : 0,
-            //     mins_per_goal : 0,
-            //     total_shots : 0,
-            //     shots_on_target:0,
-            //     goal_conversion: 0,
-            //     shot_accuracy:0
-            // }
             // if(playersStats[playerName] !== undefined){
             //     stat = playersStats[playerName];
             // }
@@ -173,13 +170,34 @@ function updateTopScorersTable(response){
                 if(stat["goals"] > 0){
                     scorersMap[playerName] = stat;
                 }
+            }else{
+                stat = {
+                    name : playerName,
+                    team: playerTeam,
+                    played : 0,
+                    goals: 0,
+                    assists : 0,
+                    goals_per_90 : 0,
+                    mins_per_goal : 0,
+                    total_shots : 0,
+                    shots_on_target:0,
+                    goal_conversion: 0,
+                    shot_accuracy:0
+                }
+
+
             }
+
+            registeredPlayers[playerName] = stat;
+
 
         });
 
     });
     // console.log("Haaland match count: " + haalandCount);
     let scorersList = Object.values(scorersMap);
+    console.log("Scorers Map: ");
+    console.log(scorersMap);
     scorersList.sort((a, b) => {
             if (a["goals"] < b["goals"]) {
                 return 1;
@@ -191,13 +209,100 @@ function updateTopScorersTable(response){
         }
     );
 
+    updateTopScorerTableRecord(scorersList);
+
     // console.log("Scorers list:");
     // console.log(scorersList);
 }
+// function updateTopScorersTable(response){
+//     let fixtures = response["fixtures"];
+//     let scorersMap = {};
+//     let haalandCount = 0;
+//     $.each(fixtures, function(i, fixture){
+//         fixture = fixtures[i];
+//         // console.log("fixture");
+//         // console.log(fixture);
+//         let homePlayersStats = fixture["home_team_players_stats"];
+//         let awayPlayersStats = fixture["away_team_players_stats"];
+//         // console.log("home players stats");
+//         // console.log(homePlayersStats);
+//         // console.log("away players stats");
+//         // console.log(awayPlayersStats);
+//
+//         let players = [];
+//
+//         if(homePlayersStats !== undefined ){
+//             Array.prototype.push.apply(players, homePlayersStats);
+//         }
+//         if(awayPlayersStats !== undefined ){
+//             Array.prototype.push.apply(players, awayPlayersStats);
+//         }
+//
+//         // console.log("players list concat");
+//         // console.log(players);
+//
+//         $.each(players, function (j, player) {
+//             player = players[j];
+//             let playerName = player["name"]
+//             // console.log("player");
+//             // console.log(player);
+//             // let stat = {
+//             //     name : playerName,
+//             //     played : 0,
+//             //     goals: 0,
+//             //     assists : 0,
+//             //     goals_per_90 : 0,
+//             //     mins_per_goal : 0,
+//             //     total_shots : 0,
+//             //     shots_on_target:0,
+//             //     goal_conversion: 0,
+//             //     shot_accuracy:0
+//             // }
+//             // if(playersStats[playerName] !== undefined){
+//             //     stat = playersStats[playerName];
+//             // }
+//             let stat = registeredPlayers[playerName];
+//             if(stat !== undefined){
+//                 stat["played"] += 1;
+//                 stat["goals"] += player["goals"];
+//                 stat["assists"] += player["assists"] ;
+//                 stat["goals_per_90"] += player["goals_in_90"];
+//                 stat["total_minutes_played"] += player["minutes_played"];
+//                 stat["total_shots"] += player["total_shots"];
+//                 stat["shots_on_target"] += player["shots_on_target"];
+//                 stat["goal_conversion"] = 0;
+//                 stat["shot_accuracy"] = 0;
+//
+//                 if(stat["goals"] > 0){
+//                     scorersMap[playerName] = stat;
+//                 }
+//             }
+//
+//         });
+//
+//     });
+//     // console.log("Haaland match count: " + haalandCount);
+//     let scorersList = Object.values(scorersMap);
+//     scorersList.sort((a, b) => {
+//             if (a["goals"] < b["goals"]) {
+//                 return 1;
+//             } else if (a["goals"] > b["goals"]) {
+//                 return -1;
+//             } else {
+//                 return 0;
+//             }
+//         }
+//     );
+//
+//     updateTopScorerTableRecord(scorersList);
+//
+//     // console.log("Scorers list:");
+//     // console.log(scorersList);
+// }
 function displayError() {
 
 }
-(function loadTable(){
+(function loadLeagueTable(){
     setTimeout(function () {
         $.ajax({
             url:"league_v1.json",
@@ -205,9 +310,10 @@ function displayError() {
             dataType:"json",
             success:function(response){
                 // populateRegisteredPlayersMap(response);
-                updateTable(response);
+                // registeredTeams ={};
+                updateLeagueTable(response);
                 // updateTopScorersTable(response);
-                loadTable();
+                loadLeagueTable();
             },
             error:function(){
                 displayError();
@@ -226,9 +332,10 @@ function displayError() {
             dataType:"json",
             success:function(response){
                 // console.log("Top score API call ");
-                populateRegisteredPlayersMap(response);
+                // populateRegisteredPlayersMap(response);
                 // console.log("registered players");
                 // console.log(registeredPlayers);
+
                 updateTopScorersTable(response);
                 topScorers();
             },
@@ -241,7 +348,7 @@ function displayError() {
 })();
 
 
-function updateTableEntry(id, tableEntry){
+function updateLeagueTableEntry(id, tableEntry){
     // console.log("table entry: " + id );
     // console.log(tableEntry);
     let tableRow = document.getElementById(String(id));
@@ -372,13 +479,77 @@ function updateTableEntry(id, tableEntry){
 
 }
 
-function updateTableRecord(tableData){
+function updateLeagueTableRecord(tableData){
     console.log("inside loadTable");
     for(let i = 0; i < 10; i++){
-        updateTableEntry(i, tableData[i] );
+        updateLeagueTableEntry(i, tableData[i] );
+    }
+}
+function updateTopScorerTableRecord(scorerData){
+    console.log("Score Data: ");
+    console.log(scorerData.length);
+
+    for(let i = 0; i < scorerData.length; i++){
+        updateTopScorerTableEntry(i, scorerData[i]);
     }
 }
 
+function updateTopScorerTableEntry(index, scorerEntry){
+    console.log("scorers entry");
+    console.log(scorerEntry);
+    let tableRow = document.getElementById(String(index));
+    // console.log("table row: ");
+    // console.log(tableRow);
+
+    // let position = String(id + 1);
+
+    let name = scorerEntry['name'];
+    let team = scorerEntry['team'];
+    let goals = scorerEntry['goals'];
+    let assists = scorerEntry['assists'];
+    let played = scorerEntry['played'];
+    let goalsPer90 = scorerEntry['goals_per_90'];
+    let minPerGoal = scorerEntry['mins_per_goal'] === undefined ? 0 : scorerEntry['mins_per_goal'];
+    let totalShots = scorerEntry['total_shots'];
+    let shotsOnTarget = scorerEntry['shots_on_target'];
+    let goalConversion = scorerEntry['goal_conversion'];
+    let shotAccuracy = scorerEntry['shot_accuracy'];
+
+    // console.log("inside table row, position element: ");
+    // console.log(tableRow.getElementsByClassName("position"));
+
+
+    let positionElement= tableRow.getElementsByClassName("position")[0];
+    positionElement.style.textAlign = "center";
+
+
+    let playerNameContainer= tableRow.getElementsByClassName("name")[0];
+
+    let playerNameElement= playerNameContainer.getElementsByClassName("player_text")[0];
+    let teamNameElement= playerNameContainer.getElementsByTagName("div")[1];
+
+    let goalsElement= tableRow.getElementsByClassName("goals")[0];
+    let assistsElement= tableRow.getElementsByClassName("assists")[0];
+    let playedElement= tableRow.getElementsByClassName("played")[0];
+    let goalsPer90Element= tableRow.getElementsByClassName("goals_p_90")[0];
+    let minsPerGoalElement= tableRow.getElementsByClassName("mins_p_goal")[0];
+    let totalShotsElement= tableRow.getElementsByClassName("total_shots")[0];
+    let goalConversionElement= tableRow.getElementsByClassName("goal_conversion")[0];
+    let shotAccuracyElement= tableRow.getElementsByClassName("shot_accuracy")[0];
+
+    playerNameElement.innerText = name;
+    teamNameElement.innerText = team;
+    goalsElement.innerText = goals;
+    assistsElement.innerText = assists;
+    playedElement.innerText = played;
+    minsPerGoalElement.innerText = minPerGoal;
+    totalShotsElement.innerText = totalShots;
+    goalsPer90Element.innerText = goalsPer90;
+    goalConversionElement.innerText = goalConversion + '%';
+    shotAccuracyElement.innerText = shotAccuracy + '%';
+
+
+}
 
 
 
