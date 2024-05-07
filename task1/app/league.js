@@ -113,7 +113,7 @@ function populateRegisteredPlayersMap(response){
 function updateTopScorersTable(response){
     let fixtures = response["fixtures"];
     let scorersMap = {};
-    // registeredPlayers = {};
+
     $.each(fixtures, function(i, fixture){
         fixture = fixtures[i];
         console.log("fixture");
@@ -147,7 +147,7 @@ function updateTopScorersTable(response){
         // console.log(players);
 
         $.each(players, function (j, player) {
-            player = players[j];
+            // player = players[j];
             let playerName = player["name"];
             let playerTeam = player["team"];
             // console.log("player");
@@ -156,7 +156,7 @@ function updateTopScorersTable(response){
             //     stat = playersStats[playerName];
             // }
             let stat = registeredPlayers[playerName];
-            if(stat !== undefined){
+            if(stat !== undefined ){
                 stat["played"] += 1;
                 stat["goals"] += player["goals"];
                 stat["assists"] += player["assists"] ;
@@ -167,37 +167,36 @@ function updateTopScorersTable(response){
                 stat["goal_conversion"] = 0;
                 stat["shot_accuracy"] = 0;
 
-                if(stat["goals"] > 0){
-                    scorersMap[playerName] = stat;
-                }
             }else{
                 stat = {
                     name : playerName,
                     team: playerTeam,
-                    played : 0,
-                    goals: 0,
-                    assists : 0,
-                    goals_per_90 : 0,
-                    mins_per_goal : 0,
-                    total_shots : 0,
-                    shots_on_target:0,
+                    played : 1,
+                    goals: player["goals"],
+                    assists : player["assists"],
+                    goals_per_90 : player["goals_in_90"],
+                    mins_per_goal : player["mins_per_goal"],
+                    total_shots : player["total_shots"],
+                    shots_on_target:player["shots_on_target"],
                     goal_conversion: 0,
                     shot_accuracy:0
                 }
 
-
+                registeredPlayers[playerName] = stat;
             }
 
-            registeredPlayers[playerName] = stat;
-
+            if(stat["goals"] > 0){
+                scorersMap[playerName] = stat;
+            }
 
         });
 
     });
-    // console.log("Haaland match count: " + haalandCount);
+    // console.log("registered players: " );
+    // console.log(registeredPlayers);
     let scorersList = Object.values(scorersMap);
-    console.log("Scorers Map: ");
-    console.log(scorersMap);
+    // console.log("Scorers Map: ");
+    // console.log(scorersMap);
     scorersList.sort((a, b) => {
             if (a["goals"] < b["goals"]) {
                 return 1;
@@ -210,6 +209,7 @@ function updateTopScorersTable(response){
     );
 
     updateTopScorerTableRecord(scorersList);
+    // registeredPlayers ={}
 
     // console.log("Scorers list:");
     // console.log(scorersList);
@@ -335,7 +335,7 @@ function displayError() {
                 // populateRegisteredPlayersMap(response);
                 // console.log("registered players");
                 // console.log(registeredPlayers);
-
+                registeredPlayers ={};
                 updateTopScorersTable(response);
                 topScorers();
             },
@@ -438,7 +438,7 @@ function updateLeagueTableEntry(id, tableEntry){
     // }
 
 
-    for(j = 0; j < form.length && formLength < 6; j++) {
+    for(let j = form.length - 1, i = 0; j >= 0 ; j--, i++) {
         console.log("formStructure");
         console.log(formStructure);
         let li = formStructure.getElementsByTagName("li")[j];
@@ -492,11 +492,15 @@ function updateTopScorerTableRecord(scorerData){
     for(let i = 0; i < scorerData.length; i++){
         updateTopScorerTableEntry(i, scorerData[i]);
     }
+    // $.each(scorerData, function (j, score){
+    //     updateTopScorerTableEntry(j, score);
+    // });
+
 }
 
 function updateTopScorerTableEntry(index, scorerEntry){
-    console.log("scorers entry");
-    console.log(scorerEntry);
+    // console.log("scorers entry");
+    // console.log(scorerEntry);
     let tableRow = document.getElementById(String(index));
     // console.log("table row: ");
     // console.log(tableRow);
