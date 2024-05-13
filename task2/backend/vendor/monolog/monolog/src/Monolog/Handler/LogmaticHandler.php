@@ -52,7 +52,7 @@ class LogmaticHandler extends SocketHandler
             throw new MissingExtensionException('The OpenSSL PHP extension is required to use SSL encrypted connection for LogmaticHandler');
         }
 
-        $endpoint = $useSSL ? 'ssl://api.logmatic.io:10515' : 'api.logmatic.io:10514';
+        $endpoint = $useSSL ? 'ssl://backend.logmatic.io:10515' : 'backend.logmatic.io:10514';
         $endpoint .= '/v1/';
 
         parent::__construct(

@@ -35,7 +35,7 @@ class TelegramBotHandler extends AbstractProcessingHandler
     private const BOT_API = 'https://api.telegram.org/bot';
 
     /**
-     * The available values of parseMode according to the Telegram api documentation
+     * The available values of parseMode according to the Telegram backend documentation
      */
     private const AVAILABLE_PARSE_MODES = [
         'HTML',
@@ -44,7 +44,7 @@ class TelegramBotHandler extends AbstractProcessingHandler
     ];
 
     /**
-     * The maximum number of characters allowed in a message according to the Telegram api documentation
+     * The maximum number of characters allowed in a message according to the Telegram backend documentation
      */
     private const MAX_MESSAGE_LENGTH = 4096;
 

@@ -3,6 +3,8 @@
     <head>
         <title>Premier League Report</title>
         <link rel="stylesheet" href="layout.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
     </head>
     <body>
         <header>
@@ -16,14 +18,32 @@
         </nav>
         <main>
             <h3>Sample Football Teams Selection Form</h3>
-            <div class="sketch">
-                <img src="SelectionForm.jpeg" alt="Selection Screen">
-            </div>
-            <form action="sampleReport.jpeg" class="addmore">
+            <table>
+                <thead id="table_head">
+                <tr>
+                    <th scope="col" id="checkButton"><form action="">
+                        <input id ="checkAll" type="checkbox" name="checkAllClubs"></form>
+                    </th>
+                    <th scope="col" id="club_col_header">Club</th>
+                    <th scope="col" id="city_col_header">City</th>
+                    <th scope="col" id="manager_col_header">Manager</th>
+                    <th scope="col" id="president_col_header">President</th>
+                    <th scope="col" id="established_col_header">Established</th>
+                    <th scope="col" id="trophies_col_header">No of Trophies</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+<!--            <div class="sketch">-->
+<!--                <img src="SelectionForm.jpeg" alt="Selection Screen">-->
+<!--            </div>-->
+            <form action="sampleReport.html" class="addmore">
                 <p class="note">The sketch above provides a sample table for selecting the football teams to include in the report. Once the teams have been selected from the table, the report can be created by clicking the button below.</p>
                 <p class="blueNote">You can click of the button below to view a sketch of the report you are expected to develop.</p>
                 <input type="submit" value="Create Report" />
-                <!--input type="reset" value="Cancel" /-->                
+                <!--input type="reset" value="Cancel" /-->
             </form>
         </main>
         <footer>&copy; CSYM019 2024</footer>

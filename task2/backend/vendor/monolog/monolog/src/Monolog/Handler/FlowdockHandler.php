@@ -50,7 +50,7 @@ class FlowdockHandler extends SocketHandler
         }
 
         parent::__construct(
-            'ssl://api.flowdock.com:443',
+            'ssl://backend.flowdock.com:443',
             $level,
             $bubble,
             $persistent,
@@ -116,7 +116,7 @@ class FlowdockHandler extends SocketHandler
     private function buildHeader(string $content): string
     {
         $header = "POST /v1/messages/team_inbox/" . $this->apiToken . " HTTP/1.1\r\n";
-        $header .= "Host: api.flowdock.com\r\n";
+        $header .= "Host: backend.flowdock.com\r\n";
         $header .= "Content-Type: application/json\r\n";
         $header .= "Content-Length: " . strlen($content) . "\r\n";
         $header .= "\r\n";

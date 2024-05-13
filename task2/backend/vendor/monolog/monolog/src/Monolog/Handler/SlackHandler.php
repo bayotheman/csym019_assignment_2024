@@ -141,7 +141,7 @@ class SlackHandler extends SocketHandler
      */
     private function buildHeader(string $content): string
     {
-        $header = "POST /api/chat.postMessage HTTP/1.1\r\n";
+        $header = "POST /backend/chat.postMessage HTTP/1.1\r\n";
         $header .= "Host: slack.com\r\n";
         $header .= "Content-Type: application/x-www-form-urlencoded\r\n";
         $header .= "Content-Length: " . strlen($content) . "\r\n";

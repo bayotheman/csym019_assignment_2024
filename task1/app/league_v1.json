@@ -365,7 +365,7 @@
     },
     {
       "name": "Brentford",
-      "logo": "/images/Brentford_FC_crest.png",
+      "logo": "/task1/app/logo/Brentford_FC_crest.png",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -404,7 +404,7 @@
     },
     {
       "name": "Burnley",
-      "logo": "/images/Burnley_FC_Logo.png",
+      "logo": "/task1/app/logo/Burnley_FC_Logo.png",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -1939,8 +1939,8 @@
       "month": "December",
       "home_team": "Fulham",
       "away_team": "Nottingham Forest",
-      "home_goals": 0,
-      "away_goals": 2,
+      "home_goals": 5,
+      "away_goals": 0,
       "home_team_players_stats": [
         {
           "name": "Raúl Jiménez",
@@ -2958,7 +2958,1252 @@
           "shots_on_target": 0
         }
       ]
+    },
+    {
+      "date": "10/12/2023",
+      "month": "December",
+      "home_team": "Everton",
+      "away_team": "Chelsea",
+      "home_goals": 2,
+      "away_goals": 0,
+      "home_team_players_stats": [
+        {
+          "name": "Abdoulaye Doucouré",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 2,
+          "minutes_played" : 98,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Dominic Calvert-Lewin",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 67,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Beto",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 31,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Jack Harrison",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 86,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Lewis Dobbin",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 12,
+          "shots_on_target": 1
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Cole Palmer",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 5,
+          "minutes_played" : 98,
+          "shots_on_target": 1
+
+        },
+        {
+          "name": "Mykhailo Mudryk",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 98,
+          "shots_on_target": 0
+
+        },
+        {
+          "name": "Nicolas Jackson",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":1,
+          "minutes_played" : 99,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Raheem Sterling",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":1,
+          "minutes_played" : 32,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Enzo Fernández",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":2,
+          "minutes_played" : 66,
+          "shots_on_target": 1
+        }
+      ]
+    },
+    {
+      "date": "10/12/2023",
+      "month": "December",
+      "home_team": "Fulham",
+      "away_team": "West Ham United",
+      "home_goals": 5,
+      "away_goals": 0,
+      "home_team_players_stats": [
+        {
+          "name": "Harry Wilson",
+          "goals": 1,
+          "assists": 1,
+          "goals_in_90": 1,
+          "total_shots": 2,
+          "minutes_played" : 51,
+          "shots_on_target": 2
+        },
+        {
+          "name": "Bobby De Cordova-Reid",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 17,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Alex Iwobi",
+          "goals": 0,
+          "assists": 1,
+          "goals_in_90": 0,
+          "total_shots": 5,
+          "minutes_played" : 79,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Raúl Jiménez",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 1,
+          "minutes_played" : 72,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Carlos Vinícius",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 1,
+          "minutes_played" : 24,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Tosin Adarabioyo",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 1,
+          "minutes_played" : 96,
+          "shots_on_target": 1
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Jarrod Bowen",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 3,
+          "minutes_played" : 96,
+          "shots_on_target": 2
+
+        },
+        {
+          "name": "Mohammed Kudus",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 64,
+          "shots_on_target": 0
+
+        },
+        {
+          "name": "Tomás Soucek",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":0,
+          "minutes_played" : 96,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Lucas Paquetá",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":1,
+          "minutes_played" : 65,
+          "shots_on_target": 0
+        },
+        {
+          "name": "James Ward-Prowse",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":1,
+          "minutes_played" : 96,
+          "shots_on_target": 0
+        }
+      ]
+    },
+    {
+      "date": "10/12/2023",
+      "month": "December",
+      "home_team": "Luton Town",
+      "away_team": "Manchester City",
+      "home_goals": 1,
+      "away_goals": 2,
+      "home_team_players_stats": [
+        {
+          "name": "Carlton Morris",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 25,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Elijah Adebayo",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 1,
+          "minutes_played" : 97,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Andros Townsend",
+          "goals": 0,
+          "assists": 1,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 72,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Ross Barkley",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 97,
+          "shots_on_target": 0
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Bernardo Silva",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 3,
+          "minutes_played" : 97,
+          "shots_on_target": 1
+
+        },
+        {
+          "name": "Jack Grealish",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 3,
+          "minutes_played" : 97,
+          "shots_on_target": 1
+
+        },
+        {
+          "name": "Julián Álvarez",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":3,
+          "minutes_played" : 97,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Rodri",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":3,
+          "minutes_played" : 97,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Phil Foden",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":2,
+          "minutes_played" : 93,
+          "shots_on_target": 2
+        }
+      ]
+    },
+    {
+      "date": "10/12/2023",
+      "month": "December",
+      "home_team": "Tottenham Hotspur",
+      "away_team": "Newcastle United",
+      "home_goals": 4,
+      "away_goals": 1,
+      "home_team_players_stats": [
+        {
+          "name": "Son Heung-min",
+          "goals": 1,
+          "assists": 2,
+          "goals_in_90": 1,
+          "total_shots": 4,
+          "minutes_played" : 91,
+          "shots_on_target": 2
+        },
+        {
+          "name": "Richarlison",
+          "goals": 2,
+          "assists": 0,
+          "goals_in_90": 2,
+          "total_shots": 6,
+          "minutes_played" : 96,
+          "shots_on_target": 3
+        },
+        {
+          "name": "Dejan Kulusevski",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 96,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Brennan Johnson",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 86,
+          "shots_on_target": 0
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Alexander Isak",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 64,
+          "shots_on_target": 0
+
+        },
+        {
+          "name": "Anthony Gordon",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 73,
+          "shots_on_target": 0
+
+        },
+        {
+          "name": "Callum Wilson",
+          "goals": 0,
+          "assists": 1,
+          "goals_in_90": 0,
+          "total_shots":1,
+          "minutes_played" : 32,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Miguel Almirón",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":1,
+          "minutes_played" : 64,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Joelinton",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":4,
+          "minutes_played" : 96,
+          "shots_on_target": 1
+        }
+      ]
+    },
+
+    {
+      "date": "15/12/2023",
+      "month": "December",
+      "home_team": "Nottingham Forest",
+      "away_team": "Tottenham Hotspur",
+      "home_goals": 0,
+      "away_goals": 2,
+      "home_team_players_stats": [
+        {
+          "name": "Chris Wood",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 32,
+          "shots_on_target": 0
+
+        },
+        {
+          "name": "Callum Hudson-Odoi",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 16,
+          "shots_on_target": 0
+
+        },
+        {
+          "name": "Morgan Gibbs-White",
+          "goals": 0,
+          "assists": 1,
+          "goals_in_90": 0,
+          "total_shots":3,
+          "minutes_played" : 99,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Anthony Elanga",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":1,
+          "minutes_played" : 99,
+          "shots_on_target": 0
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Son Heung-min",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 4,
+          "minutes_played" : 88,
+          "shots_on_target": 2
+        },
+        {
+          "name": "Richarlison",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 1,
+          "minutes_played" : 72,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Dejan Kulusevski",
+          "goals": 1,
+          "assists": 1,
+          "goals_in_90": 1,
+          "total_shots": 3,
+          "minutes_played" : 99,
+          "shots_on_target": 2
+        },
+        {
+          "name": "Brennan Johnson",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 32,
+          "shots_on_target": 1
+        }
+      ]
+    },
+
+    {
+      "date": "16/12/2023",
+      "month": "December",
+      "home_team": "Chelsea",
+      "away_team": "Sheffield United",
+      "home_goals": 2,
+      "away_goals": 0,
+      "home_team_players_stats": [
+        {
+          "name": "Cole Palmer",
+          "goals": 1,
+          "assists": 1,
+          "goals_in_90": 1,
+          "total_shots": 5,
+          "minutes_played" : 94,
+          "shots_on_target": 1
+
+        },
+        {
+          "name": "Nicolas Jackson",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 3,
+          "minutes_played" : 94,
+          "shots_on_target": 2
+        },
+        {
+          "name": "Raheem Sterling",
+          "goals": 0,
+          "assists": 1,
+          "goals_in_90": 0,
+          "total_shots":1,
+          "minutes_played" : 75,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Enzo Fernández",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":1,
+          "minutes_played" : 28,
+          "shots_on_target": 0
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Oliver McBurnie",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 67,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Cameron Archer",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 3,
+          "minutes_played" : 97,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Gustavo Hamer",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 80,
+          "shots_on_target": 0
+        },
+        {
+          "name": "James McAtee",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 97,
+          "shots_on_target": 0
+        }
+      ]
+    },
+
+    {
+      "date": "16/12/2023",
+      "month": "December",
+      "home_team": "Manchester City",
+      "away_team": "Crystal Palace",
+      "home_goals": 2,
+      "away_goals": 2,
+      "home_team_players_stats": [
+        {
+          "name": "Bernardo Silva",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 98,
+          "shots_on_target": 2
+
+        },
+        {
+          "name": "Jack Grealish",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 1,
+          "minutes_played" : 98,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Julián Álvarez",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":1,
+          "minutes_played" : 98,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Phil Foden",
+          "goals": 0,
+          "assists": 1,
+          "goals_in_90": 0,
+          "total_shots":1,
+          "minutes_played" : 98,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Rico Lewis",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots":2,
+          "minutes_played" : 96,
+          "shots_on_target": 2
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Jean-Philippe Mateta",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 1,
+          "minutes_played" : 98,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Michael Olise",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 98,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Eberechi Eze",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 7,
+          "shots_on_target": 0
+        }
+      ]
+    },
+
+    {
+      "date": "16/12/2023",
+      "month": "December",
+      "home_team": "Newcastle United",
+      "away_team": "Fulham",
+      "home_goals": 3,
+      "away_goals": 0,
+      "home_team_players_stats": [
+        {
+          "name": "Lewis Miley",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 2,
+          "minutes_played" : 30,
+          "shots_on_target": 2
+
+        },
+        {
+          "name": "Anthony Gordon",
+          "goals": 0,
+          "assists": 1,
+          "goals_in_90": 0,
+          "total_shots": 4,
+          "minutes_played" : 84,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Callum Wilson",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":4,
+          "minutes_played" : 97,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Miguel Almirón",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots":4,
+          "minutes_played" : 97,
+          "shots_on_target": 1
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Raúl Jiménez",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 22,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Bobby De Cordova-Reid",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 20,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Alex Iwobi",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 77,
+          "shots_on_target": 1
+        }
+      ]
+    },
+
+    {
+      "date": "16/12/2023",
+      "month": "December",
+      "home_team": "Burnley",
+      "away_team": "Everton",
+      "home_goals": 0,
+      "away_goals": 2,
+      "home_team_players_stats": [
+        {
+          "name": "Zeki Amdouni",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 93,
+          "shots_on_target": 1
+
+        },
+        {
+          "name": "Jacob Bruun Larsen",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 82,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Lyle Foster",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":2,
+          "minutes_played" : 48,
+          "shots_on_target": 1
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Dominic Calvert-Lewin",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 82,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Jack Harrison",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 93,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Abdoulaye Doucouré",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 45,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Amadou Onana",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 1,
+          "minutes_played" : 93,
+          "shots_on_target": 1
+        }
+      ]
+    },
+
+    {
+      "date": "17/12/2023",
+      "month": "December",
+      "home_team": "Arsenal",
+      "away_team": "Brighton & Hove Albion",
+      "home_goals": 2,
+      "away_goals": 0,
+      "home_team_players_stats": [
+        {
+          "name": "Bukayo Saka",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 4,
+          "minutes_played" : 89,
+          "shots_on_target": 1
+
+        },
+        {
+          "name": "Leandro Trossard",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 15,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Kai Havertz",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots":4,
+          "minutes_played" : 89,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Martin Ødegaard",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":5,
+          "minutes_played" : 87,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Gabriel Jesus",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots":4,
+          "minutes_played" : 81,
+          "shots_on_target": 2
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "João Pedro",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 37,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Simon Adingra",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 79,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Evan Ferguson",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 60,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Danny Welbeck",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 18,
+          "shots_on_target": 0
+        }
+      ]
+    },
+
+    {
+      "date": "17/12/2023",
+      "month": "December",
+      "home_team": "Brentford",
+      "away_team": "Aston Villa",
+      "home_goals": 1,
+      "away_goals": 2,
+      "home_team_players_stats": [
+        {
+          "name": "Yoane Wissa",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 76,
+          "shots_on_target": 1
+
+        },
+        {
+          "name": "Neal Maupay",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":0,
+          "minutes_played" : 35,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Keane Lewis-Potter",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots":1,
+          "minutes_played" : 68,
+          "shots_on_target": 1
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Ollie Watkins",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 1,
+          "minutes_played" : 103,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Leon Bailey",
+          "goals": 0,
+          "assists": 1,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 38,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Moussa Diaby",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 65,
+          "shots_on_target": 0
+        }
+      ]
+    },
+
+    {
+      "date": "17/12/2023",
+      "month": "December",
+      "home_team": "West Ham United",
+      "away_team": "Wolverhampton Wanderers",
+      "home_goals": 3,
+      "away_goals": 0,
+      "home_team_players_stats": [
+        {
+          "name": "Jarrod Bowen",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 3,
+          "minutes_played" : 98,
+          "shots_on_target": 1
+
+        },
+        {
+          "name": "Mohammed Kudus",
+          "goals": 2,
+          "assists": 0,
+          "goals_in_90": 2,
+          "total_shots":3,
+          "minutes_played" : 86,
+          "shots_on_target": 2
+        },
+        {
+          "name": "Tomás Soucek",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":0,
+          "minutes_played" : 98,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Lucas Paquetá",
+          "goals": 0,
+          "assists": 3,
+          "goals_in_90": 0,
+          "total_shots":2,
+          "minutes_played" : 86,
+          "shots_on_target": 0
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Matheus Cunha",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 4,
+          "minutes_played" : 98,
+          "shots_on_target": 2
+        },
+        {
+          "name": "Hwang Hee-chan",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 3,
+          "minutes_played" : 98,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Mario Lemina",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 80,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Pablo Sarabia",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 0,
+          "minutes_played" : 98,
+          "shots_on_target": 0
+        }
+      ]
+    },
+    {
+      "date": "17/12/2023",
+      "month": "December",
+      "home_team": "Liverpool",
+      "away_team": "Manchester United",
+      "home_goals": 0,
+      "away_goals": 0,
+      "home_team_players_stats": [
+        {
+          "name": "Mohamed Salah",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 6,
+          "minutes_played" : 96,
+          "shots_on_target": 4
+
+        },
+        {
+          "name": "Luis Díaz",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":3,
+          "minutes_played" : 78,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Darwin Núñez",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":3,
+          "minutes_played" : 78,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Cody Gakpo",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":4,
+          "minutes_played" : 35,
+          "shots_on_target": 0
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Antony",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 82,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Alejandro Garnacho",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 71,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Scott McTominay",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 96,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Rasmus Højlund",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 96,
+          "shots_on_target": 1
+        }
+      ]
+    },
+    {
+      "date": "21/12/2023",
+      "month": "December",
+      "home_team": "Crystal Palace",
+      "away_team": "Brighton & Hove Albion",
+      "home_goals": 1,
+      "away_goals": 1,
+      "home_team_players_stats": [
+        {
+          "name": "Jean-Philippe Mateta",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 4,
+          "minutes_played" : 96,
+          "shots_on_target": 1
+
+        },
+        {
+          "name": "Michael Olise",
+          "goals": 0,
+          "assists": 1,
+          "goals_in_90": 0,
+          "total_shots":2,
+          "minutes_played" : 96,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Eberechi Eze",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots":2,
+          "minutes_played" : 26,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Jordan Ayew",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots":2,
+          "minutes_played" : 70,
+          "shots_on_target": 2
+        }
+      ],
+      "away_team_players_stats": [
+        {
+          "name": "Simon Adingra",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 1,
+          "minutes_played" : 45,
+          "shots_on_target": 1
+        },
+        {
+          "name": "João Pedro",
+          "goals": 0,
+          "assists": 0,
+          "goals_in_90": 0,
+          "total_shots": 2,
+          "minutes_played" : 96,
+          "shots_on_target": 0
+        },
+        {
+          "name": "Pascal Groß",
+          "goals": 0,
+          "assists": 1,
+          "goals_in_90": 0,
+          "total_shots": 3,
+          "minutes_played" : 96,
+          "shots_on_target": 1
+        },
+        {
+          "name": "Danny Welbeck",
+          "goals": 1,
+          "assists": 0,
+          "goals_in_90": 1,
+          "total_shots": 3,
+          "minutes_played" : 51,
+          "shots_on_target": 1
+        }
+      ]
     }
+
+
+
+
+
+
   ]
 
 

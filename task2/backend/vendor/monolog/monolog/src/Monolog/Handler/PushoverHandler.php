@@ -18,7 +18,7 @@ use Psr\Log\LogLevel;
 use Monolog\LogRecord;
 
 /**
- * Sends notifications through the pushover api to mobile phones
+ * Sends notifications through the pushover backend to mobile phones
  *
  * @author Sebastian Göttschkes <sebastian.goettschkes@googlemail.com>
  * @see    https://www.pushover.net/api
@@ -66,7 +66,7 @@ class PushoverHandler extends SocketHandler
     ];
 
     /**
-     * Sounds the api supports by default
+     * Sounds the backend supports by default
      * @see https://pushover.net/api#sounds
      * @var string[]
      */
@@ -77,7 +77,7 @@ class PushoverHandler extends SocketHandler
     ];
 
     /**
-     * @param string       $token  Pushover api token
+     * @param string       $token  Pushover backend token
      * @param string|array $users  Pushover user id or array of ids the message will be sent to
      * @param string|null  $title  Title sent to the Pushover API
      * @param bool         $useSSL Whether to connect via SSL. Required when pushing messages to users that are not
@@ -114,7 +114,7 @@ class PushoverHandler extends SocketHandler
         ?float $connectionTimeout = null,
         ?int $chunkSize = null
     ) {
-        $connectionString = $useSSL ? 'ssl://api.pushover.net:443' : 'api.pushover.net:80';
+        $connectionString = $useSSL ? 'ssl://backend.pushover.net:443' : 'backend.pushover.net:80';
         parent::__construct(
             $connectionString,
             $level,
@@ -186,7 +186,7 @@ class PushoverHandler extends SocketHandler
     private function buildHeader(string $content): string
     {
         $header = "POST /1/messages.json HTTP/1.1\r\n";
-        $header .= "Host: api.pushover.net\r\n";
+        $header .= "Host: backend.pushover.net\r\n";
         $header .= "Content-Type: application/x-www-form-urlencoded\r\n";
         $header .= "Content-Length: " . strlen($content) . "\r\n";
         $header .= "\r\n";

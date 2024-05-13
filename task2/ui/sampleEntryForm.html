@@ -3,6 +3,8 @@
     <head>
         <title>New Football Team</title>
         <link rel="stylesheet" href="layout.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
     </head>
     <body>
         <header>
@@ -15,14 +17,38 @@
             </ul>
         </nav>
         <main>
-            <h3>Sample Football Teams Entery Form</h3>
-            <form action="post">
+            <h3>Football Teams Entry Form</h3>
+            <form action="">
                 <div class="sketch">
-                    <img src="sampleEntryForm.jpeg" alt="New course entry form">
+                    <div>
+                        <label for="nameInput"> Name</label>
+                        <input id ="nameInput" type="text" placeholder="club name" name="clubName">
+                    </div>
+                    <div>
+                        <label for="cityInput"> City</label>
+                        <input id="cityInput" type="text" placeholder="city" name="city">
+                    </div>
+
+                    <div>
+                        <label for="managerInput"> Manager </label>
+                        <input id="managerInput" type="text" placeholder="manager" name="manager">
+                    </div>
+
+                    <label>
+                        Established
+                        <input type="text" placeholder="Date of establishment" name="established">
+                    </label>
+                    <br/>
+                    <label>
+                        President
+                        <input type="text" placeholder="president" name="president">
+                    </label>
+<!--                    <img src="sampleEntryForm.jpeg" alt="New course entry form">-->
                 </div>    
                 <div class="addmore">
+
                     <!-- add more feilds for the remaining recipe info ...-->
-                    <p class="note">The sketch above provides an incomplete list of the required information for a new football team. You need to add the missing feilds to the New Football Team Entry Form you are going to develop.</p>
+<!--                    <p class="note">The sketch above provides an incomplete list of the required information for a new football team. You need to add the missing feilds to the New Football Team Entry Form you are going to develop.</p>-->
                     <input type="submit" value="Add Football Team" />
                     <!--input type="reset" value="Cancel" /-->                
                 </div>
