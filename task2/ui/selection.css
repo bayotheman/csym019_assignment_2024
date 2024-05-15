@@ -1,0 +1,51 @@
+
+@import "layout.css";
+
+
+/*club table header rules*/
+#table_head{
+    border-bottom: 1px solid rgb(230 230 230);
+    background-color: #F5F5F5;
+}
+#checkButton, #club_col_header, #city_col_header, #manager_col_header,#president_col_header,
+#established_col_header, #createdBy_col_header, #modifiedBy_col_header, #dateCreated_col_header, #dateModified_col_header{
+    text-align: center;
+}
+
+#teams_table{
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    padding: 4px;
+    /*text-align: left;*/
+    border-bottom: 1px solid #ddd;
+}
+
+/* table head design rule*/
+th{
+    text-align: end;
+    font-size: medium;
+    padding: 10px;
+    margin: 50px;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    /*-webkit-font-smoothing: antialiased;*/
+}
+
+/* table row hover rule*/
+tr:hover {
+    background-color: #ddd;
+}
+
+/*ul{*/
+/*    display: flex;*/
+/*    align-content: start;*/
+/*    !*align-items: start;*!*/
+/*}*/
+
+
+

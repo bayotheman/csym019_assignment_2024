@@ -2,125 +2,182 @@ document.addEventListener('DOMContentLoaded', registerEvents);
 
 function registerEvents(){
         createReport();
+        // let addTeamButton = document.getElementById('addTeamSubmit');
+        // console.log("addTeamButton: ");  console.log(addTeamButton);
+        // addTeamButton.addEventListener('click', addTeam);
+        // let createReportButton =  document.getElementById('createReportSubmit');
+        // createReportButton.addEventListener('click', createReport);
+}
+
+function addTeam(){
+    // let data = getInputFromEntryForm()//get inputs from the form
+    // validateEntryFormData()//validate input
+    //sends request to backend
+}
+
+function createReport(){
+    // event.preventDefault();
+    // window.location.href = "sampleReport.html";
+    console.log("inside createReport()");
+    console.log("report data");
+    let checkedValues = JSON.parse(sessionStorage.getItem('data'));
+    console.log(checkedValues);
+    // console.log("session token: ");
+    // console.log(sessionStorage.getItem("token"));
+
+    let container = document.getElementById('reportContainer');
+    // let container = document.createElement('div');
+
+    console.log("container: "); console.log(container);
+    createReportHelper(container);
+
+}
+function createReportHelper(container){
+    console.log("inside createReport()")
+    let data = getReportData();
+    // let container= getHtmlMainContainer();
+    let table = createTable(data);
+    let pieChart = createPieChart(data);
+    container.appendChild(table);
+    container.appendChild(pieChart);
+    if(data.length > 1){
+        container.appendChild(createBarChart(data));
+    }
+
+
+
 }
 
 
 
-function getReportData(){
-    return [
-        {
-            "name": "Manchester City",
-            "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-            "played": 10,
-            "won": 7,
-            "drawn": 1,
-            "lost": 2,
-            "gf": 10,
-            "ga": 2,
-            "gd": 8,
-            "points": 22
-        }
-        ,
-        {
-            "name": "Liverpool",
-            "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-            "played": 10,
-            "won": 7,
-            "drawn": 1,
-            "lost": 2,
-            "gf": 10,
-            "ga": 2,
-            "gd": 8,
-            "points": 22
-        },
-        {
-            "name": "Manchester United",
-            "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-            "played": 10,
-            "won": 5,
-            "drawn": 3,
-            "lost": 2,
-            "gf": 6,
-            "ga": 4,
-            "gd": 2,
-            "points": 18
-        },
-        {
-            "name": "Chelsea",
-            "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-            "played": 10,
-            "won": 5,
-            "drawn": 3,
-            "lost": 2,
-            "gf": 6,
-            "ga": 4,
-            "gd": 2,
-            "points": 18
-        },
-        {
-            "name": "Manchester City",
-            "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-            "played": 10,
-            "won": 7,
-            "drawn": 1,
-            "lost": 2,
-            "gf": 10,
-            "ga": 2,
-            "gd": 8,
-            "points": 22
-        }
-        ,
-        {
-            "name": "Liverpool",
-            "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-            "played": 10,
-            "won": 7,
-            "drawn": 1,
-            "lost": 2,
-            "gf": 10,
-            "ga": 2,
-            "gd": 8,
-            "points": 22
-        },
-        {
-            "name": "Manchester United",
-            "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-            "played": 10,
-            "won": 5,
-            "drawn": 3,
-            "lost": 2,
-            "gf": 6,
-            "ga": 4,
-            "gd": 2,
-            "points": 18
-        },
-        {
-            "name": "Chelsea",
-            "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-            "played": 10,
-            "won": 5,
-            "drawn": 3,
-            "lost": 2,
-            "gf": 6,
-            "ga": 4,
-            "gd": 2,
-            "points": 18
-        }
-        // ,
-        // {
-        //     "name": "Totteham Hotspur",
-        //     "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-        //     "played": 10,
-        //     "won": 5,
-        //     "drawn": 3,
-        //     "lost": 2,
-        //     "gf": 6,
-        //     "ga": 4,
-        //     "gd": 2,
-        //     "points": 18
-        // }
+//Report Generation
 
-    ];
+function getReportData(){
+    console.log("inside getReportData()");
+    // let data = JSON.parse(sessionStorage.getItem("data"));
+    console.log("report data");
+    let checkedValues = JSON.parse(sessionStorage.getItem('data'));
+    // let data = JSON.parse(sessionStorage.getItem("data"));
+    console.log(checkedValues);
+    return Object.values(checkedValues);
+    // return Object.values(data);
+
+    //get input from table selection
+    // let input = getInputFromTableSelection()
+    // return [
+    //     {
+    //         "name": "Manchester City",
+    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
+    //         "played": 10,
+    //         "won": 7,
+    //         "drawn": 1,
+    //         "lost": 2,
+    //         "gf": 10,
+    //         "ga": 2,
+    //         "gd": 8,
+    //         "points": 22
+    //     }
+    //     ,
+    //     {
+    //         "name": "Liverpool",
+    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
+    //         "played": 10,
+    //         "won": 7,
+    //         "drawn": 1,
+    //         "lost": 2,
+    //         "gf": 10,
+    //         "ga": 2,
+    //         "gd": 8,
+    //         "points": 22
+    //     },
+    //     {
+    //         "name": "Manchester United",
+    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
+    //         "played": 10,
+    //         "won": 5,
+    //         "drawn": 3,
+    //         "lost": 2,
+    //         "gf": 6,
+    //         "ga": 4,
+    //         "gd": 2,
+    //         "points": 18
+    //     },
+    //     {
+    //         "name": "Chelsea",
+    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
+    //         "played": 10,
+    //         "won": 5,
+    //         "drawn": 3,
+    //         "lost": 2,
+    //         "gf": 6,
+    //         "ga": 4,
+    //         "gd": 2,
+    //         "points": 18
+    //     },
+    //     {
+    //         "name": "Manchester City",
+    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
+    //         "played": 10,
+    //         "won": 7,
+    //         "drawn": 1,
+    //         "lost": 2,
+    //         "gf": 10,
+    //         "ga": 2,
+    //         "gd": 8,
+    //         "points": 22
+    //     }
+    //     ,
+    //     {
+    //         "name": "Liverpool",
+    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
+    //         "played": 10,
+    //         "won": 7,
+    //         "drawn": 1,
+    //         "lost": 2,
+    //         "gf": 10,
+    //         "ga": 2,
+    //         "gd": 8,
+    //         "points": 22
+    //     },
+    //     {
+    //         "name": "Manchester United",
+    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
+    //         "played": 10,
+    //         "won": 5,
+    //         "drawn": 3,
+    //         "lost": 2,
+    //         "gf": 6,
+    //         "ga": 4,
+    //         "gd": 2,
+    //         "points": 18
+    //     },
+    //     {
+    //         "name": "Chelsea",
+    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
+    //         "played": 10,
+    //         "won": 5,
+    //         "drawn": 3,
+    //         "lost": 2,
+    //         "gf": 6,
+    //         "ga": 4,
+    //         "gd": 2,
+    //         "points": 18
+    //     }
+    //     // ,
+    //     // {
+    //     //     "name": "Totteham Hotspur",
+    //     //     "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
+    //     //     "played": 10,
+    //     //     "won": 5,
+    //     //     "drawn": 3,
+    //     //     "lost": 2,
+    //     //     "gf": 6,
+    //     //     "ga": 4,
+    //     //     "gd": 2,
+    //     //     "points": 18
+    //     // }
+    //
+    // ];
 }
 
 function createTableStructure() {
@@ -294,7 +351,7 @@ function createSinglePieChart(dataItem){
 function createBarChart(dataset){
     let div = document.createElement('div');
     div.setAttribute("id", "container");
-    div.setAttribute("style", "margin:30px;  text-align:center");
+    div.setAttribute("style", "margin:30px; width:90%; text-align:center");
     let ctx = document.createElement('canvas');
     ctx.setAttribute("id", "myChart");
     div.append(ctx);
@@ -381,23 +438,10 @@ function createBarChart(dataset){
 }
 
 function getHtmlMainContainer(){
-    return document.getElementsByTagName('main');
-}
-function createReport(){
-    let data = getReportData();
-    let container= getHtmlMainContainer();
-    let table = createTable(data);
-    let pieChart = createPieChart(data);
-    container[0].append(table);
-    container[0].append(pieChart);
-    if(data.length > 1){
-        container[0].append(createBarChart(data));
-    }
-
-
+    // return document.getElementsByTagName('main');
+    return document.getElementById('reportContainer');
 
 }
-
 
 
 

@@ -26,7 +26,7 @@ table {
     background-color: #F5F5F5;
 }
 #checkButton, #club_col_header, #city_col_header, #manager_col_header,#president_col_header,
-#established_col_header, #trophies_col_header{
+#established_col_header, #createdBy_col_header, #modifiedBy_col_header, #dateCreated_col_header, #dateModified_col_header{
     text-align: center;
 }
 /*.chart {*/

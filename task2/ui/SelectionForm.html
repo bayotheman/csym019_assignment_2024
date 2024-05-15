@@ -2,8 +2,11 @@
 <html lang="en">
     <head>
         <title>Premier League Report</title>
-        <link rel="stylesheet" href="layout.css">
+        <link rel="stylesheet" href="selection.css">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <script src="selection.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     </head>
     <body>
@@ -18,18 +21,22 @@
         </nav>
         <main>
             <h3>Sample Football Teams Selection Form</h3>
-            <table>
+            <table id="teams_table">
                 <thead id="table_head">
                 <tr>
-                    <th scope="col" id="checkButton"><form action="">
-                        <input id ="checkAll" type="checkbox" name="checkAllClubs"></form>
+                    <th scope="col" id="checkButton">
+                        <input id ="checkAll" type="checkbox" onclick="toggle(this)" name="checkAllClubs">
                     </th>
                     <th scope="col" id="club_col_header">Club</th>
                     <th scope="col" id="city_col_header">City</th>
                     <th scope="col" id="manager_col_header">Manager</th>
                     <th scope="col" id="president_col_header">President</th>
                     <th scope="col" id="established_col_header">Established</th>
-                    <th scope="col" id="trophies_col_header">No of Trophies</th>
+                    <th scope="col" id="createdBy_col_header">Created By</th>
+                    <th scope="col" id="dateCreated_col_header">Date Created</th>
+                    <th scope="col" id="modifiedBy_col_header">Modified By</th>
+                    <th scope="col" id="dateModified_col_header">Date Modified</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -39,10 +46,10 @@
 <!--            <div class="sketch">-->
 <!--                <img src="SelectionForm.jpeg" alt="Selection Screen">-->
 <!--            </div>-->
-            <form action="sampleReport.html" class="addmore">
-                <p class="note">The sketch above provides a sample table for selecting the football teams to include in the report. Once the teams have been selected from the table, the report can be created by clicking the button below.</p>
-                <p class="blueNote">You can click of the button below to view a sketch of the report you are expected to develop.</p>
-                <input type="submit" value="Create Report" />
+            <form id='createReportForm'  class="addmore">
+<!--                <p class="note">The sketch above provides a sample table for selecting the football teams to include in the report. Once the teams have been selected from the table, the report can be created by clicking the button below.</p>-->
+<!--                <p class="blueNote">You can click of the button below to view a sketch of the report you are expected to develop.</p>-->
+                <input id="createReportSubmit" type="submit" value="Create Report" />
                 <!--input type="reset" value="Cancel" /-->
             </form>
         </main>

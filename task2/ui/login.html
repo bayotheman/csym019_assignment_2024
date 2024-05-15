@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="auth.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="login-container">
+
+    <h2>Login</h2>
+    <form method="post"  id="loginForm" onsubmit="login()">
+        <label for="username"></label><input type="text" id="username" name="username" placeholder="Username" required>
+        <label for="password"></label><input type="password" id="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <div id="messageArea"></div>
+</div>
+</body>
+</html>
