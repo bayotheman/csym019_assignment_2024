@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     http_response_code(200);
     exit();
 }
-    require_once '/Applications/XAMPP/xamppfiles/htdocs/task2/backend/service/auth-service.php';
+    require_once '/Applications/XAMPP/xamppfiles/htdocs/internet_programming/task2/backend/service/auth-service.php';
     // Decode the JSON data into a PHP associative array
     $jsonData = file_get_contents('php://input');
 

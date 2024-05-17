@@ -1,5 +1,5 @@
 <?php
-require_once '/Applications/XAMPP/xamppfiles/htdocs/task2/backend/vendor/autoload.php';
+require_once '/Applications/XAMPP/xamppfiles/htdocs/internet_programming/task2/backend/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
