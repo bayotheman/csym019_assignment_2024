@@ -1,0 +1,540 @@
+
+body {
+    font-family: Arial, sans-serif;
+    /*font-family: "Microsoft Sans Serif", monospace;*/
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+
+}
+
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/**{*/
+/*    font-family: "Microsoft Sans Serif", sans-serif;*/
+/*}*/
+
+/*.nunito-sans-1 {*/
+/*      font-family: "Nunito Sans", sans-serif;*/
+/*      font-optical-sizing: auto;*/
+/*      font-style: normal;*/
+/*      font-variation-settings:*/
+/*              "wdth" 100,*/
+/*              "YTLC" 500;*/
+/*              }*/
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*header {*/
+/*    background-color: #ffffff;*/
+/*    color: #000;*/
+/*    padding: 5px;*/
+/*}*/
+
+/*.container {*/
+/*    max-width: 800px;*/
+/*    margin: 20px auto;*/
+/*}*/
+
+#top-level-header-layer-1 h1{
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    padding: 20px 0 20px 0;
+    margin: 10px 10px 0 50px;
+    height: 80px;
+    /*background-color: yellow;*/
+}
+#top-level-header-layer-1{
+    background-color: #FFD700;
+    border-color: #DAA520;
+
+    border-bottom-style: double;
+}
+
+#top-level-header-layer-2{
+    background-color: #FFD700;
+    border-top-color: black;
+}
+
+#top-level-header-layer-2 div{
+    font-weight: normal;
+    color: #000000;
+    background-color: #FFD700;
+    border-color: #DAA520;
+    padding: 5px 0 5px 0;
+    margin: 0 10px 0 50px;
+}
+
+
+#top-level-header-lower-banner{
+    color: white;
+    padding: 5px 0 5px 50px;
+    background-color: #000000;
+}
+
+/*h1 {*/
+/*    text-align: left;*/
+/*    margin: 20px 0 20px 0;*/
+/*}*/
+
+h2 {
+    text-align: left;
+    margin: 20px;
+    color: #000;
+    font-weight: bolder;
+}
+
+/*#league_table_div{*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+
+/*}*/
+
+#league_table_div {
+    padding: 40px;
+    margin: 10px;
+    align-content: center;
+    /*display: flex;*/
+    /*align-items: center;*/
+
+}
+
+#table_title{
+    font-size: xx-large;
+    color: #000;
+    padding: 0;
+    margin: 10px 0 20px 0;
+    font-weight: bolder;
+}
+
+
+/* table size  adjustment rule*/
+table {
+    width: 100%;
+    /*align-items: center;*/
+    border-collapse: collapse;
+}
+
+#league_table{
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    /*align-content: center;*/
+}
+
+    /*table header rules*/
+#table_head{
+    border-bottom: 1px solid rgb(230 230 230);
+    background-color: #F5F5F5;
+}
+
+#position_col_header{
+    text-align: center;
+}
+#logo_col_header{
+    text-align: center;
+}
+#team_col_header{
+    text-align: left;
+}
+#played_col_header{
+    text-align: center;
+}
+#won_col_header{
+    text-align: center;
+}
+#drawn_col_header{
+    text-align: center;
+}
+#lost_col_header{
+    text-align: center;
+}
+#for_col_header{
+    text-align: center;
+}
+#against_col_header{
+    text-align: center;
+}
+#gd_col_header{
+    text-align: center;
+}
+#points_col_header{
+    text-align: center;
+}
+#form_col_header{
+    text-align: center;
+
+}
+
+
+/* table column rules*/
+.position{
+    text-align: center;
+    color: black;
+
+}
+.logo{
+    text-align: left;
+}
+.image {
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+.team{
+    text-align:left;
+    overflow: hidden;
+    color: black;
+}
+
+.played{
+    text-align: center;
+    color:#444444 ;
+
+}
+.won{
+    text-align: center;
+    color: #444444;
+}
+.drawn{
+    text-align: center;
+    color: #444444;
+}
+.lost{
+    text-align: center;
+    color: #444444;
+}
+
+.for{
+    text-align: center;
+    color: #444444;
+}
+.against{
+    text-align: center;
+    color: #444444;
+}
+.gd {
+    text-align: center;
+    color:  #444444;
+}
+.points{
+    text-weight: bold;
+    font-size: x-large;
+    text-align:center;
+    color: black;
+}
+.form_structure{
+    list-style-type: none;
+    display: flex;
+    align-content: start;
+    margin: 4px;
+    padding: 0
+}
+.form_tag_container{
+    display:flex;
+    align-content: start;
+    margin: 0 3px;
+    padding: 0;
+}
+
+.form_tag{
+    display:flex;
+    font-weight: normal;
+    padding: 1px 4px 1px 4px;
+    font-size: small;
+    align-content: end;
+    color: white;
+    /*background-color: forestgreen*/
+}
+
+.form_divider{
+    margin:0 5px;
+    font-weight: lighter;
+    line-height: 100%;
+    font-size: large;
+    align-content: center;
+    color: black;
+    background-color: white
+}
+
+
+
+footer {
+        background-color: #000000;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+
+
+/*.team .team_container{*/
+/*    align-items: center;*/
+/*}*/
+
+
+/*th {*/
+/*    !*background-color: #4CAF50;*!*/
+/*    color: black;*/
+/*    font-weight: bold;*/
+/*    text-transform: uppercase;*/
+/*}*/
+
+/*svg{*/
+/*    display: inline-block;*/
+/*    width: 10px; !* Adjust the width and height as needed *!*/
+/*    height: 10px;*/
+/*    border-radius: 10%; !* Makes the container a circle *!*/
+/*    overflow: hidden; !* Ensures the SVG doesn't overflow *!*/
+/*}*/
+
+
+
+/*.team_text{*/
+/*    text-align:left;*/
+/*    !*overflow: hidden;*!*/
+/*}*/
+/*td:not(:last-child) {*/
+/*    margin-right: 5px; !* Adjust the space between cells *!*/
+/*}*/
+
+
+
+td {
+    padding: 4px;
+    /*text-align: left;*/
+    border-bottom: 1px solid #ddd;
+}
+
+/* table head design rule*/
+th{
+    text-align: end;
+    font-size: small;
+    padding: 10px;
+    margin: 50px;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    /*-webkit-font-smoothing: antialiased;*/
+}
+
+
+
+/*tr:nth-child(even) {*/
+/*    background-color: #f2f2f2;*/
+/*}*/
+
+/*tr {*/
+/*    padding: 10px;*/
+/*    margin: 50px;*/
+/*    font-size: medium;*/
+/*    !*background-size: 5px;*!*/
+/*}*/
+
+/* table row hover rule*/
+tr:hover {
+    background-color: #ddd;
+}
+
+ul{
+    display: flex;
+    align-content: start;
+    /*align-items: start;*/
+}
+/**/
+/*tr{*/
+/*    height: 20px;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+/*!* Reset default browser styles *!*/
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*!* Basic styling *!*/
+/*body {*/
+/*    font-family: 'ReithSerif', serif;*/
+/*    !*src: url(https://static.files.bbci.co.uk/fonts/reith/2.512/BBCReithSerif_W_ExBd.woff2) ;*!*/
+/*    !*format('woff2'),url(https://static.files.bbci.co.uk/fonts/reith/2.512/BBCReithSerif_W_ExBd.woff) format('woff');*!*/
+/*    !*font-display: swap;*!*/
+/*    !*font-family: Helvetica, helvetica, serif;*!*/
+/*    background-color: #f5f5f5;*/
+/*}*/
+
+/*header {*/
+/*    background-color: #ffffff;*/
+/*    color: #000;*/
+/*    padding: 20px;*/
+/*}*/
+
+/*#table_title{*/
+/*    font-size: xx-large;*/
+/*    color: #000;*/
+/*    font-weight: bolder;*/
+/*}*/
+/*td{*/
+/*    text-align: center;*/
+/*    display: flex;*/
+/*}*/
+
+/*!*main {*!*/
+/*!*    !*display: flex;*!*!*/
+/*!*    !*grid-template-columns: 100%;*!*!*/
+/*!*    !*grid-template-rows: auto;*!*!*/
+/*!*    align-content: center;*!*/
+/*!*    !*padding: 20px;*!*!*/
+/*!*}*!*/
+/*!*body {*!*/
+/*!*    !*display: flex;*!*!*/
+/*!*    !*grid-template-columns: 100%;*!*!*/
+/*!*    !*grid-template-rows: auto;*!*!*/
+/*!*    align-content: center;*!*/
+/*!*    !*padding: 20px;*!*!*/
+/*!*}*!*/
+
+/*svg{*/
+/*    display: inline-block;*/
+/*    width: 10px; !* Adjust the width and height as needed *!*/
+/*    height: 10px;*/
+/*    border-radius: 10%; !* Makes the container a circle *!*/
+/*    overflow: hidden; !* Ensures the SVG doesn't overflow *!*/
+/*}*/
+
+/*!* img {*!*/
+/*!*    width: 7%;*!*/
+/*!*    height: auto;*!*/
+/*!*    !*display: block;*!*!*/
+/*!*    !*border: none; !* Remove any default border *!*!*!*/
+/*!*    padding: 5px;*!*/
+/*!*}*!*/
+/*.image {*/
+/*    width: 7%;*/
+/*    height: auto;*/
+/*    !*display: block;*!*/
+/*    !*border: none; !* Remove any default border *!*!*/
+/*    padding: 5px;*/
+/*}*/
+/*#league_table{*/
+/*    background-color: white;*/
+/*    border-collapse: collapse;*/
+/*    border-spacing: 0;*/
+/*    !*align-content: center;*!*/
+/*}*/
+
+/*#league_table_div {*/
+/*    padding: 40px;*/
+/*    margin: 10px;*/
+/*    !*align-content: space-evenly;*!*/
+/*    !*display: flex;*!*/
+/*    !*align-items: center;*!*/
+
+/*}*/
+
+/*#top-level-header{*/
+
+/*}*/
+
+/*!*.points{*!*/
+/*!*    text-weight: bold;*!*/
+/*!*    text-align: center;*!*/
+/*!*    font-size:  large;*!*/
+/*!*}*!*/
+/*!*.row{*!*/
+/*!*    text-align: center;*!*/
+/*!*}*!*/
+/*!*.logo_container{*!*/
+/*!*    width: 10%;*!*/
+/*!*}*!*/
+
+/*#search_icon_div{*/
+/*    !*align-self: start;*!*/
+/*    display: flex;*/
+/*    align-content: end;*/
+/*}*/
+/*#search_icon_div div{*/
+/*    padding: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*}*/
+
+/*!*#league_table_div input[type="search"]{*!*/
+/*!*    height: 35px;*!*/
+/*!*    width: 100%;*!*/
+/*!*    background-color: #f0f0f0;*!*/
+/*!*    border: 1px solid rgb(230 230 230);*!*/
+/*!*    padding: 10px;*!*/
+/*!*    font-size: 16px;*!*/
+
+/*!*}*!*/
+
+/*#league_table_div #search_bar{*/
+/*    padding: 10px ;*/
+/*    align-content: start;*/
+/*    !*display: flex;*!*/
+/*    !*border-color: white;*!*/
+/*    height: 30%;*/
+/*}*/
+
+/*!*td{*!*/
+/*!*    display: flex;*!*/
+/*!*    align-items: center;*!*/
+/*!*}*!*/
+
+/*#table_head{*/
+/*    border-bottom: 1px solid rgb(230 230 230);*/
+/*    background-color: #F5F5F5;*/
+/*}*/
+
+/*#premier-league-table {*/
+/*    background-color: #fff;*/
+/*    border-radius: 8px;*/
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+/*    padding: 20px;*/
+/*    align-items: center;*/
+/*    !*margin-bottom: 20px;*!*/
+/*}*/
+
+/*footer {*/
+/*    background-color: #000000;*/
+/*    color: #fff;*/
+/*    padding: 20px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*#table_row{*/
+/*    font-size: 16px;*/
+/*    font-weight: bold;*/
+/*}*/
+/*!*tr{*!*/
+/*!*    !*align-items: self-start;*!*!*/
+/*!*    text-align: center;*!*/
+/*!*}*!*/
+/*th{*/
+/*    text-align: end;*/
+/*    font-size: small;*/
+/*    padding: 10px;*/
+/*    margin: 50px;*/
+/*    font-weight: bold;*/
+/*    !*-webkit-font-smoothing: antialiased;*!*/
+
+/*}*/
+
+
+

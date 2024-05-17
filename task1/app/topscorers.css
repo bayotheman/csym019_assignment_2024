@@ -1,0 +1,232 @@
+
+body {
+    font-family: Arial, sans-serif;
+    /*font-family: "Microsoft Sans Serif", monospace;*/
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+#top-level-header-layer-1 h1{
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    padding: 20px 0 20px 0;
+    margin: 10px 10px 0 50px;
+    height: 80px;
+    /*background-color: yellow;*/
+}
+#top-level-header-layer-1{
+    background-color: #FFD700;
+    border-color: #DAA520;
+
+    border-bottom-style: double;
+}
+
+#top-level-header-layer-2{
+    background-color: #FFD700;
+    border-top-color: black;
+}
+
+#top-level-header-layer-2 div{
+    font-weight: normal;
+    color: #000000;
+    background-color: #FFD700;
+    border-color: #DAA520;
+    padding: 5px 0 5px 0;
+    margin: 0 10px 0 50px;
+}
+
+
+#top-level-header-lower-banner{
+    color: white;
+    padding: 5px 0 5px 50px;
+    background-color: #000000;
+}
+
+
+h2 {
+    text-align: left;
+    margin: 20px;
+    color: #000;
+    font-weight: bolder;
+}
+
+
+#topscorers_table_div {
+    padding: 40px;
+    margin: 10px;
+    align-content: center;
+    /*display: flex;*/
+    /*align-items: center;*/
+}
+
+#table_title{
+    font-size: xx-large;
+    color: #000;
+    padding: 0;
+    margin: 10px 0 20px 0;
+    font-weight: normal;
+}
+
+
+/* table size  adjustment rule*/
+table {
+    width: 100%;
+    align-items: center;
+    border-collapse: collapse;
+}
+
+
+/*table header rules*/
+th{
+    text-align: end;
+    font-size: small;
+    padding: 10px;
+    margin: 50px;
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
+#table_head{
+    border-bottom: 1px solid rgb(230 230 230);
+    background-color: #F5F5F5;
+    font-weight: normal;
+}
+#table_head tr th{
+    font-weight: bold;
+    font-size: small;
+    text-align: right;
+    padding: 5px;
+
+}
+
+#position_col_header{
+    text-align: left;
+}
+
+#name_col_header{
+    text-align: left;
+    /*align-items: start;*/
+}
+#goal_col_header{
+    text-align: right;
+}
+#assists_col_header{
+    text-align: right;
+}
+#played_col_header{
+    text-align: right;
+}
+
+#gp90_col_header{
+    text-align: right;
+}
+#mpg_col_header{
+    text-align: right;
+}
+#total_shots_col_header{
+    text-align: right;
+}
+#gconv_col_header{
+    text-align: right;
+}
+#shot_accur_col_header{
+    text-align: right;
+}
+
+
+/* table column rules*/
+.position{
+    /*text-align: left;*/
+    color: black;
+
+}
+
+.name{
+    text-align:left;
+    color: black;
+    font-size: small;
+}
+.name .player_text{
+    font-weight: bold;
+    color: black;
+    font-size: small;
+
+}
+
+.goals{
+    text-align: right;
+    color: #000000;
+    font-size: small;
+}
+
+.assists{
+    text-align: right;
+    color: #000000;
+    font-size: small;
+
+}
+.played{
+    text-align: right;
+    color: #000000;
+    font-size: small;
+
+}
+
+.goals_p_90{
+    text-align: right;
+    color: #000000;;
+    font-size: small;
+
+}
+.mins_p_goal{
+    text-align: right;
+    color: #000000;
+    font-size: small;
+
+}
+
+.total_shots{
+    text-align: right;
+    color: #000000;
+    font-size: small;
+
+}
+.goal_conversion{
+    text-align: right;
+    color: #000000;
+    font-size: small;
+
+}
+.shot_accuracy {
+    text-align: right;
+    color: #000000;
+    font-size: small;
+
+}
+
+/*.name ~ .goals ~ .assists ~ .played ~ .goals_p_90 ~ .mins_p_goal ~ .total_shots ~ .goal_conversion ~ .shot_accuracy{*/
+/*    font-size: small;*/
+/*}*/
+
+td {
+    padding: 4px;
+    /*text-align: left;*/
+    border-bottom: 1px solid #ddd;
+}
+
+
+tr:hover {
+    background-color: #ddd;
+}
+
+
+footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}

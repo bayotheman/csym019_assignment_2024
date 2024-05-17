@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier League Table</title>
+    <!--    <script type="module" src="league.js"></script>-->
+    <script type="text/javascript" src="league.js"></script>
+    <link rel="stylesheet" href="league.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div id="top-level-header-layer-1"><h1>SPORT</h1></div>
+    <div id="top-level-header-layer-2"><div>Home | Football | Cricket | Formula 1 | Rugby U | Rugby L | Tennis </div></div>
+    <div id="top-level-header-lower-banner"> <div> <a>Premier League</a> > <a>Scores & Fixtures </a> | <a>Table</a> </div></div>
+
+</header>
+<!--<section id="table_section">-->
+    <div class="container" id="league_table_div">
+        <h2 id="table_title">Premier League Table</h2>
+        <table>
+            <thead id="table_head">
+            <tr>
+                <th scope="col" id="position_col_header">Position</th>
+                <th scope="col" id="logo_col_header"></th>
+                <th scope="col" id="team_col_header">Team</th>
+                <th scope="col" id="played_col_header">Played</th>
+                <th scope="col" id="won_col_header">Won</th>
+                <th scope="col" id="drawn_col_header">Drawn</th>
+                <th scope="col" id="lost_col_header">Lost</th>
+                <th scope="col" id="for_col_header">For</th>
+                <th scope="col" id="against_col_header">Against</th>
+                <th scope="col" id="gd_col_header">GD</th>
+                <th scope="col" id="points_col_header">Points</th>
+                <th scope="col" id="form_col_header">Form</th>
+            </tr>
+            </thead>
+            <tbody id="table_content">
+
+            <tr id="0">
+                <td class ="position">1</td>
+                <td class = "logo">
+                    <!--                         <span class="team_container">-->
+                    <!--                            <span class ="logo_container">-->
+                    <img class ="image" alt="team logo" src=""/>
+                    <!--                            </span>-->
+                    <!--                         </span>-->
+                </td>
+                <td class = "team">
+                    <b class="team_text"></b>
+                </td>
+                <td class = "played"></td>
+                <td class ="won"></td>
+                <td class="drawn"></td>
+                <td class="lost"></td>
+                <td class="for"></td>
+                <td class="against"></td>
+                <td class="gd"></td>
+                <td class="points"></td>
+                <td class="form">
+                    <ul class ="form_structure">
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span hidden="hidden" class="tag_space">Result Win</span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display:flex; align-content: start">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true" ></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_divider" aria-hidden="true"></div>
+
+                                <div class ="form_tag" ></div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+
+
+            </tr>
+            <tr id="1">
+                <td class ="position">2</td>
+                <td class = "logo">
+                    <!--                         <span class="team_container">-->
+                    <!--                            <span class ="logo_container">-->
+                    <img class ="image" alt="team logo" src=""/>
+                    <!--                            </span>-->
+                    <!--                         </span>-->
+                </td>
+                <td class = "team">
+                    <b class="team_text"></b>
+                </td>
+                <td class = "played"></td>
+                <td class ="won"></td>
+                <td class="drawn"></td>
+                <td class="lost"></td>
+                <td class="for"></td>
+                <td class="against"></td>
+                <td class="gd"></td>
+                <td class="points"></td>
+                <td class="form">
+                    <ul class ="form_structure">
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span hidden="hidden" class="tag_space">Result Win</span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display:flex; align-content: start">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true" ></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_divider" aria-hidden="true"></div>
+
+                                <div class ="form_tag" ></div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+
+            </tr>
+            <tr id="2">
+                <td class ="position">3</td>
+                <td class = "logo">
+                    <!--                         <span class="team_container">-->
+                    <!--                            <span class ="logo_container">-->
+                    <img class ="image" alt="team logo" src=""/>
+                    <!--                            </span>-->
+                    <!--                         </span>-->
+                </td>
+                <td class = "team">
+                    <b class="team_text"></b>
+                </td>
+                <td class = "played"></td>
+                <td class ="won"></td>
+                <td class="drawn"></td>
+                <td class="lost"></td>
+                <td class="for"></td>
+                <td class="against"></td>
+                <td class="gd"></td>
+                <td class="points"></td>
+                <td class="form">
+                    <ul class ="form_structure">
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span hidden="hidden" class="tag_space">Result Win</span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display:flex; align-content: start">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true" ></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_divider" aria-hidden="true"></div>
+
+                                <div class ="form_tag" ></div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+
+            </tr>
+            <tr id="3">
+                <td class ="position">4</td>
+                <td class = "logo">
+                    <!--                         <span class="team_container">-->
+                    <!--                            <span class ="logo_container">-->
+                    <img class ="image" alt="team logo" src=""/>
+                    <!--                            </span>-->
+                    <!--                         </span>-->
+                </td>
+                <td class = "team">
+                    <b class="team_text"></b>
+                </td>
+                <td class = "played"></td>
+                <td class ="won"></td>
+                <td class="drawn"></td>
+                <td class="lost"></td>
+                <td class="for"></td>
+                <td class="against"></td>
+                <td class="gd"></td>
+                <td class="points"></td>
+                <td class="form">
+                    <ul class ="form_structure">
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span hidden="hidden" class="tag_space">Result Win</span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display:flex; align-content: start">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true" ></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_divider" aria-hidden="true"></div>
+
+                                <div class ="form_tag" ></div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+
+            </tr>
+            <tr id="4">
+                <td class ="position">5</td>
+                <td class = "logo">
+                    <img class ="image" alt="team logo" src=""/>
+                </td>
+                <td class = "team">
+                    <b class="team_text"></b>
+                </td>
+                <td class = "played"></td>
+                <td class ="won"></td>
+                <td class="drawn"></td>
+                <td class="lost"></td>
+                <td class="for"></td>
+                <td class="against"></td>
+                <td class="gd"></td>
+                <td class="points"></td>
+                <td class="form">
+                    <ul class ="form_structure">
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span hidden="hidden" class="tag_space">Result Win</span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display:flex; align-content: start">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true" ></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_divider" aria-hidden="true"></div>
+
+                                <div class ="form_tag" ></div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+
+            </tr>
+            <tr id="5">
+                <td class ="position">6</td>
+                <td class = "logo">
+                    <img class ="image" alt="team logo" src=""/>
+                </td>
+                <td class = "team">
+                    <b class="team_text"></b>
+                </td>
+                <td class = "played"></td>
+                <td class ="won"></td>
+                <td class="drawn"></td>
+                <td class="lost"></td>
+                <td class="for"></td>
+                <td class="against"></td>
+                <td class="gd"></td>
+                <td class="points"></td>
+                <td class="form">
+                    <ul class ="form_structure">
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span hidden="hidden" class="tag_space">Result Win</span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display:flex; align-content: start">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true" ></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_divider" aria-hidden="true"></div>
+
+                                <div class ="form_tag" ></div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+
+            </tr>
+            <tr id="6">
+                <td class ="position">7</td>
+                <td class = "logo">
+                    <img class ="image" alt="team logo" src=""/>
+                </td>
+                <td class = "team">
+                    <b class="team_text"></b>
+                </td>
+                <td class = "played"></td>
+                <td class ="won"></td>
+                <td class="drawn"></td>
+                <td class="lost"></td>
+                <td class="for"></td>
+                <td class="against"></td>
+                <td class="gd"></td>
+                <td class="points"></td>
+                <td class="form">
+                    <ul class ="form_structure">
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span hidden="hidden" class="tag_space">Result Win</span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display:flex; align-content: start">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true" ></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_divider" aria-hidden="true"></div>
+
+                                <div class ="form_tag" ></div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+
+            </tr>
+            <tr id="7">
+                <td class ="position">8</td>
+                <td class = "logo">
+                    <img class ="image" alt="team logo" src=""/>
+                </td>
+                <td class = "team">
+                    <b class="team_text"></b>
+                </td>
+                <td class = "played"></td>
+                <td class ="won"></td>
+                <td class="drawn"></td>
+                <td class="lost"></td>
+                <td class="for"></td>
+                <td class="against"></td>
+                <td class="gd"></td>
+                <td class="points"></td>
+                <td class="form">
+                    <ul class ="form_structure">
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span hidden="hidden" class="tag_space">Result Win</span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display:flex; align-content: start">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true" ></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_divider" aria-hidden="true"></div>
+
+                                <div class ="form_tag" ></div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+
+            </tr>
+            <tr id="8">
+                <td class ="position">9</td>
+                <td class = "logo">
+                    <img class ="image" alt="team logo" src=""/>
+                </td>
+                <td class = "team">
+                    <b class="team_text"></b>
+                </td>
+                <td class = "played"></td>
+                <td class ="won"></td>
+                <td class="drawn"></td>
+                <td class="lost"></td>
+                <td class="for"></td>
+                <td class="against"></td>
+                <td class="gd"></td>
+                <td class="points"></td>
+                <td class="form">
+                    <ul class ="form_structure">
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span hidden="hidden" class="tag_space">Result Win</span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display:flex; align-content: start">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true" ></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_divider" aria-hidden="true"></div>
+
+                                <div class ="form_tag" ></div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+
+            </tr>
+            <tr id="9">
+                <td class ="position">10</td>
+                <td class = "logo">
+                    <img class ="image" alt="team logo" src=""/>
+                </td>
+                <td class = "team">
+                    <b class="team_text"></b>
+                </td>
+                <td class = "played"></td>
+                <td class ="won"></td>
+                <td class="drawn"></td>
+                <td class="lost"></td>
+                <td class="for"></td>
+                <td class="against"></td>
+                <td class="gd"></td>
+                <td class="points"></td>
+                <td class="form">
+                    <ul class ="form_structure">
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span hidden="hidden" class="tag_space">Result Win</span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display:flex; align-content: start">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true"></div>
+                                <!--                                <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container" >
+                                <div class ="form_tag" aria-hidden="true" ></div>
+                                <!--                                    <span class="tag_space"></span>-->
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_tag" aria-hidden="true"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="form_tag_container">
+                                <div class ="form_divider" aria-hidden="true"></div>
+
+                                <div class ="form_tag" ></div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+
+            </tr>
+
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+<footer>
+
+</footer>
+<!--</section>-->
+</body>
+</html>
