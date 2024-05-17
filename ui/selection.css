@@ -1,0 +1,81 @@
+
+@import "layout.css";
+
+
+/*club table header rules*/
+#table_head{
+    /*border: 1px solid rgb(130 130 130);*/
+
+    border-bottom: 1px solid rgb(130 130 130);
+    border-top: 1px solid rgb(130 130 130);
+    background-color: #F5F5F5;
+}
+#checkButton, #club_col_header, #city_col_header, #manager_col_header,#president_col_header,
+#established_col_header, #createdBy_col_header, #modifiedBy_col_header, #dateCreated_col_header, #dateModified_col_header{
+    text-align: center;
+}
+
+#page_title{
+    padding: 10px 0 5px 0;
+    margin:  0 0 20px 0;
+}
+#table_container{
+    padding: 0 15px 10px 0;
+
+}
+#teams_table{
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+td {
+    padding: 4px;
+    /*text-align: left;*/
+    border-bottom: 1px solid #ddd;
+}
+
+/* table head design rule*/
+th{
+    text-align: end;
+    font-size: 1.1em;
+    padding: 10px;
+    margin: 50px;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    /*-webkit-font-smoothing: antialiased;*/
+}
+#createReportSubmit{
+    margin: 10px;
+    color: white;
+    background-color: green;
+}
+#deleteTeam{
+    margin: 10px;
+    color: white;
+    background-color: red;
+}
+tr{
+    font-size: 0.85em;
+    /*font-weight: lighter;*/
+    color: #000000;
+}
+#createReportForm{
+    display: flex;
+
+}
+/* table row hover rule*/
+tr:hover {
+    background-color: #ddd;
+}
+
+/*ul{*/
+/*    display: flex;*/
+/*    align-content: start;*/
+/*    !*align-items: start;*!*/
+/*}*/
+
+
+

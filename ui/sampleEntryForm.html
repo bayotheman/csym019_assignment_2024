@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>New Football Team</title>
+        <link rel="stylesheet" href="layout.css">
+        <script src="entry.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <header>
+            <h3>CSYM019 - Premier League Results</h3>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="SelectionForm.html">Premier League Report</a></li>
+                <li><a href="./sampleEntryForm.html">Add New Football Team</a></li>
+                <li><a href="login.html">Logout</a></li>
+
+            </ul>
+        </nav>
+        <main>
+            <h3>Football Teams Entry Form</h3>
+            <div>
+                <b id="messageBoard"></b>
+            </div>
+            <form action="">
+                <div class="sketch" >
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                        <div>
+                            <label for="nameInput"> Name</label>
+                            <input id ="nameInput" type="text" placeholder="club name" name="clubName">
+                        </div>
+                        <div>
+                            <label for="cityInput"> City</label>
+                            <input id="cityInput" type="text" placeholder="city" name="city">
+                        </div>
+
+                        <div>
+                            <label for="managerInput"> Manager </label>
+                            <input id="managerInput" type="text" placeholder="manager" name="manager">
+                        </div>
+
+                        <label>
+                            Established
+                            <input id="establishedInput" type="text" placeholder="Date of establishment" name="established">
+                        </label>
+                        <label>
+                            President
+                            <input id="presidentInput" type="text" placeholder="president" name="president">
+                        </label>
+                    </div>
+
+                    <br/>
+
+                    <div>
+                        <label for="playedInput"> Played </label>
+                        <input id="playedInput" type="text" placeholder="played" name="played">
+                    </div>
+                    <div>
+                        <label for="wonInput"> Won </label>
+                        <input id="wonInput" type="text" placeholder="won" name="won">
+                    </div>
+                    <div>
+                        <label for="drawnInput"> Drawn </label>
+                        <input id="drawnInput" type="text" placeholder="drawn" name="drawn">
+                    </div>
+                    <div>
+                        <label for="lostInput"> Lost </label>
+                        <input id="lostInput" type="text" placeholder="lost" name="lost">
+                    </div>
+                    <div>
+                        <label for="gfInput"> Goal For </label>
+                        <input id="gfInput" type="text" placeholder="gf" name="gf">
+                    </div>
+                    <div>
+                        <label for="gaInput"> Goal Against </label>
+                        <input id="gaInput" type="text" placeholder="ga" name="ga">
+                    </div>
+<!--                    <div>-->
+<!--                        <label for="gdInput"> Goal Difference </label>-->
+<!--                        <input id="gdInput" type="text" placeholder="gd" name="gd">-->
+<!--                    </div>-->
+                    <div>
+                        <label for="pointsInput"> Points </label>
+                        <input id="pointsInput" type="text" placeholder="points" name="points">
+                    </div>
+<!--                    <img src="sampleEntryForm.jpeg" alt="New course entry form">-->
+                </div>    
+                <div class="addmore">
+
+                    <!-- add more feilds for the remaining recipe info ...-->
+<!--                    <p class="note">The sketch above provides an incomplete list of the required information for a new football team. You need to add the missing feilds to the New Football Team Entry Form you are going to develop.</p>-->
+                    <input id="addTeamSubmit" type="submit" value="Add Football Team" />
+                    <!--input type="reset" value="Cancel" /-->
+                </div>
+            </form>
+
+        </main>
+        <footer>&copy; CSYM019 2024</footer>
+    </body>
+</html>
