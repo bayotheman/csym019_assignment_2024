@@ -6,8 +6,8 @@
  * <li>deleting team(s)</li>
  * @author Adebayo .A. Okutubo
  */
-    require_once "/Applications/XAMPP/xamppfiles/htdocs/task2/backend/repository/dbInstance.php";
-    require_once "/Applications/XAMPP/xamppfiles/htdocs/task2/backend/service/jwt-service.php";
+    require_once "/Applications/XAMPP/xamppfiles/htdocs/internet_programming/task2/backend/repository/dbInstance.php";
+    require_once "/Applications/XAMPP/xamppfiles/htdocs/internet_programming/task2/backend/service/jwt-service.php";
 
     global $tblName;
     $tblName = "club";
