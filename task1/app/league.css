@@ -101,7 +101,8 @@ h2 {
 #league_table_div {
     padding: 40px;
     margin: 10px;
-    align-content: center;
+    /*align-content: center;*/
+
     /*display: flex;*/
     /*align-items: center;*/
 
@@ -195,7 +196,7 @@ table {
     color: black;
 }
 
-.played{
+.matches_played{
     text-align: center;
     color:#444444 ;
 
@@ -226,44 +227,82 @@ table {
     color:  #444444;
 }
 .points{
-    text-weight: bold;
     font-size: x-large;
     text-align:center;
     color: black;
 }
-.form_structure{
-    list-style-type: none;
+
+
+.form {
+    justify-content: space-around;
+}
+
+.form_structure {
     display: flex;
     align-content: start;
-    margin: 4px;
-    padding: 0
-}
-.form_tag_container{
-    display:flex;
-    align-content: start;
-    margin: 0 3px;
-    padding: 0;
 }
 
-.form_tag{
-    display:flex;
-    font-weight: normal;
-    padding: 1px 4px 1px 4px;
-    font-size: small;
-    align-content: end;
+.form_tag {
+    width: 25px;
+    height: 25px;
+    margin: 1px;
+    display: inline-block;
+    text-align: center;
+    line-height: 25px;
     color: white;
-    /*background-color: forestgreen*/
 }
 
-.form_divider{
-    margin:0 5px;
-    font-weight: lighter;
-    line-height: 100%;
-    font-size: large;
-    align-content: center;
-    color: black;
-    background-color: white
+.form_tag.win {
+    background-color: forestgreen;
 }
+
+
+.form_tag.draw {
+    background-color: dimgray;
+}
+
+.form_tag.lose {
+    background-color: red;
+}
+
+
+
+
+/*.form_structure{*/
+/*    list-style-type: none;*/
+/*    display: flex;*/
+/*    align-content: start;*/
+/*    margin: 4px;*/
+/*    padding: 0*/
+/*}*/
+/*.form_tag_container{*/
+/*    display:flex;*/
+/*    align-content: start;*/
+/*    margin: 0 3px;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.form_tag{*/
+/*    display:flex;*/
+/*    font-weight: normal;*/
+/*    padding: 1px 4px 1px 4px;*/
+/*    font-size: small;*/
+/*    align-content: end;*/
+/*    color: white;*/
+/*    !*background-color: forestgreen*!*/
+/*}*/
+
+/*.form_divider{*/
+/*    margin:0 5px;*/
+/*    font-weight: lighter;*/
+/*    line-height: 100%;*/
+/*    font-size: large;*/
+/*    align-content: center;*/
+/*    color: black;*/
+/*    background-color: white*/
+/*}*/
+
+
 
 
 

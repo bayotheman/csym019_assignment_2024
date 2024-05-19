@@ -1,14 +1,13 @@
 
 body {
     font-family: Arial, sans-serif;
-    /*font-family: "Microsoft Sans Serif", monospace;*/
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
 
 }
 
-
+/* rules for page header */
 #top-level-header-layer-1 h1{
     text-align: left;
     font-weight: bold;
@@ -16,8 +15,8 @@ body {
     padding: 20px 0 20px 0;
     margin: 10px 10px 0 50px;
     height: 80px;
-    /*background-color: yellow;*/
 }
+
 #top-level-header-layer-1{
     background-color: #FFD700;
     border-color: #DAA520;
@@ -46,7 +45,7 @@ body {
     background-color: #000000;
 }
 
-
+/* rules for table title*/
 h2 {
     text-align: left;
     margin: 20px;
@@ -169,7 +168,7 @@ th{
     font-size: small;
 
 }
-.played{
+.matches_played{
     text-align: right;
     color: #000000;
     font-size: small;
@@ -208,13 +207,9 @@ th{
 
 }
 
-/*.name ~ .goals ~ .assists ~ .played ~ .goals_p_90 ~ .mins_p_goal ~ .total_shots ~ .goal_conversion ~ .shot_accuracy{*/
-/*    font-size: small;*/
-/*}*/
 
 td {
     padding: 4px;
-    /*text-align: left;*/
     border-bottom: 1px solid #ddd;
 }
 
