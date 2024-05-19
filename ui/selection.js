@@ -1,94 +1,120 @@
 document.addEventListener('DOMContentLoaded', registerEvents);
-let url = "http://localhost/task2/backend/api/fetch-all-teams.php";
-window.onload = onBackPress;
-// window.onpopstate = function (){
-//     reportData = {};
-//     allData = [];
-//     // let checkboxes = document.getElementsByName("checkbox");
-//     //
-//     // for(let i = 0; i < checkboxes.length; i++){
-//     //     checkboxes[i].checked = false;
-//     //     // reportData[allData[i]["name"]] = allData[i];
-//     // }
-// }
 let reportData = {};
 let allData = [];
-// window.onpopstate = function (event){
-//     reportData = {};
-//     allData = [];
-//     let checkboxes = document.getElementsByName("checkbox");
-//
-//     for(let i = 0; i < checkboxes.length; i++){
-//         checkboxes[i].checked = false;
-//         // reportData[allData[i]["name"]] = allData[i];
-//     }
-//
-// }
-// window.onload = onBackPress;
+
+function registerEvents(){
+    authorization();
+    createTable();
+    registerReportCreationAction();
+    registerPopUp();
+}
+
+function deleteTeams() {
+    let payload ={
+        teams: Object.keys(reportData)
+    }
+
+    let response = deleteTeamsHelper(payload);
+    if (response !== null && response.successful) {
+        alert("Team(s) successfully deleted");
+        fetchAllTeams()
+    } else {
+        alert("An error occurred!");
+    }
+    closePopup();
+}
+
+function registerPopUp(){
+    document.getElementById('deleteTeam').addEventListener('click', function() {
+        if(Object.values(reportData).length === 0){
+            alert('No team was selected for deletion!');
+        }else{
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+    });
+
+    document.getElementById('yesButton').addEventListener('click', deleteTeams);
+
+    document.getElementById('noButton').addEventListener('click', closePopup);
+
+    document.getElementById('overlay').addEventListener('click', closePopup);
+
+}
+
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+}
+
+
+
+
 function onBackPress(){
-    event.preventDefault();
-    console.log("inside on back press");
-    let data = JSON.parse(sessionStorage.getItem("data"));
+    // event.preventDefault();
+    console.log("inside on back press in selection.js");
+    let data = JSON.parse(localStorage.getItem("data"));
     if(data != null && data.length > 0){
         for(let i = 0; i < data.length; i++){
             reportData[data[i]["name"]] = data[i];
         }
     }
     console.log("report data: "); console.log(reportData);
-    // window.location.href ="SelectionForm.html";
-    // reportData = {};
-    // allData = [];
-    // let checkAll = document.getElementById("checkAll");
-    // checkAll.checked = false;
-
-    // for(let i = 0; i < checkboxes.length; i++){
-    //     checkboxes[i].checked = false;
-    //     reportData[allData[i]["name"]] = allData[i];
-    // }
 
 }
 
-function registerEvents(){
-
-    // createReport();
-    // let addTeamButton = document.getElementById('addTeamSubmit');
-    // console.log("addTeamButton: ");  console.log(addTeamButton);
-    // addTeamButton.addEventListener('click', addTeam);
-    // let data = JSON.parse(sessionStorage.getItem("data"));
-    // if(data != null && data.length > 0){
-    //     for(let i = 0; i < data.length; i++){
-    //         reportData[data[i]["name"]] = data[i];
-    //     }
-    // }
-    console.log("inside register events");
-    createTable();
-    let createReportButton =  document.getElementById('createReportSubmit');
+function registerReportCreationAction() {
+    let createReportButton = document.getElementById('createReportSubmit');
     createReportButton.addEventListener('click', goToReportPage)
-    let deleteTeamButton = document.getElementById("deleteTeam");
-    deleteTeamButton.addEventListener('click', deleteTeams);
 }
 
-function deleteTeams(){
+
+function deleteTeamsHelper(payload){
+    let token = sessionStorage.getItem("token");
+    let url = "http://localhost/internet_programming/task2/backend/api/delete-team.php";
+    let response = {
+        successful: false,
+        message: "Invalid request payload",
+        data:[]
+    };
+
+    $.ajax({
+        url: url,
+        type: "POST",
+        contentType:"application/json",
+        async: false,
+        data: JSON.stringify(payload),
+        headers:{
+            "Authorization":`Bearer ${token}`
+        },
+        success: function(success) {
+            console.log("inside jQuery success function");
+            console.log("success: "); console.log(success);
+            response = success;
+        },
+        error: function(xhr, status, error) {
+            response.message = "An error has occurred";
+        }
+    });
+
+    return response;
 
 }
- function goToReportPage(event){
+ function goToReportPage(){
+     if(Object.values(reportData).length === 0){
+         alert('No team selected! kindly select at least one team to generate report');
+         return;
+     }
     console.log("inside goToReport page")
-     // sessionStorage.setItem("token", "qwertyuiooasdfghjklkgltuyshj");
      console.log("report data");
      console.log(reportData);
-     sessionStorage.setItem("data", JSON.stringify(reportData));
-     let checkedValues = [];
-     // document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
-     //     if(checkbox.id !== "checkAll"){
-     //         checkedValues.push(checkbox.value);
-     //     }
-     // });
-     // sessionStorage.setItem('checkedValues', JSON.stringify(checkedValues));
-
-     event.preventDefault()
+     localStorage.setItem("data", JSON.stringify(reportData));
      window.location.href ="sampleReport.html";
  }
-function fetchAllTeams(token) {
+function fetchAllTeams() {
+    let token = sessionStorage.getItem("token");
+    let url = "http://localhost/internet_programming/task2/backend/api/fetch-all-teams.php";
     let response = {
         successful: false,
         message: "Invalid request payload",
@@ -115,14 +141,20 @@ function fetchAllTeams(token) {
 
     return response;
 }
-function fetchData(){
+
+function authorization() {
     let token = sessionStorage.getItem("token");
-    console.log("token: "); console.log(token);
-    if(token === null){
-        window.location.href ="login.html";
+    console.log("token: ");
+    console.log(token);
+    if (token === null) {
+        window.location.href = "login.html";
     }
-    // else{
-        let response = fetchAllTeams(token);
+
+}
+
+function fetchData(){
+
+        let response = fetchAllTeams();
         let data = response.data;
         console.log("data from server: "); console.log(data);
         return data;
@@ -137,15 +169,12 @@ function getReportData(){
     console.log("inside loadTable");
     let data = getReportData();
     allData  = getReportData();
-     // let div = document.createElement('div');
-     // div.setAttribute("style", "padding:20px; display:flex; align-item:center");
      let table = document.getElementById("teams_table");
      for(let i =0; i < data.length; i++){
          let tr = createTableEntry(i, data[i]);
          table.append(tr);
      }
-     // div.append(table);
-     // return div;
+
  }
 
  function toggle(source){
@@ -223,23 +252,18 @@ function createTableEntry(rowIndex, data) {
     let dateCreated = tableEntry['dateCreated'];
     let modifiedBy = tableEntry['modifiedBy']
     let dateModified = tableEntry['dateModified'];
-    // let points = tableEntry['points'];
-    // let form = tableEntry['form'];
-    //
+
 
     let positionElement = tableRow.appendChild(document.createElement("td"));
     positionElement.setAttribute("style", "text-align:center");
-    // let form = document.createElement('form');
     let checkBoxElement = document.createElement('input');
     checkBoxElement.setAttribute("type","checkbox");
     checkBoxElement.setAttribute("id", rowIndex);
     checkBoxElement.setAttribute("class", "check");
     checkBoxElement.setAttribute("name", "checkbox");
-    // checkBoxElement.setAttribute("onclick", toggle());
     checkBoxElement.onclick = toggle;
     positionElement.appendChild(checkBoxElement);
-    // form.appendChild(checkBoxElement);
-    // positionElement.appendChild(form);
+
 
     let teamElement = tableRow.appendChild(document.createElement("td"));
     teamElement.setAttribute("style", "text-align:left");
@@ -260,13 +284,7 @@ function createTableEntry(rowIndex, data) {
     modifiedByElement.setAttribute("style", "text-align:center");
     let dateModifiedElement = tableRow.appendChild(document.createElement("td"));
     dateModifiedElement.setAttribute("style", "text-align:center");
-    // let pointsElement= tableRow.appendChild(document.createElement("td"));
-    // pointsElement.setAttribute("style", "text-align:center");
-    // pointsElement.style.fontSize ="large";
-    // pointsElement.style.fontWeight ="bold";
 
-
-    // positionElement.innerHTML = position;
     teamElement.innerText = team;
     cityElement.innerText = city;
     managerElement.innerText = manager;
@@ -276,7 +294,6 @@ function createTableEntry(rowIndex, data) {
     dateCreatedElement.innerText = dateCreated;
     modifiedByElement.innerText = modifiedBy;
     dateModifiedElement.innerText = dateModified;
-    // pointsElement.innerText= points;
     return tableRow;
 
 }

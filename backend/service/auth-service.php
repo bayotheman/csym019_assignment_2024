@@ -4,138 +4,166 @@
  * <li>creating user account</li>
  * <li>user login</li>
  * <li>authentication mechanism</li>
- * @author Adebayo .A. Okutubo
+ * @autor Adebayo .A. Okutubo
  */
+
 require_once '/Applications/XAMPP/xamppfiles/htdocs/internet_programming/task2/backend/service/jwt-service.php';
+
 
 require_once '/Applications/XAMPP/xamppfiles/htdocs/internet_programming/task2/backend/repository/dbInstance.php';
 
 
-global $response;
-    global $tblName;
+global $response; //declares the global variable $response
+global $tblName; //declares the global variable $tblName(table name)
 
+$response = [
+    "successful" => false,
+    "message" => "operation failed!"
+]; // initializes the $response array with default values indicating failure
+
+$tblName = "staff";// set the table name to "staff"
+
+/**
+ * Validates account information passed is valid and generates access token
+ * @param $jsonData - account information (username and password)
+ * @return array - response information with access token
+ */
+function login($jsonData): array
+{
     $response = [
         "successful" => false,
-        "message" => "operation failed!"
+        "message" => "login failed!"
     ];
 
-    $tblName = "staff";
+    try {
+        $data = json_decode($jsonData, true);// decode the JSON data into a PHP array
 
-    /** validates account information passed is valid and generates access token
-     * @param $request - account information (username and password)
-     * @return array - response information
-     */
-    function login($jsonData): array
-    {
-        $response = [
-            "successful" => false,
-            "message" => "login failed!"
-        ];
+        // extract email and password from the data array
+        $emailAddress = $data['email'];
+        $password = $data['password'];
 
-        try{
-            $data = json_decode($jsonData, true);
-            $emailAddress = $data['email'];
-            $password = $data['password'] ;
+        // validation: Checks if both email and password are not empty
+        if ((!empty($emailAddress)) && (!empty($password))) {
 
-            if((!empty($emailAddress)) && (!empty($password))){
-                $tblName = $GLOBALS['tblName'];
-                $result =fetchARecordWithOneWhereClause($tblName, 'email', $emailAddress);
-                if(!$result){
-                    return $response;
-                }
-                $data = $result->fetch();
-                $hashedPassword = $data['pword'];
+            $tblName = $GLOBALS['tblName'];// get the table name from the global scope
 
-                if(password_verify($password, $hashedPassword)){
+            $result = fetchARecordWithOneWhereClause($tblName, 'email', $emailAddress);
 
-                    $response["message"] = "login successful";
-                    $response["data"] = generateJwtToken($data);
-                    $response["successful"] = true;
-                }else{
-                    $response["message"] = "incorrect email or password";
-                }
+            // if no record is found, return the response indicating failure
+            if (!$result) {
+                return $response;
+            }
+
+
+            $data = $result->fetch();
+
+            $hashedPassword = $data['pword'];
+
+            //password verification: verify the provided password against the hashed password
+            if (password_verify($password, $hashedPassword)) {
+
+
+                $response["message"] = "login successful";
+                $response["data"] = generateJwtToken($data);// generate a JWT token and add it to the response data
+
+                $response["successful"] = true;
+
+            } else {
+                $response["message"] = "incorrect email or password";
 
             }
-        }catch(Throwable $th){
-            $response["message"] = $th->getMessage();
         }
-        return $response;
+    } catch (Throwable $th) {
+        $response["message"] = $th->getMessage();
     }
+    return $response;
 
-    /**
-     * Registers user information into the system's database
-     * @param $request - user information
-     * @return array - response information
-     */
-    function register($jsonData): array
-    {
-//        echo "inside register function";
-        $tblName = $GLOBALS["tblName"];
+}
 
-        $response = [
-            "successful" => false
-        ];
+/**
+ * Registers user information into the system's database
+ * @param $request - user information
+ * @return array - response information
+ */
+function register($jsonData): array
+{
+    $tblName = $GLOBALS["tblName"]; // get the table name from the global scope
 
-        try{
-            $data = json_decode($jsonData, true);
-//            echo "data: " . $data;
-            $fname = $data['firstName'];
-//            echo "fname: " . $fname;
-            $lname = $data["lastName"];
-            $email = $data["email"];
-            $password = $data["password"];
-            $confirmPassword = $data["confirmPassword"];
+    // initialize the response array with default registration failure
+    $response = [
+        "successful" => false
+    ];
 
-            //input field validation: check that compulsory fields are not empty.
-            if((!empty($email)) && (!empty($password)) && (!empty($confirmPassword))&& (!empty($fname)) && (!empty($lname))){
-//                echo "validation check done";
-                //check password is consistent
-                if(!($password === $confirmPassword)){
-                    $response['message'] = "Inconsistent Password";
-                    return $response;
-                }
 
-                //checks if user already exist
-                $result = fetchARecordWithOneWhereClause($tblName, "email",$email);
+    try {
+        $data = json_decode($jsonData, true);// decode the JSON data into a PHP array
 
-                if($result->rowCount()> 0){
-                    $response['message'] = "User already exists";
-                    return $response;
-                }
-                $hashedPassword = hashPassword($password);
-                $id = uniqid();
+        // extract user information from the data array
+        $fname = $data['firstName'];
+        $lname = $data["lastName"];
+        $email = $data["email"];
+        $password = $data["password"];
+        $confirmPassword = $data["confirmPassword"];
 
-                $data = [
-                    "id" => $id,
-                    "firstName" =>$fname,
-                    "lastName" =>$lname,
-                    "email" =>$email,
-                    "pword" => $hashedPassword,
-                    "dateCreated" => date("Y/m/d h:i:s"),
-                    "dateModified" => date("Y/m/d h:i:s")
-                ];
-//                echo "processed data: ". json_encode($data) ;
-                $result = insertRecord($tblName, $data);
-
-                if($result){
-                    $response['successful'] = true;
-                    $response['message'] = "registration successful";
-                }
+        // input field validation: check that compulsory fields are not empty
+        if ((!empty($email)) && (!empty($password)) && (!empty($confirmPassword)) && (!empty($fname)) && (!empty($lname))) {
+            // check password is consistent
+            if (!($password === $confirmPassword)) {
+                // if passwords do not match, set the message and return the response
+                $response['message'] = "Inconsistent Password";
+                return $response;
             }
-            else{
-                $response['message'] = "Fields can't be empty";
+
+            // check if user already exists
+            $result = fetchARecordWithOneWhereClause($tblName, "email", $email);
+            if ($result->rowCount() > 0) {
+                // if a record with the provided email exists, set the message and return the response
+                $response['message'] = "User already exists";
+                return $response;
+
             }
-        }catch(Throwable $th){
-            $response['message'] = $th->getMessage();
+
+            $hashedPassword = hashPassword($password);
+            $id = uniqid();// generate a unique ID for the user
+
+            $data = [
+                "id" => $id,
+                "firstName" => $fname,
+                "lastName" => $lname,
+                "email" => $email,
+                "pword" => $hashedPassword,
+                "dateCreated" => date("Y/m/d h:i:s"),
+                "dateModified" => date("Y/m/d h:i:s")
+            ];
+
+
+            $result = insertRecord($tblName, $data);
+
+            if ($result) {
+                // if the insert is successful, set the response to indicate success
+                $response['successful'] = true;
+                $response['message'] = "registration successful";
+
+            }
+        } else {
+            $response['message'] = "Fields can't be empty";
         }
-        return $response;
+    } catch (Throwable $th) {
+        $response['message'] = $th->getMessage();
     }
+    return $response;
+}
 
-    function hashPassword($pass): string
-    {
-        return password_hash($pass, PASSWORD_DEFAULT);
-    }
+/**
+ * a wrapper function that uses bcrypt algorithm to hash string text(usually password).
+ * @param $pass - password to be hashed
+ * @return string hashed password string
+ */
+function hashPassword($pass): string
+{
+    return password_hash($pass, PASSWORD_DEFAULT);
 
-
+}
 
 ?>
+

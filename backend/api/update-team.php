@@ -1,28 +1,27 @@
 <?php
 
-// Allow requests from any origin
-header("Access-Control-Allow-Origin: *");
-
-// Allow the following HTTP methods
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-
-// Allow the following headers in the request
-header("Access-Control-Allow-Headers: Content-Type");
-
-// Respond to preflight requests
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-    http_response_code(200);
-    exit();
-}
-
-    require_once '/Applications/XAMPP/xamppfiles/htdocs/internet_programming/task2/backend/service/team-mgt-service.php';
-    // Decode the JSON data into a PHP associative array
-    $jsonData = file_get_contents('php://input');
-    $headers = apache_request_headers();
+header("Access-Control-Allow-Origin: *");// allow requests from any origin
 
 
-    $response = updateTeam($jsonData, $headers);
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS"); // allow the following HTTP methods
 
-    header('Content-Type: application/json; charset-utf-8');
-    echo json_encode($response);
+
+header("Access-Control-Allow-Headers: Content-Type"); // allow the following headers in the request
+
+
+
+require_once '/Applications/XAMPP/xamppfiles/htdocs/internet_programming/task2/backend/service/team-mgt-service.php';// include the team management service file
+
+    $jsonData = file_get_contents('php://input');// decode the JSON data into a PHP associative array
+    $headers = apache_request_headers(); // get all request headers
+
+
+
+$response = updateTeam($jsonData, $headers); // call the updateTeam function with the JSON data and headers, storing the response
+
+
+header('Content-Type: application/json; charset-utf-8');// set the content type of the response to JSON with UTF-8 encoding
+
+echo json_encode($response);// encode the response array as a JSON string and output it
+
 ?>
