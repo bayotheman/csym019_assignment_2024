@@ -26,9 +26,13 @@ table {
     border-bottom: 1px solid rgb(230 230 230);
     background-color: #F5F5F5;
 }
-#checkButton, #club_col_header, #city_col_header, #manager_col_header,#president_col_header,
+#checkButton, #club_col_header, #city_col_header, #manager_col_header,#chairman_col_header,
 #established_col_header, #createdBy_col_header, #modifiedBy_col_header, #dateCreated_col_header, #dateModified_col_header{
     text-align: center;
+}
+
+#addTeamSubmit{
+    margin: 10px;
 }
 /*.chart {*/
 /*    width: 300px; !* Set your desired width here *!*/
@@ -125,3 +129,6 @@ footer {
     background-color: #555;
     color: whitesmoke;
 }
+
+
+

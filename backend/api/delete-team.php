@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     $headers = apache_request_headers();
 
 
-    $response = deleteTeam($headers);
+    $response = deleteTeams($headers, $jsonData);
 
     header('Content-Type: application/json; charset-utf-8');
     echo json_encode($response);

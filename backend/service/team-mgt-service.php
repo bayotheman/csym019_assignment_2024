@@ -46,6 +46,7 @@
                     return $response;
                 }
 
+                $points = ((3 * $data["won"]) + (1 * $data["drawn"]));
                 $data = [
                     "id" => uniqid(),
                     "name" =>$data["name"],
@@ -53,7 +54,6 @@
                     "manager" => $data["manager"],
                     "established" => $data["established"],
                     "president" => $data["president"],
-                    "noOfTrophies" => $data["noOfTrophies"],
                     "played" => $data["played"],
                     "won" => $data["won"],
                     "drawn" => $data["drawn"],
@@ -61,7 +61,8 @@
                     "gf" => $data["gf"],
                     "gd" => ($data["gf"] - $data["against"]),
                     "against" => $data["against"],
-                    "points" => $data["points"],
+                    "points" => $points,
+//                    "points" => $data["points"],
                     "createdBy" => $user,
                     "modifiedBy" => $user,
                     "dateCreated" => date("Y/m/d h:i:s"),
@@ -86,24 +87,19 @@
 
 
 
-    function isValidTeam($data){
+    function isValidTeam($data): bool
+    {
         $name = $data["name"];
-        $city = $data["city"];
         $manager = $data["manager"];
-        $established = $data["established"];
-        $president = $data["president"];
-        $noOfTrophies = $data["noOfTrophies"];
         $played = $data["played"];
         $won = $data["won"];
         $drawn = $data["drawn"];
         $lost = $data["lost"];
         $gf = $data["gf"];
         $against = $data["against"];
-        $gd = $data["gd"];
-        $points = $data["points"];
 
         return ((!empty($name)) && (!empty($manager)) && (!is_null($played)) && (!is_null($won)) &&
-            (!is_null($drawn)) && (!is_null($lost)) && (!is_null($gf)) && (!is_null($against)) && (!is_null($points)));
+            (!is_null($drawn)) && (!is_null($lost)) && (!is_null($gf)) && (!is_null($against)) );
     }
 
 
@@ -188,41 +184,80 @@
 
     }
 
-    function deleteTeam($headers): array
-    {
-        $response = [
-            "successful" => false
-        ];
-        $validate = validateJwt($headers);
-        if(!$validate["successful"]){
-            $response['message'] ="Unauthorized access";
-            return $response;
-        }
-
-        $tblName = $GLOBALS["tblName"];
-        $id = $headers["id"];
-        if(empty($id)){
-            $response['message'] ="invalid id specified";
-            return $response;
-        }
-        try{
-            $result = fetchARecordWithOneWhereClause($tblName, "name",$id);
-            if($result->rowCount() == 0){
-                $response['message'] = "Team doesn't exist";
-                return $response;
-            }
-            $result = deleteRecord($tblName, "name", $id);
-            if($result){
-                $response["successful"] = true;
-                $response["message"] = "Successful deleted";
-            }
-
-        }catch (Throwable $th){
-            $response['message'] = $th->getMessage();
-        }
-
+function deleteTeams($headers, $jsonData): array
+{
+    $response = [
+        "successful" => false
+    ];
+    $validate = validateJwt($headers);
+    if(!$validate["successful"]){
+        $response['message'] ="Unauthorized access";
         return $response;
     }
+    $data = json_decode($jsonData, true);
+
+    $tblName = $GLOBALS["tblName"];
+    $id = $headers["id"];
+//    if(empty($id)){
+//        $response['message'] ="invalid id specified";
+//        return $response;
+//    }
+    try{
+//        $result = fetchARecordWithOneWhereClause($tblName, "name",$id);
+//        if($result->rowCount() == 0){
+//            $response['message'] = "Team doesn't exist";
+//            return $response;
+//        }
+        for($i = 0; $i < count($data["teams"]); $i++){
+            deleteRecord($tblName, "name", $data["teams"][$i]);
+        }
+//        $result = deleteRecord($tblName, "name", $id);
+//        if($result){
+            $response["successful"] = true;
+            $response["message"] = "Successful deleted";
+//        }
+
+    }catch (Throwable $th){
+        $response['message'] = $th->getMessage();
+    }
+
+    return $response;
+}
+//    function deleteTeam($headers): array
+//    {
+//        $response = [
+//            "successful" => false
+//        ];
+//        $validate = validateJwt($headers);
+//        if(!$validate["successful"]){
+//            $response['message'] ="Unauthorized access";
+//            return $response;
+//        }
+//
+//        $tblName = $GLOBALS["tblName"];
+//        $id = $headers["id"];
+//        if(empty($id)){
+//            $response['message'] ="invalid id specified";
+//            return $response;
+//        }
+//        try{
+//            $result = fetchARecordWithOneWhereClause($tblName, "name",$id);
+//            if($result->rowCount() == 0){
+//                $response['message'] = "Team doesn't exist";
+//                return $response;
+//            }
+//            $result = deleteRecord($tblName, "name", $id);
+//            if($result){
+//                $response["successful"] = true;
+//                $response["message"] = "Successful deleted";
+//            }
+//
+//        }catch (Throwable $th){
+//            $response['message'] = $th->getMessage();
+//        }
+//
+//        return $response;
+//    }
 
     function fetchAllTeams($header): array
     {

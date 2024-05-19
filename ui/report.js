@@ -1,42 +1,31 @@
 document.addEventListener('DOMContentLoaded', registerEvents);
-window.onpopstate = pop;
 reportData = {};
 function registerEvents(){
-        createReport();
-        // let addTeamButton = document.getElementById('addTeamSubmit');
-        // console.log("addTeamButton: ");  console.log(addTeamButton);
-        // addTeamButton.addEventListener('click', addTeam);
-        // let createReportButton =  document.getElementById('createReportSubmit');
-        // createReportButton.addEventListener('click', createReport);
+    authorization()
+    createReport();
 }
 
-function pop(){
-    console.log("pop method"); console.log("data: "); console.log(reportData);
-    sessionStorage.setItem("data", JSON.stringify(reportData));
+function authorization() {
+    let token = sessionStorage.getItem("token");
+    console.log("token: ");
+    console.log(token);
+    if (token === null) {
+        window.location.href = "login.html";
+    }
 }
 
 function createReport(){
-    // event.preventDefault();
-    // window.location.href = "sampleReport.html";
-    console.log("inside createReport()");
-    console.log("report data");
-    // let checkedValues = JSON.parse(sessionStorage.getItem('data'));
-    // reportData = checkedValues;
-    // console.log(checkedValues);
-    // // console.log("session token: ");
-    // // console.log(sessionStorage.getItem("token"));
-
     let container = document.getElementById('reportContainer');
-    // let container = document.createElement('div');
-
-    console.log("container: "); console.log(container);
     createReportHelper(container);
-
 }
 function createReportHelper(container){
     console.log("inside createReport()")
     let data = getReportData();
-    // let container= getHtmlMainContainer();
+    data.sort((a, b) => {
+        if (a.points < b.points) return 1;
+        if (a.points > b.points) return -1;
+        return a.gd < b.gd ? 1 : (a.gd > b.gd ? -1 : 0);
+    });
     let table = createTable(data);
     let pieChart = createPieChart(data);
     container.appendChild(table);
@@ -44,8 +33,6 @@ function createReportHelper(container){
     if(data.length > 1){
         container.appendChild(createBarChart(data));
     }
-
-
 
 }
 
@@ -55,131 +42,15 @@ function createReportHelper(container){
 
 function getReportData(){
     console.log("inside getReportData()");
-    // let data = JSON.parse(sessionStorage.getItem("data"));
     console.log("report data");
-    let checkedValues = JSON.parse(sessionStorage.getItem('data'));
-    reportData = checkedValues;
-    // let data = JSON.parse(sessionStorage.getItem("data"));
-    console.log(checkedValues);
-    return Object.values(checkedValues);
-    // return Object.values(data);
+    let checkedValues = JSON.parse(localStorage.getItem('data'));
 
-    //get input from table selection
-    // let input = getInputFromTableSelection()
-    // return [
-    //     {
-    //         "name": "Manchester City",
-    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-    //         "played": 10,
-    //         "won": 7,
-    //         "drawn": 1,
-    //         "lost": 2,
-    //         "gf": 10,
-    //         "ga": 2,
-    //         "gd": 8,
-    //         "points": 22
-    //     }
-    //     ,
-    //     {
-    //         "name": "Liverpool",
-    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-    //         "played": 10,
-    //         "won": 7,
-    //         "drawn": 1,
-    //         "lost": 2,
-    //         "gf": 10,
-    //         "ga": 2,
-    //         "gd": 8,
-    //         "points": 22
-    //     },
-    //     {
-    //         "name": "Manchester United",
-    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-    //         "played": 10,
-    //         "won": 5,
-    //         "drawn": 3,
-    //         "lost": 2,
-    //         "gf": 6,
-    //         "ga": 4,
-    //         "gd": 2,
-    //         "points": 18
-    //     },
-    //     {
-    //         "name": "Chelsea",
-    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-    //         "played": 10,
-    //         "won": 5,
-    //         "drawn": 3,
-    //         "lost": 2,
-    //         "gf": 6,
-    //         "ga": 4,
-    //         "gd": 2,
-    //         "points": 18
-    //     },
-    //     {
-    //         "name": "Manchester City",
-    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-    //         "played": 10,
-    //         "won": 7,
-    //         "drawn": 1,
-    //         "lost": 2,
-    //         "gf": 10,
-    //         "ga": 2,
-    //         "gd": 8,
-    //         "points": 22
-    //     }
-    //     ,
-    //     {
-    //         "name": "Liverpool",
-    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-    //         "played": 10,
-    //         "won": 7,
-    //         "drawn": 1,
-    //         "lost": 2,
-    //         "gf": 10,
-    //         "ga": 2,
-    //         "gd": 8,
-    //         "points": 22
-    //     },
-    //     {
-    //         "name": "Manchester United",
-    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-    //         "played": 10,
-    //         "won": 5,
-    //         "drawn": 3,
-    //         "lost": 2,
-    //         "gf": 6,
-    //         "ga": 4,
-    //         "gd": 2,
-    //         "points": 18
-    //     },
-    //     {
-    //         "name": "Chelsea",
-    //         "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-    //         "played": 10,
-    //         "won": 5,
-    //         "drawn": 3,
-    //         "lost": 2,
-    //         "gf": 6,
-    //         "ga": 4,
-    //         "gd": 2,
-    //         "points": 18
-    //     }
-    //     // ,
-    //     // {
-    //     //     "name": "Totteham Hotspur",
-    //     //     "logo": "https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg",
-    //     //     "played": 10,
-    //     //     "won": 5,
-    //     //     "drawn": 3,
-    //     //     "lost": 2,
-    //     //     "gf": 6,
-    //     //     "ga": 4,
-    //     //     "gd": 2,
-    //     //     "points": 18
-    //     // }
-    //
-    // ];
+    console.log(checkedValues);
+    if(checkedValues === null){
+        return [];
+    }
+
+    return Object.values(checkedValues);
 }
 
 function createTableStructure() {
@@ -189,13 +60,11 @@ function createTableStructure() {
 
     let thead = document.createElement("thead");
     thead.setAttribute("id", "table_head");
-    // thead.setAttribute("style", "text-align:left")
     table.append(thead);
 
     thead.innerHTML =
         '            <tr>\n' +
         '                <th scope="col" id="position_col_header" style="text-align: center">Position</th>\n' +
-        // '                <th scope="col" id="logo_col_header"></th>\n' +
         '                <th scope="col" id="team_col_header" style="text-align: left">Team</th>\n' +
         '                <th scope="col" id="played_col_header" style="text-align: center">Played</th>\n' +
         '                <th scope="col" id="won_col_header" style="text-align: center">Won</th>\n' +
@@ -205,7 +74,6 @@ function createTableStructure() {
         '                <th scope="col" id="against_col_header" style="text-align: center">Against</th>\n' +
         '                <th scope="col" id="gd_col_header" style="text-align: center">GD</th>\n' +
         '                <th scope="col" id="points_col_header" style="text-align: center">Points</th>\n' +
-        // '                <th scope="col" id="form_col_header">Form</th>\n' +
         '            </tr>';
     return table;
 }
@@ -296,15 +164,11 @@ function createTableEntry(rowIndex, data){
 }
 function createSinglePieChart(dataItem){
     let div = document.createElement('div');
-    // let h6 = document.createElement('h6');
     let title =` ${dataItem.name} Stats`;
     div.setAttribute("class", "container");
     div.setAttribute("style", "width:300px; height:300px; margin:30px;  text-align:center");
     let ctx = document.createElement('canvas');
     ctx.setAttribute("class", "chart");
-    // let br = document.createElement('br');
-    // div.append(br);
-    // div.append(h6);
     div.append(ctx);
 
     let won = dataItem['won'];

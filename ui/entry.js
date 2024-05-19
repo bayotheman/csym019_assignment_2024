@@ -1,11 +1,20 @@
 document.addEventListener('DOMContentLoaded', registerEvents);
-let url = "http://localhost/task2/backend/api/add-team.php";
-
+let url = "http://localhost/internet_programming/task2/backend/api/add-team.php";
+// window.onfocus= authenticate
 function registerEvents(){
+    authenticate();
     let addTeamSubmit = document.getElementById("addTeamSubmit");
     addTeamSubmit.addEventListener('click', addTeam);
 }
-
+function authenticate(){
+    event.preventDefault();
+    let token = sessionStorage.getItem("token");
+    console.log("token: ");
+    console.log(token);
+    if (token === null) {
+        window.location.href = "login.html";
+    }
+}
 function addTeam(event){
     event.preventDefault();
     let payload = getPayloadFromForm();
@@ -40,7 +49,7 @@ function getPayloadFromForm(){
     let lost = document.getElementById("lostInput").value;
     let gf = document.getElementById("gfInput").value;
     let ga = document.getElementById("gaInput").value;
-    let points = document.getElementById("pointsInput").value;
+    // let points = document.getElementById("pointsInput").value;
 
     return {
         "name":name,
@@ -54,8 +63,8 @@ function getPayloadFromForm(){
         "drawn":drawn,
         "lost":lost,
         "gf":gf,
-        "against":ga,
-        "points":points
+        "against":ga
+        // "points":points
     }
 }
 

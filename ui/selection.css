@@ -1,4 +1,3 @@
-
 @import "layout.css";
 
 
@@ -10,7 +9,7 @@
     border-top: 1px solid rgb(130 130 130);
     background-color: #F5F5F5;
 }
-#checkButton, #club_col_header, #city_col_header, #manager_col_header,#president_col_header,
+#checkButton, #club_col_header, #city_col_header, #manager_col_header,#chairman_col_header,
 #established_col_header, #createdBy_col_header, #modifiedBy_col_header, #dateCreated_col_header, #dateModified_col_header{
     text-align: center;
 }
@@ -19,6 +18,89 @@
     padding: 10px 0 5px 0;
     margin:  0 0 20px 0;
 }
+
+/**
+Pop up design rule
+ */
+
+#openPopup {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#openPopup:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for the overlay */
+#overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+}
+
+/* Styles for the popup */
+#popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*positions the form to the center of the screen*/
+    width: 500px;
+    background-color: white;
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);*/
+    border-radius: 10px;
+    z-index: 1000;
+    text-align: center;
+    padding: 20px;
+}
+
+#popup p {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+#popup button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#yesButton {
+    background-color: #28a745;
+    color: white;
+}
+
+#yesButton:hover {
+    background-color: #218838;
+}
+
+#noButton {
+    background-color: #dc3545;
+    color: white;
+}
+
+#noButton:hover {
+    background-color: #c82333;
+}
+
+/**
+table design rule
+ */
 #table_container{
     padding: 0 15px 10px 0;
 
