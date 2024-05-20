@@ -1,2 +1,0 @@
-insert into league.staff (id, firstName, lastName, email, pword, dateCreated, dateModified) values ('664a6cfe2fe37', 'Adebayo', 'Okutubo', 'adebayookutubo@gmail.com', '$2y$10$9Ay1/374WS6rRKNE4ZPJ3OP3SBl4OuEFgfyRQN5ZMO0wHQmKOYyMe', '2024/05/19 11:19:58', '2024/05/19 11:19:58');
-insert into league.staff (id, firstName, lastName, email, pword, dateCreated, dateModified) values ('664a6ea332df6', 'Michael', 'Richards', 'mrichards@yahoo.com', '$2y$10$jzr6oMObutBTSGFZwccAtuO4gUt.J5Ej.0i61T0V5aA1ODXK7nJWS', '2024/05/19 11:26:59', '2024/05/19 11:26:59');
