@@ -1,10 +1,20 @@
 document.addEventListener('DOMContentLoaded', registerEvents);
-reportData = {};
+
+reportData = {};// Initialize an empty object to store report data
+
+/**
+ * Registers the event handlers after the DOM is loaded.
+ */
 function registerEvents(){
     authorization()
     createReport();
 }
 
+
+/**
+ * Checks for a valid token in session storage to authorize the user.
+ * If not found, redirects to the login page.
+ */
 function authorization() {
     let token = sessionStorage.getItem("token");
     console.log("token: ");
@@ -14,10 +24,19 @@ function authorization() {
     }
 }
 
+/**
+ * Fetches report data and initializes the report generation process.
+ */
 function createReport(){
     let container = document.getElementById('reportContainer');
     createReportHelper(container);
 }
+
+
+/**
+ * Helper function to create the report content, including tables and charts.
+ * @param {HTMLElement} container - The container element where the report will be displayed.
+ */
 function createReportHelper(container){
     console.log("inside createReport()")
     let data = getReportData();
@@ -40,12 +59,13 @@ function createReportHelper(container){
 
 //Report Generation
 
-function getReportData(){
-    console.log("inside getReportData()");
-    console.log("report data");
-    let checkedValues = JSON.parse(localStorage.getItem('data'));
 
-    console.log(checkedValues);
+/**
+ * Retrieves report data from local storage.
+ * @returns {Array} An array of report data objects, or an empty array if no data is found.
+ */
+function getReportData(){
+    let checkedValues = JSON.parse(localStorage.getItem('data'));
     if(checkedValues === null){
         return [];
     }
@@ -53,6 +73,11 @@ function getReportData(){
     return Object.values(checkedValues);
 }
 
+
+/**
+ * Creates the basic structure of the table element, including the header row.
+ * @returns {HTMLTableElement} The created table element.
+ */
 function createTableStructure() {
     let table = document.createElement("table");
     table.setAttribute("style", "padding:5px; margin:5px");
@@ -79,7 +104,11 @@ function createTableStructure() {
 }
 
 
-
+/**
+ * Creates the report table and wraps it in a div container.
+ * @param {Array} data - The data to be displayed in the table.
+ * @returns {HTMLDivElement} The div element containing the table.
+ */
 function createTable(data){
     let div = document.createElement('div');
     div.setAttribute("style", "padding:20px; display:flex; align-item:center");
@@ -92,6 +121,12 @@ function createTable(data){
     return div;
 }
 
+
+/**
+ * Creates a pie chart container with individual pie charts for each data item.
+ * @param {Array} data - The data to be represented in the pie charts.
+ * @returns {HTMLDivElement} The div element containing the pie charts.
+ */
 function createPieChart(data){
     let div = document.createElement('div');
     div.setAttribute("class", "container");
@@ -106,6 +141,13 @@ function createPieChart(data){
     return div;
 }
 
+
+/**
+ * Creates a table row element (tr) representing a single entry in the report table.
+ * @param {number} rowIndex - The index of the row in the table.
+ * @param {Object} data - The data object for the table entry.
+ * @returns {HTMLTableRowElement} The created table row element.
+ */
 function createTableEntry(rowIndex, data){
         let tableEntry = data;
         let tableRow = document.createElement("tr");
@@ -162,6 +204,12 @@ function createTableEntry(rowIndex, data){
     return tableRow;
 
 }
+
+/**
+ * Creates a pie chart to visualize the statistics of a single team.
+ * @param {Object} dataItem - An object containing the team's statistics (won, lost, drawn, played).
+ * @returns {HTMLDivElement} - A div element containing the created pie chart.
+ */
 function createSinglePieChart(dataItem){
     let div = document.createElement('div');
     let title =` ${dataItem.name} Stats`;
@@ -214,6 +262,14 @@ function createSinglePieChart(dataItem){
     return div;
 
 }
+
+
+
+/**
+ * Creates a bar chart to compare the statistics of multiple teams.
+ * @param {Array} dataset - The data array containing team statistics.
+ * @returns {HTMLDivElement} - The div element containing the created bar chart.
+ */
 function createBarChart(dataset){
     let div = document.createElement('div');
     div.setAttribute("id", "container");
@@ -303,11 +359,12 @@ function createBarChart(dataset){
 
 }
 
-function getHtmlMainContainer(){
-    // return document.getElementsByTagName('main');
-    return document.getElementById('reportContainer');
 
-}
+
+
+
+
+
 
 
 
