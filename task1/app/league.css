@@ -1,0 +1,471 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+#top-level-header-layer-1 h1{
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    padding: 20px 0 20px 0;
+    margin: 10px 10px 0 50px;
+    height: 80px;
+}
+
+#top-level-header-layer-1{
+    background-color: #FFD700;
+    border-color: #DAA520;
+
+    border-bottom-style: double;
+}
+
+#top-level-header-layer-2{
+    background-color: #FFD700;
+    border-top-color: black;
+}
+
+#top-level-header-layer-2 div{
+    font-weight: normal;
+    color: #000000;
+    background-color: #FFD700;
+    border-color: #DAA520;
+    padding: 5px 0 5px 0;
+    margin: 0 10px 0 50px;
+}
+
+
+#top-level-header-lower-banner{
+    color: white;
+    padding: 5px 0 5px 50px;
+    background-color: #000000;
+}
+
+
+
+h2 {
+    text-align: left;
+    margin: 20px;
+    color: #000;
+    font-weight: bolder;
+}
+
+
+#league_table_div {
+    padding: 40px;
+    margin: 10px;
+
+}
+
+#table_title{
+    font-size: xx-large;
+    color: #000;
+    padding: 0;
+    margin: 10px 0 20px 0;
+    font-weight: bolder;
+}
+
+
+/* table size  adjustment rule*/
+table {
+    width: 100%;
+    /*align-items: center;*/
+    border-collapse: collapse;
+}
+
+#league_table{
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    /*align-content: center;*/
+}
+
+    /*table header rules*/
+#table_head{
+    border-bottom: 1px solid rgb(230 230 230);
+    background-color: #F5F5F5;
+}
+
+#position_col_header{
+    text-align: center;
+}
+#logo_col_header{
+    text-align: center;
+}
+#team_col_header{
+    text-align: left;
+}
+#played_col_header{
+    text-align: center;
+}
+#won_col_header{
+    text-align: center;
+}
+#drawn_col_header{
+    text-align: center;
+}
+#lost_col_header{
+    text-align: center;
+}
+#for_col_header{
+    text-align: center;
+}
+#against_col_header{
+    text-align: center;
+}
+#gd_col_header{
+    text-align: center;
+}
+#points_col_header{
+    text-align: center;
+}
+#form_col_header{
+    text-align: center;
+
+}
+
+
+/* table column rules*/
+.position{
+    text-align: center;
+    color: black;
+
+}
+.logo{
+    text-align: left;
+}
+.image {
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+.team{
+    text-align:left;
+    overflow: hidden;
+    color: black;
+}
+
+.matches_played{
+    text-align: center;
+    color:#444444 ;
+
+}
+.won{
+    text-align: center;
+    color: #444444;
+}
+.drawn{
+    text-align: center;
+    color: #444444;
+}
+.lost{
+    text-align: center;
+    color: #444444;
+}
+
+.for{
+    text-align: center;
+    color: #444444;
+}
+.against{
+    text-align: center;
+    color: #444444;
+}
+.gd {
+    text-align: center;
+    color:  #444444;
+}
+.points{
+    font-size: x-large;
+    text-align:center;
+    color: black;
+}
+
+
+.form {
+    justify-content: space-around;
+}
+
+.form_structure {
+    display: flex;
+    align-content: start;
+}
+
+.form_tag {
+    width: 25px;
+    height: 25px;
+    margin: 1px;
+    display: inline-block;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+}
+
+.form_tag.win {
+    background-color: forestgreen;
+}
+
+
+.form_tag.draw {
+    background-color: dimgray;
+}
+
+.form_tag.lose {
+    background-color: red;
+}
+
+
+
+
+
+
+
+
+footer {
+        background-color: #000000;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+
+
+
+
+
+td {
+    padding: 4px;
+    /*text-align: left;*/
+    border-bottom: 1px solid #ddd;
+}
+
+/* table head design rule*/
+th{
+    text-align: end;
+    font-size: small;
+    padding: 10px;
+    margin: 50px;
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
+
+
+
+/* table row hover rule*/
+tr:hover {
+    background-color: #ddd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif; /* Set the default font family */
+    background-color: #f5f5f5; /* Light grey background color */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Styling for the first layer of the top-level header */
+#top-level-header-layer-1 h1 {
+    text-align: left; /* Align text to the left */
+    font-weight: bold; /* Make the text bold */
+    color: #000000; /* Black text color */
+    padding: 20px 0; /* Padding above and below the text */
+    margin: 10px 10px 0 50px; /* Margin on top and sides */
+    height: 80px; /* Fixed height for the header */
+}
+
+/* Container styling for the first layer of the top-level header */
+#top-level-header-layer-1 {
+    background-color: #FFD700; /* Gold background color */
+    border-color: #DAA520; /* Goldenrod border color */
+    border-bottom-style: double; /* Double border at the bottom */
+}
+
+/* Container styling for the second layer of the top-level header */
+#top-level-header-layer-2 {
+    background-color: #FFD700; /* Gold background color */
+    border-top-color: black; /* Black top border color */
+}
+
+/* Styling for div elements within the second layer of the top-level header */
+#top-level-header-layer-2 div {
+    font-weight: normal; /* Normal font weight */
+    color: #000000; /* Black text color */
+    background-color: #FFD700; /* Gold background color */
+    border-color: #DAA520; /* Goldenrod border color */
+    padding: 5px 0; /* Padding above and below the text */
+    margin: 0 10px 0 50px; /* Margin on sides */
+}
+
+/* Styling for the lower banner of the top-level header */
+#top-level-header-lower-banner {
+    color: white; /* White text color */
+    padding: 5px 0 5px 50px; /* Padding and left margin */
+    background-color: #000000; /* Black background color */
+}
+
+/* General styling for h2 headers */
+h2 {
+    text-align: left; /* Align text to the left */
+    margin: 20px; /* Margin around the header */
+    color: #000; /* Black text color */
+    font-weight: bolder; /* Extra bold text */
+}
+
+/* Styling for the league table container */
+#league_table_div {
+    padding: 40px; /* Padding around the container */
+    margin: 10px; /* Margin around the container */
+}
+
+/* Styling for the table title */
+#table_title {
+    font-size: xx-large; /* Extra extra large font size */
+    color: #000; /* Black text color */
+    padding: 0; /* No padding */
+    margin: 10px 0 20px 0; /* Margin on top and bottom */
+    font-weight: bolder; /* Extra bold text */
+}
+
+/* General table styling */
+table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Collapse borders */
+}
+
+/* Styling for the league table */
+#league_table {
+    background-color: white; /* White background color */
+    border-collapse: collapse; /* Collapse borders */
+    border-spacing: 0; /* No border spacing */
+}
+
+/* Styling for the table header */
+#table_head {
+    border-bottom: 1px solid rgb(230, 230, 230); /* Light grey bottom border */
+    background-color: #F5F5F5; /* Light grey background color */
+}
+
+/* Text alignment for specific table headers */
+#position_col_header {
+    text-align: center; /* Center text */
+}
+#logo_col_header {
+    text-align: center; /* Center text */
+}
+#team_col_header {
+    text-align: left; /* Left align text */
+}
+#played_col_header, #won_col_header, #drawn_col_header, #lost_col_header, #for_col_header, #against_col_header, #gd_col_header, #points_col_header, #form_col_header {
+    text-align: center; /* Center text for all these headers */
+}
+
+/* Styling for table columns */
+.position {
+    text-align: center; /* Center text */
+    color: black; /* Black text color */
+}
+.logo {
+    text-align: left; /* Left align text */
+}
+.image {
+    width: 25px; /* Set width */
+    height: 25px; /* Set height */
+    display: block; /* Display as block */
+}
+.team {
+    text-align: left; /* Left align text */
+    overflow: hidden; /* Hide overflow text */
+    color: black; /* Black text color */
+}
+.matches_played, .won, .drawn, .lost, .for, .against, .gd {
+    text-align: center; /* Center text */
+    color: #444444; /* Dark grey text color */
+}
+.points {
+    font-size: x-large; /* Extra large font size */
+    text-align: center; /* Center text */
+    color: black; /* Black text color */
+}
+
+/* Form styling */
+.form {
+    justify-content: space-around; /* Space out content */
+}
+.form_structure {
+    display: flex; /* Display as flex */
+    align-content: start; /* Align content at the start */
+}
+.form_tag {
+    width: 25px; /* Set width */
+    height: 25px; /* Set height */
+    margin: 1px; /* Margin around tags */
+    display: inline-block; /* Display as inline-block */
+    text-align: center; /* Center text */
+    line-height: 25px; /* Center text vertically */
+    color: white; /* White text color */
+}
+.form_tag.win {
+    background-color: forestgreen; /* Green background for wins */
+}
+.form_tag.draw {
+    background-color: dimgray; /* Grey background for draws */
+}
+.form_tag.lose {
+    background-color: red; /* Red background for losses */
+}
+
+/* Footer styling */
+footer {
+    background-color: #000000; /* Black background color */
+    color: #fff; /* White text color */
+    padding: 20px; /* Padding around the footer */
+    text-align: center; /* Center text */
+}
+
+/* Table cell styling */
+td {
+    padding: 4px; /* Padding inside cells */
+    border-bottom: 1px solid #ddd; /* Light grey bottom border */
+}
+
+/* Table header styling */
+th {
+    text-align: end; /* Right align text */
+    font-size: small; /* Small font size */
+    padding: 10px; /* Padding inside headers */
+    margin: 50px; /* Margin around headers */
+    font-weight: bold; /* Bold text */
+    background-color: #f2f2f2; /* Light grey background color */
+}
+
+/* Table row hover effect */
+tr:hover {
+    background-color: #ddd; /* Light grey background color on hover */
+}
+
+/* Unordered list styling */
+ul {
+    display: flex; /* Display as flex */
+    align-content: start; /* Align content at the start */
+}

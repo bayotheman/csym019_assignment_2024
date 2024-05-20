@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title":"Premier League ",
+  "description":"Premier League table, fixtures & scores and top scorer information",
+  "type": "object",
+  "properties": {
+    "teams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "logo": {
+            "type": "string"
+          },
+          "played": {
+            "type": "number"
+          },
+          "won": {
+            "type": "number"
+          },
+          "drawn": {
+            "type": "number"
+          },
+          "lost": {
+            "type": "number"
+          },
+          "gf": {
+            "type": "number"
+          },
+          "ga": {
+            "type": "number"
+          },
+          "gd": {
+            "type": "number"
+          },
+          "points": {
+            "type": "number"
+          },
+          "form": {
+            "type": "array",
+            "items": {}
+          },
+          "players": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "goals": {
+                  "type": "number"
+                },
+                "assists": {
+                  "type": "number"
+                },
+                "played": {
+                  "type": "number"
+                },
+                "goals_per_90": {
+                  "type": "number"
+                },
+                "total_minutes_played": {
+                  "type": "number"
+                },
+                "total_shots": {
+                  "type": "number"
+                },
+                "shots_on_target": {
+                  "type": "number"
+                },
+                "goal_conversion": {
+                  "type": "number"
+                },
+                "shot_accuracy": {
+                  "type": "number"
+                }
+              }
+
+            }
+          }
+        }
+      }
+    },
+    "fixtures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "month": {
+            "type": "string"
+          },
+          "home_team": {
+            "type": "string"
+          },
+          "away_team": {
+            "type": "string"
+          },
+          "home_goals": {
+            "type": "number"
+          },
+          "away_goals": {
+            "type": "number"
+          },
+          "home_team_players_stats": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "goals": {
+                  "type": "number"
+                },
+                "assists": {
+                  "type": "number"
+                },
+                "goals_in_90": {
+                  "type": "number"
+                },
+                "total_shots": {
+                  "type": "number"
+                },
+                "minutes_played": {
+                  "type": "number"
+                },
+                "shots_on_target": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "away_team_players_stats": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "goals": {
+                  "type": "number"
+                },
+                "assists": {
+                  "type": "number"
+                },
+                "goals_in_90": {
+                  "type": "number"
+                },
+                "minutes_played": {
+                  "type": "number"
+                },
+                "total_shots": {
+                  "type": "number"
+                },
+                "shots_on_target": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
