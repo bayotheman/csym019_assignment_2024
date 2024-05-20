@@ -115,7 +115,6 @@ table design rule
 
 td {
     padding: 4px;
-    /*text-align: left;*/
     border-bottom: 1px solid #ddd;
 }
 
@@ -127,7 +126,6 @@ th{
     margin: 50px;
     font-weight: bold;
     background-color: #f2f2f2;
-    /*-webkit-font-smoothing: antialiased;*/
 }
 #createReportSubmit{
     margin: 10px;
@@ -141,7 +139,6 @@ th{
 }
 tr{
     font-size: 0.85em;
-    /*font-weight: lighter;*/
     color: #000000;
 }
 #createReportForm{
@@ -152,12 +149,6 @@ tr{
 tr:hover {
     background-color: #ddd;
 }
-
-/*ul{*/
-/*    display: flex;*/
-/*    align-content: start;*/
-/*    !*align-items: start;*!*/
-/*}*/
 
 
 

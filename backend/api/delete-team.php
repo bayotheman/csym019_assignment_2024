@@ -1,20 +1,15 @@
 <?php
-// Allow requests from any origin
-header("Access-Control-Allow-Origin: *");
 
-// Allow the following HTTP methods
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Origin: *");// Allow requests from any origin
 
-// Allow the following headers in the request
-header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");// Allow the following HTTP methods
 
-// Respond to preflight requests
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-    http_response_code(200);
-    exit();
-}
-    require_once '/Applications/XAMPP/xamppfiles/htdocs/internet_programming/task2/backend/service/team-mgt-service.php';
-    // Decode the JSON data into a PHP associative array
+
+header("Access-Control-Allow-Headers: Content-Type");// Allow the following headers in the request
+
+
+    require_once '/Applications/XAMPP/xamppfiles/htdocs/internet_programming/task2/backend/service/team-mgt-service.php'; //include team management service file for team management operations
+
     $jsonData = file_get_contents('php://input');
     $headers = apache_request_headers();
 

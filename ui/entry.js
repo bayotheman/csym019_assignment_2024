@@ -1,12 +1,21 @@
-document.addEventListener('DOMContentLoaded', registerEvents);
-let url = "http://localhost/internet_programming/task2/backend/api/add-team.php";
-// window.onfocus= authenticate
-function registerEvents(){
-    authenticate();
+document.addEventListener('DOMContentLoaded', registerEvents); //calls the registerEvents function after the DOM has been loaded by the browser
+let url = "http://localhost/internet_programming/task2/backend/api/add-team.php"; //url for adding new teams to the system
+
+/**
+ * A function that registers events and calls other initialization function
+ */
+function registerEvents(event){
+    authenticate(event);
     let addTeamSubmit = document.getElementById("addTeamSubmit");
     addTeamSubmit.addEventListener('click', addTeam);
 }
-function authenticate(){
+
+
+/**
+ * a function that authenticates user based on the presence of a session token issue by the backend
+ * @param event DOM event
+ */
+function authenticate(event){
     event.preventDefault();
     let token = sessionStorage.getItem("token");
     console.log("token: ");
@@ -15,8 +24,9 @@ function authenticate(){
         window.location.href = "login.html";
     }
 }
-function addTeam(event){
-    event.preventDefault();
+
+
+function addTeam(){
     let payload = getPayloadFromForm();
     let token = sessionStorage.getItem('token');
     if(token ===null){
@@ -30,12 +40,17 @@ function addTeam(event){
     let messageDiv = document.getElementById("messageBoard");
     messageDiv.innerText = response.message;
     if(response.successful){
+        window.location.reload();
         messageDiv.style.color = "#006400";
     }else{
         messageDiv.style.color = "#FF0000";
     }
 
 }
+/**
+ * Function to get the payload data from the form
+ * @return Object containing form data
+ */
 
 function getPayloadFromForm(){
     let name = document.getElementById("nameInput").value;
@@ -68,6 +83,14 @@ function getPayloadFromForm(){
     }
 }
 
+/**
+ * Function to make a call to the server
+ * @param url URL to which the request is made
+ * @param payload Data to be sent in the request
+ * @param headers Headers to be included in the request
+ * @return Object containing the response from the server
+ */
+
 function callToServer(url, payload, headers) {
     let response = {
         successful: false,
@@ -94,3 +117,10 @@ function callToServer(url, payload, headers) {
 
     return response;
 }
+
+
+
+
+
+
+

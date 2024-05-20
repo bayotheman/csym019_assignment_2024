@@ -141,9 +141,7 @@
                 if(!is_null($data["president"])){
                     $dbData["president"] = $data["president"];
                 }
-                if(!is_null($data["noOfTrophies"])){
-                    $dbData["noOfTrophies"] = $data["noOfTrophies"];
-                }
+
                 if(!is_null($data["played"])){
                     $dbData["played"] = $data["played"];
                 }
@@ -223,41 +221,7 @@ function deleteTeams($headers, $jsonData): array
 
     return $response;
 }
-//    function deleteTeam($headers): array
-//    {
-//        $response = [
-//            "successful" => false
-//        ];
-//        $validate = validateJwt($headers);
-//        if(!$validate["successful"]){
-//            $response['message'] ="Unauthorized access";
-//            return $response;
-//        }
-//
-//        $tblName = $GLOBALS["tblName"];
-//        $id = $headers["id"];
-//        if(empty($id)){
-//            $response['message'] ="invalid id specified";
-//            return $response;
-//        }
-//        try{
-//            $result = fetchARecordWithOneWhereClause($tblName, "name",$id);
-//            if($result->rowCount() == 0){
-//                $response['message'] = "Team doesn't exist";
-//                return $response;
-//            }
-//            $result = deleteRecord($tblName, "name", $id);
-//            if($result){
-//                $response["successful"] = true;
-//                $response["message"] = "Successful deleted";
-//            }
-//
-//        }catch (Throwable $th){
-//            $response['message'] = $th->getMessage();
-//        }
-//
-//        return $response;
-//    }
+
 
     function fetchAllTeams($header): array
     {
@@ -299,7 +263,6 @@ function deleteTeams($headers, $jsonData): array
             "city" =>$data['city'],
             "manager" =>$data['manager'],
             "president" => $data['president'],
-            "noOfTrophies" => $data['noOfTrophies'],
             "established" => $data['established'],
             "played" => $data['played'],
             "won" => $data['won'],
@@ -318,3 +281,11 @@ function deleteTeams($headers, $jsonData): array
     }
 
 ?>
+
+
+
+
+
+
+
+

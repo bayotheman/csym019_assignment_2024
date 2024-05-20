@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded', registerEvents);
 let reportData = {};
 let allData = [];
 
+/*
+* Main function to start page in initialization process
+*/
+
 function registerEvents(){
     authorization();
     createTable();
@@ -9,6 +13,9 @@ function registerEvents(){
     registerPopUp();
 }
 
+/*
+* Function to handle the deletion of selected teams
+*/
 function deleteTeams() {
     let payload ={
         teams: Object.keys(reportData)
@@ -17,13 +24,17 @@ function deleteTeams() {
     let response = deleteTeamsHelper(payload);
     if (response !== null && response.successful) {
         alert("Team(s) successfully deleted");
-        fetchAllTeams()
     } else {
         alert("An error occurred!");
     }
     closePopup();
+    window.location.reload();
+
 }
 
+/*
+*Function to set up event listeners for the popup dialog
+*/
 function registerPopUp(){
     document.getElementById('deleteTeam').addEventListener('click', function() {
         if(Object.values(reportData).length === 0){
@@ -49,21 +60,9 @@ function closePopup() {
 }
 
 
-
-
-function onBackPress(){
-    // event.preventDefault();
-    console.log("inside on back press in selection.js");
-    let data = JSON.parse(localStorage.getItem("data"));
-    if(data != null && data.length > 0){
-        for(let i = 0; i < data.length; i++){
-            reportData[data[i]["name"]] = data[i];
-        }
-    }
-    console.log("report data: "); console.log(reportData);
-
-}
-
+/**
+ * A function that registers events with other functions
+ */
 function registerReportCreationAction() {
     let createReportButton = document.getElementById('createReportSubmit');
     createReportButton.addEventListener('click', goToReportPage)
@@ -101,6 +100,10 @@ function deleteTeamsHelper(payload){
     return response;
 
 }
+
+/**
+ * A function that stores the selected data in the localStorage to be used by the next page and also navigates to the next page(Report.html)
+ */
  function goToReportPage(){
      if(Object.values(reportData).length === 0){
          alert('No team selected! kindly select at least one team to generate report');
@@ -110,8 +113,10 @@ function deleteTeamsHelper(payload){
      console.log("report data");
      console.log(reportData);
      localStorage.setItem("data", JSON.stringify(reportData));
-     window.location.href ="sampleReport.html";
+     window.location.href ="Report.html";
  }
+
+
 function fetchAllTeams() {
     let token = sessionStorage.getItem("token");
     let url = "http://localhost/internet_programming/task2/backend/api/fetch-all-teams.php";
@@ -142,33 +147,34 @@ function fetchAllTeams() {
     return response;
 }
 
+/**
+ * authorizes access to this page based on the presence of a session token
+ */
 function authorization() {
     let token = sessionStorage.getItem("token");
-    console.log("token: ");
-    console.log(token);
     if (token === null) {
         window.location.href = "login.html";
     }
 
 }
 
+/**
+ * A wrapper function that uses an helper function to fetch all teams from the backend system.
+ * @returns {[]}
+ */
 function fetchData(){
 
         let response = fetchAllTeams();
-        let data = response.data;
-        console.log("data from server: "); console.log(data);
-        return data;
+        return response.data;
     // }
 }
-function getReportData(){
-    console.log("inside getReportData()");
-    return fetchData();
-}
 
+/**
+ * a function that loads the selection with the teams data
+ */
  function createTable(){
-    console.log("inside loadTable");
-    let data = getReportData();
-    allData  = getReportData();
+    let data = fetchData();
+    allData  = fetchData();
      let table = document.getElementById("teams_table");
      for(let i =0; i < data.length; i++){
          let tr = createTableEntry(i, data[i]);
@@ -181,8 +187,7 @@ function getReportData(){
    let checkboxes = document.getElementsByName("checkbox");
    reportData = {};
      console.log('inside toggle');
-     // console.log('all data');
-     // console.log(allData);
+
    for(let i = 0; i < checkboxes.length; i++){
        checkboxes[i].checked = source.checked;
        reportData[allData[i]["name"]] = allData[i];
@@ -201,14 +206,6 @@ function getReportData(){
 
 function createTableEntry(rowIndex, data) {
     let tableEntry = data;
-    // function checkAllToggle(){
-    //     let checkboxes = document.getElementsByName("checkbox");
-    //     for(let i = 0; i < checkboxes.length; i++){
-    //         checkboxes[i].checked = event.checked;
-    //         reportData[data["name"]] = data;
-    //     }
-    //
-    // }
     function toggle(){
         let checkbox = document.getElementById(rowIndex);
         let checkAll = document.getElementById("checkAll");
@@ -218,7 +215,6 @@ function createTableEntry(rowIndex, data) {
 
         console.log(reportData);
         if (checkbox) {
-            // Toggle the checkAll checkbox based on the checkbox state
 
             checkAll.checked = checkbox.checked && checkAll.checked;
             if(checkbox.checked){
@@ -227,19 +223,10 @@ function createTableEntry(rowIndex, data) {
             }else{
                 delete reportData[data["name"]];
             }
-            // reportData[data["name"]] = data;
 
-            // reportData.set(data["name"], data);
         }
-        // else{
-        //     reportData[data["name"]] = null;
-        //     // reportData.delete(data["name"]);
-        // }
-        console.log(reportData);
-    }
 
-    let checkAll =  document.getElementById("checkAll")
-    // checkAll.onclick = checkAllToggle;
+    }
 
     let tableRow = document.createElement("tr");
     let position = rowIndex + 1;
@@ -297,3 +284,20 @@ function createTableEntry(rowIndex, data) {
     return tableRow;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

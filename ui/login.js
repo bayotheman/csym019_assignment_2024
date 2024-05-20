@@ -1,20 +1,27 @@
-document.addEventListener('DOMContentLoaded', registerEvents);
+document.addEventListener('DOMContentLoaded', registerEvents); // Wait for the DOM to load before registering events
 
+/**
+ * Clears local storage and removes session token for logging out.
+ */
 function clearToken() {
-    // sessionStorage.clear(); //clears session token to enforce when user logs out.
     localStorage.clear()
     sessionStorage.removeItem("token"); //clears session token to enforce when user logs out.
 
 }
 
+/**
+ * Registers event listeners after clearing tokens.
+ */
 function registerEvents(){
     clearToken();
     let loginButton = document.getElementById("submit");
     loginButton.addEventListener('click', login);
-    // let registerButton = document.getElementById("register");
-    // registerButton.addEventListener('click', register);
 }
 
+/**
+ * Handles the login process by sending user credentials to the backend.
+ * @param {Event} event - The event object triggered by the login button click.
+ */
 function login(event){
     event.preventDefault();
     let payload = {
@@ -38,30 +45,40 @@ function login(event){
         displayErrorMessage("Login failed!");
     }
 
-    // console.log("inside login()");
-    // displayMessage();
 }
 
+/**
+ * Displays a success message in the designated message area.
+ * @param {string} message - The message to display.
+ */
 function displayMessage(message){
     console.log("inside displayMessage()");
     let container = document.getElementById("messageArea");
-    // console.log("message area:");  console.log(container);
     container.style.color = "rgb(0 150 0)"
     container.innerText =message
 
 }
 
+
+/**
+ * Displays an error message in the designated message area.
+ * @param {string} message - The error message to display.
+ */
 function displayErrorMessage(message){
     console.log("inside displayMessage()");
     let container = document.getElementById("messageArea");
-    // console.log("message area:");  console.log(container);
     container.style.color = "rgb(250 0 0)"
     container.innerText =message
 }
 
 let loginUrl = "http://localhost/internet_programming/task2/backend/api/login.php";
 
-
+/**
+ * Makes a POST request to a specified URL with a JSON payload.
+ * @param {Object} payload - The data to send in the request body.
+ * @param {string} url - The URL to send the request to.
+ * @returns {Object} - The response object from the server.
+ */
 function postRequest(payload, url) {
     let response = {
         successful: false,
@@ -88,44 +105,8 @@ function postRequest(payload, url) {
     return response;
 }
 
-function register(){
-    let payload = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        email:document.getElementById('email').value,
-        password: document.getElementById('password').value,
-        confirmPassword:document.getElementById('confirmPassword').value
-    }
-
-    let url = "http://localhost/internet_programming/task2/backend/api/register.php"
-    let response = postRequest(payload,url );
-    if(response["successful"]){
-        let token = response["data"]["token"];
-        sessionStorage.setItem("token",token);
-        displayMessage("Login successful");
-        window.location.href ="SelectionForm.html";
-    }else{
-        displayErrorMessage("Login failed!");
-    }
-}
 
 
-// function loginRequest(payload){
-//     let response = {}
-//     response["successful"] = false;
-//     response["message"] = "Invalid request payload";
-//     $.ajax({
-//         url: loginUrl,
-//         type: "POST",
-//         dataType: "json",
-//         data: payload,
-//         async: false,
-//         success: function (success) {
-//             response = success;
-//         },
-//         error: function (){
-//           response["message"] = "An error has occurred";
-//         }
-//     })
-//     return response;
-// }
+
+
+
