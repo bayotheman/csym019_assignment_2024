@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #openPopup {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #openPopup:hover {
+            background-color: #0056b3;
+        }
+
+        /* Styles for the overlay */
+        #overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 500;
+        }
+
+        /* Styles for the popup */
+        #popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            z-index: 1000;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #popup p {
+            margin: 20px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #popup button {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #yesButton {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #yesButton:hover {
+            background-color: #218838;
+        }
+
+        #noButton {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        #noButton:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+<button id="openPopup">Open Popup</button>
+
+<div id="overlay"></div>
+
+<div id="popup">
+    <p>Do you want to proceed?</p>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+</div>
+
+<script>
+    // JavaScript to handle the popup logic
+    document.getElementById('openPopup').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    });
+
+    document.getElementById('yesButton').addEventListener('click', function() {
+        // Handle the 'Yes' decision
+        alert('You chose Yes!');
+        closePopup();
+    });
+
+    document.getElementById('noButton').addEventListener('click', function() {
+        // Handle the 'No' decision
+        alert('You chose No!');
+        closePopup();
+    });
+
+    document.getElementById('overlay').addEventListener('click', closePopup);
+
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+</script>
+</body>
+</html>
