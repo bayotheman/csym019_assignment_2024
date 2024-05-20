@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>New Football Team</title>
+        <link rel="stylesheet" href="layout.css">
+        <script src="entry.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <header>
+            <h3>CSYM019 - Premier League Results</h3>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="SelectionForm.html">Premier League Report</a></li>
+                <li><a href="./EntryForm.html">Add New Football Team</a></li>
+                <li><a href="login.html">Logout</a></li>
+
+            </ul>
+        </nav>
+        <main>
+            <h3>Football Teams Entry Form</h3>
+            <div>
+                <b id="messageBoard"></b>
+            </div>
+
+            <form action="" class="mt-4">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nameInput">Name</label>
+                        <input id="nameInput" type="text" class="form-control" placeholder="Club Name" name="clubName">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="cityInput">City</label>
+                        <input id="cityInput" type="text" class="form-control" placeholder="City" name="city">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="managerInput">Manager</label>
+                        <input id="managerInput" type="text" class="form-control" placeholder="Manager" name="manager">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="establishedInput">Established</label>
+                        <input id="establishedInput" type="text" class="form-control" placeholder="Date of Establishment" name="established">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="presidentInput">Chairman</label>
+                        <input id="presidentInput" type="text" class="form-control" placeholder="Chairman" name="chairman">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="playedInput">Played</label>
+                        <input id="playedInput" type="text" class="form-control" placeholder="Played" name="played">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="wonInput">Won</label>
+                        <input id="wonInput" type="text" class="form-control" placeholder="Won" name="won">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="drawnInput">Drawn</label>
+                        <input id="drawnInput" type="text" class="form-control" placeholder="Drawn" name="drawn">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lostInput">Lost</label>
+                        <input id="lostInput" type="text" class="form-control" placeholder="Lost" name="lost">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="gfInput">Goals For</label>
+                        <input id="gfInput" type="text" class="form-control" placeholder="Goals For" name="gf">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="gaInput">Goals Against</label>
+                        <input id="gaInput" type="text" class="form-control" placeholder="Goals Against" name="ga">
+                    </div>
+<!--                    <div class="form-group col-md-6">-->
+<!--                        <label for="pointsInput">Points</label>-->
+<!--                        <input id="pointsInput" type="text" class="form-control" placeholder="Points" name="points">-->
+<!--                    </div>-->
+                </div>
+                <button id="addTeamSubmit" type="submit" class="btn btn-primary mt-3">Add Football Team</button>
+            </form>
+
+        </main>
+        <footer>&copy; CSYM019 2024</footer>
+    </body>
+</html>
+
+
+

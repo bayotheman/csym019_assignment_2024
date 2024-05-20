@@ -7,6 +7,8 @@
         <script src="selection.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
     </head>
     <body>
@@ -16,40 +18,61 @@
         <nav>
             <ul>
                 <li><a href="./SelectionForm.html">Premier League Report</a></li>
-                <li><a href="sampleEntryForm.html">Add New Football Team</a></li>
+                <li><a href="EntryForm.html">Add New Football Team</a></li>
+                <li><a href="login.html">Logout</a></li>
             </ul>
         </nav>
+
+<!--        <button id="openPopup">Open Popup</button>-->
+
+        <div id="overlay"></div>
+
+        <div id="popup">
+            <p>Are you sure you want to proceed? Once you proceed, you can't undo the action</p>
+            <button id="yesButton">Yes</button>
+            <button id="noButton">No</button>
+        </div>
         <main>
-            <h3>Sample Football Teams Selection Form</h3>
-            <table id="teams_table">
-                <thead id="table_head">
-                <tr>
-                    <th scope="col" id="checkButton">
-                        <input id ="checkAll" type="checkbox" onclick="toggle(this)" name="checkAllClubs">
-                    </th>
-                    <th scope="col" id="club_col_header">Club</th>
-                    <th scope="col" id="city_col_header">City</th>
-                    <th scope="col" id="manager_col_header">Manager</th>
-                    <th scope="col" id="president_col_header">President</th>
-                    <th scope="col" id="established_col_header">Established</th>
-                    <th scope="col" id="createdBy_col_header">Created By</th>
-                    <th scope="col" id="dateCreated_col_header">Date Created</th>
-                    <th scope="col" id="modifiedBy_col_header">Modified By</th>
-                    <th scope="col" id="dateModified_col_header">Date Modified</th>
 
-                </tr>
-                </thead>
-                <tbody>
+            <div>
+                <h3 id="page_title">Football Teams Selection Form</h3>
+            </div>
+            <div id="table_container">
 
-                </tbody>
-            </table>
+                <table id="teams_table">
+                    <thead id="table_head">
+                    <tr>
+                        <th scope="col" id="checkButton">
+                            <input id ="checkAll" type="checkbox" onclick="toggle(this)" name="checkAllClubs">
+                        </th>
+                        <th scope="col" id="club_col_header">Club</th>
+                        <th scope="col" id="city_col_header">City</th>
+                        <th scope="col" id="manager_col_header">Manager</th>
+                        <th scope="col" id="chairman_col_header">Chairman</th>
+                        <th scope="col" id="established_col_header">Est.</th>
+                        <th scope="col" id="createdBy_col_header">Created By</th>
+                        <th scope="col" id="dateCreated_col_header">Date Created</th>
+                        <th scope="col" id="modifiedBy_col_header">Modified By</th>
+                        <th scope="col" id="dateModified_col_header">Date Modified</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+            </div>
+
 <!--            <div class="sketch">-->
 <!--                <img src="SelectionForm.jpeg" alt="Selection Screen">-->
 <!--            </div>-->
             <form id='createReportForm'  class="addmore">
 <!--                <p class="note">The sketch above provides a sample table for selecting the football teams to include in the report. Once the teams have been selected from the table, the report can be created by clicking the button below.</p>-->
 <!--                <p class="blueNote">You can click of the button below to view a sketch of the report you are expected to develop.</p>-->
-                <input id="createReportSubmit" type="submit" value="Create Report" />
+                <input id="createReportSubmit" type="button" value="Create Report" />
+                <input id="deleteTeam" type="button" value="Delete Team">
+
                 <!--input type="reset" value="Cancel" /-->
             </form>
         </main>
