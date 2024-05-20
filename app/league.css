@@ -1,0 +1,156 @@
+
+
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+body {
+    font-family: 'ReithSerif', serif;
+    src: url(https://static.files.bbci.co.uk/fonts/reith/2.512/BBCReithSerif_W_ExBd.woff2) ;
+    /*format('woff2'),url(https://static.files.bbci.co.uk/fonts/reith/2.512/BBCReithSerif_W_ExBd.woff) format('woff');*/
+    /*font-display: swap;*/
+    /*font-family: Helvetica, helvetica, serif;*/
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #ffffff;
+    color: #000;
+    padding: 20px;
+}
+
+#table_tile{
+    font-size: xx-large;
+    color: #000;
+    font-weight: bolder;
+}
+
+main {
+    display: flex;
+    /*grid-template-columns: 100%;*/
+    /*grid-template-rows: auto;*/
+    align-content: center;
+    /*padding: 20px;*/
+}
+/*body {*/
+/*    !*display: flex;*!*/
+/*    !*grid-template-columns: 100%;*!*/
+/*    !*grid-template-rows: auto;*!*/
+/*    align-content: center;*/
+/*    !*padding: 20px;*!*/
+/*}*/
+
+svg{
+    display: inline-block;
+    width: 10px; /* Adjust the width and height as needed */
+    height: 10px;
+    border-radius: 10%; /* Makes the container a circle */
+    overflow: hidden; /* Ensures the SVG doesn't overflow */
+}
+
+ img {
+    width: 7%;
+    height: auto;
+    /*display: block;*/
+    /*border: none; !* Remove any default border *!*/
+    padding: 5px;
+}
+
+#league_table{
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    /*align-content: center;*/
+}
+
+#league_table_div {
+    padding: 40px;
+    margin: 10px;
+    /*align-content: space-evenly;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+
+}
+
+#top-level-header{
+
+}
+
+#search_icon_div{
+    /*align-self: start;*/
+    display: flex;
+    align-content: end;
+}
+#search_icon_div div{
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+#league_table_div input[type="search"]{
+    height: 35px;
+    width: 100%;
+    background-color: #f0f0f0;
+    border: 1px solid rgb(230 230 230);
+    padding: 10px;
+    font-size: 16px;
+
+}
+
+#league_table_div #search_bar{
+    padding: 10px ;
+    align-content: start;
+    /*display: flex;*/
+    /*border-color: white;*/
+    height: 30%;
+}
+
+/*td{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+
+#table_head{
+    border-bottom: 1px solid rgb(230 230 230);
+    background-color: #F5F5F5;
+}
+
+#premier-league-table {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    align-items: center;
+    /*margin-bottom: 20px;*/
+}
+
+footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+#table_row{
+    font-size: 16px;
+    font-weight: bold;
+}
+tr{
+    /*align-items: self-start;*/
+    text-align: start;
+}
+th{
+    text-align: end;
+    font-size: small;
+    padding: 10px;
+    margin: 50px;
+    font-weight: bold;
+    /*-webkit-font-smoothing: antialiased;*/
+
+}
+
+
+
