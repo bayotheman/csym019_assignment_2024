@@ -225,3 +225,232 @@ footer {
     padding: 20px;
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*  body styling */
+body {
+    font-family: Arial, sans-serif; /* Set the default font family */
+    background-color: #f5f5f5; /* Light grey background color */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Rules for the page header */
+
+/* Styling for h1 elements in the first layer of the top-level header */
+#top-level-header-layer-1 h1 {
+    text-align: left; /* Align text to the left */
+    font-weight: bold; /* Make the text bold */
+    color: #000000; /* Black text color */
+    padding: 20px 0; /* Padding above and below the text */
+    margin: 10px 10px 0 50px; /* Margin on top and sides */
+    height: 80px; /* Fixed height for the header */
+}
+
+/* Container styling for the first layer of the top-level header */
+#top-level-header-layer-1 {
+    background-color: #FFD700; /* Gold background color */
+    border-color: #DAA520; /* Goldenrod border color */
+    border-bottom-style: double; /* Double border at the bottom */
+}
+
+/* Container styling for the second layer of the top-level header */
+#top-level-header-layer-2 {
+    background-color: #FFD700; /* Gold background color */
+    border-top-color: black; /* Black top border color */
+}
+
+/* Styling for div elements within the second layer of the top-level header */
+#top-level-header-layer-2 div {
+    font-weight: normal; /* Normal font weight */
+    color: #000000; /* Black text color */
+    background-color: #FFD700; /* Gold background color */
+    border-color: #DAA520; /* Goldenrod border color */
+    padding: 5px 0; /* Padding above and below the text */
+    margin: 0 10px 0 50px; /* Margin on sides */
+}
+
+/* Styling for the lower banner of the top-level header */
+#top-level-header-lower-banner {
+    color: white; /* White text color */
+    padding: 5px 0 5px 50px; /* Padding and left margin */
+    background-color: #000000; /* Black background color */
+}
+
+/* Rules for table title */
+
+/* General styling for h2 headers */
+h2 {
+    text-align: left; /* Align text to the left */
+    margin: 20px; /* Margin around the header */
+    color: #000; /* Black text color */
+    font-weight: bolder; /* Extra bold text */
+}
+
+/* Styling for the top scorers table container */
+#topscorers_table_div {
+    padding: 40px; /* Padding around the container */
+    margin: 10px; /* Margin around the container */
+    align-content: center; /* Center content alignment */
+}
+
+/* Styling for the table title */
+#table_title {
+    font-size: xx-large; /* Extra extra large font size */
+    color: #000; /* Black text color */
+    padding: 0; /* No padding */
+    margin: 10px 0 20px 0; /* Margin on top and bottom */
+    font-weight: normal; /* Normal font weight */
+}
+
+/* Table size adjustment rule */
+table {
+    width: 100%; /* Full width */
+    align-items: center; /* Center items alignment */
+    border-collapse: collapse; /* Collapse borders */
+}
+
+/* Table header rules */
+
+/* General styling for table headers */
+th {
+    text-align: end; /* Right align text */
+    font-size: small; /* Small font size */
+    padding: 10px; /* Padding inside headers */
+    margin: 50px; /* Margin around headers */
+    font-weight: bold; /* Bold text */
+    background-color: #f2f2f2; /* Light grey background color */
+}
+
+/* Styling for the table header row */
+#table_head {
+    border-bottom: 1px solid rgb(230, 230, 230); /* Light grey bottom border */
+    background-color: #F5F5F5; /* Light grey background color */
+    font-weight: normal; /* Normal font weight */
+}
+
+/* Specific styling for table header cells */
+#table_head tr th {
+    font-weight: bold; /* Bold text */
+    font-size: small; /* Small font size */
+    text-align: right; /* Right align text */
+    padding: 5px; /* Padding inside header cells */
+}
+
+/* Text alignment for specific table headers */
+#position_col_header {
+    text-align: left; /* Left align text */
+}
+
+#name_col_header {
+    text-align: left; /* Left align text */
+}
+
+#goal_col_header, #assists_col_header, #played_col_header, #gp90_col_header, #mpg_col_header, #total_shots_col_header, #gconv_col_header, #shot_accur_col_header {
+    text-align: right; /* Right align text for all these headers */
+}
+
+/* Table column rules */
+
+/* Styling for the position column */
+.position {
+    color: black; /* Black text color */
+}
+
+/* Styling for the name column */
+.name {
+    text-align: left; /* Left align text */
+    color: black; /* Black text color */
+    font-size: small; /* Small font size */
+}
+
+.name .player_text {
+    font-weight: bold; /* Bold text */
+    color: black; /* Black text color */
+    font-size: small; /* Small font size */
+}
+
+/* Styling for the goals column */
+.goals {
+    text-align: right; /* Right align text */
+    color: #000000; /* Black text color */
+    font-size: small; /* Small font size */
+}
+
+/* Styling for the assists column */
+.assists {
+    text-align: right; /* Right align text */
+    color: #000000; /* Black text color */
+    font-size: small; /* Small font size */
+}
+
+/* Styling for the matches played column */
+.matches_played {
+    text-align: right; /* Right align text */
+    color: #000000; /* Black text color */
+    font-size: small; /* Small font size */
+}
+
+/* Styling for the goals per 90 minutes column */
+.goals_p_90 {
+    text-align: right; /* Right align text */
+    color: #000000; /* Black text color */
+    font-size: small; /* Small font size */
+}
+
+/* Styling for the minutes per goal column */
+.mins_p_goal {
+    text-align: right; /* Right align text */
+    color: #000000; /* Black text color */
+    font-size: small; /* Small font size */
+}
+
+/* Styling for the total shots column */
+.total_shots {
+    text-align: right; /* Right align text */
+    color: #000000; /* Black text color */
+    font-size: small; /* Small font size */
+}
+
+/* Styling for the goal conversion column */
+.goal_conversion {
+    text-align: right; /* Right align text */
+    color: #000000; /* Black text color */
+    font-size: small; /* Small font size */
+}
+
+/* Styling for the shot accuracy column */
+.shot_accuracy {
+    text-align: right; /* Right align text */
+    color: #000000; /* Black text color */
+    font-size: small; /* Small font size */
+}
+
+/* General styling for table cells */
+td {
+    padding: 4px; /* Padding inside cells */
+    border-bottom: 1px solid #ddd; /* Light grey bottom border */
+}
+
+/* Table row hover effect */
+tr:hover {
+    background-color: #ddd; /* Light grey background color on hover */
+}
+
+/* Footer styling */
+footer {
+    background-color: #000000; /* Black background color */
+    color: #fff; /* White text color */
+    padding: 20px; /* Padding around the footer */
+    text-align: center; /* Center text */
+}

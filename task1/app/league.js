@@ -10,25 +10,27 @@ let registeredTeams ={};
  */
 (function loadLeagueTable(){
     setTimeout(function () {
-        $.ajax({    // performs an AJAX request to get the data from the JSON file.
-            url:"league.json", // url of the league.json file.
-            type:"GET", // HTTP method to use for the request.
-            dataType:"json", // type of data expected from the server.
-            success:function(response){ // function to call if the request succeeds.
-                createPremierLeagueTable(response); //calls function to create and update the Premier League table using the response data.
-                loadLeagueTable();// call the function again to continuously request data.
+        $.ajax({
+            url:"league.json",
+            type:"GET",
+            dataType:"json",
+            success:function(response){
+                createPremierLeagueTable(response);
+                loadLeagueTable();
             },
-            error:function(e){ // function to call if the request fails.
-                displayError(e); // display an error message.
+            error:function(e){
+                displayError(e);
             },
         });
 
-    }, 500); // set a timeout to call the function after 500 milliseconds.
-
+    }, 500);
 })();
-// });
-function displayError(){
 
+/**
+ * function that handles the display of error message
+ */
+function displayError(){
+    alert("An error occurred, kindly try again!"); //display the error message as an alert notification
 }
 
 /**
@@ -36,10 +38,10 @@ function displayError(){
  * @param response void
  */
 function createPremierLeagueTable(response){
-    registerTeams(response); // register the teams using the response data.
-    calculateTeamStatistics(response); // calculate team statistics using the response data.
-    let rank = rankTeams();     // rank the teams based on their statistics and assing the result to variable ranks.
-    updateLeagueTableRecord(rank);     // update the league table record with the ranked teams.
+    registerTeams(response);
+    calculateTeamStatistics(response);
+    let rank = rankTeams();
+    updateLeagueTableRecord(rank);
 
 }
 
@@ -147,8 +149,8 @@ function calculateTeamStatistics(response) {
  * @returns returns an array containing the top 10 teams.
  */
 function rankTeams() {
-    //creates a league rank
-    let rank = Object.values(registeredTeams);
+    let rank = Object.values(registeredTeams);    // extract the values (team data) from the registeredTeams object into an array
+
     //sort league table data from top to bottom
     rank.sort((a, b) => {
         if (a["points"] < b["points"]) {
@@ -164,21 +166,20 @@ function rankTeams() {
             return 0;
         }
     });
-    // console.log(`registered teams: ${rank}`);
+
     rank = rank.slice(0, 10); //to take only the top 10 teams
+
     return rank;
 }
 
 /**
- * a function that loops through the tableData and calls an helper function to update the premier league table
+ * a function that loops through the tableData and calls a helper function to update the premier league table
  * @param tableData containing ranked teams
  */
 function updateLeagueTableRecord(tableData){
-    console.log("inside loadTable");
-    console.log(tableData);
-    tableData.slice(0, 10);
-    for(let i = 0; i < tableData.length; i++){
-        updateLeagueTableEntry(i, tableData[i] );
+    for(let i = 0; i < tableData.length; i++){ // loop through each team in tableData
+        updateLeagueTableEntry(i, tableData[i] ); // update each table row at index i with team data
+
     }
 }
 
@@ -187,76 +188,76 @@ function updateLeagueTableRecord(tableData){
  * @param id table row identifier
  * @param tableEntry the data to be displayed.
  */
-function updateLeagueTableEntry(id, tableEntry){
+function updateLeagueTableEntry(id, tableEntry) {
     let tableRow = document.getElementById(String(id));
     if (!tableRow) return;
 
-    let { name: team, logo, played, won, drawn, lost, gf: goalFor, ga: against, gd, points, form } = tableEntry;
+    let {name: team, logo, played, won, drawn, lost, gf: goalFor, ga: against, gd, points, form} = tableEntry; // destructure the table entry elements to get individual properties and maps each table entry property into these variables
 
-    // Ensure the correct elements are updated
     let positionElement = tableRow.querySelector(".position");
     if (positionElement) positionElement.style.textAlign = "center";
 
     let teamContainer = tableRow.querySelector(".logo");
-    if (teamContainer) {
+    if (teamContainer) { //checks the existence of the element
         let logoImage = teamContainer.querySelector(".image");
         if (logoImage) logoImage.src = logo;
-    }
-    let text = tableRow.querySelector("b");
-    if (text) text.innerText = team;
 
-    let playedElement = tableRow.querySelector(".played");
-    if (playedElement) playedElement.innerText = played;
+        let text = tableRow.querySelector("b");
+        if (text) text.innerText = team;
 
-    let wonElement = tableRow.querySelector(".won");
-    if (wonElement) wonElement.innerText = won;
+        let playedElement = tableRow.querySelector(".played");
+        if (playedElement) playedElement.innerText = played;
 
-    let drawnElement = tableRow.querySelector(".drawn");
-    if (drawnElement) drawnElement.innerText = drawn;
+        let wonElement = tableRow.querySelector(".won");
+        if (wonElement) wonElement.innerText = won;
 
-    let lostElement = tableRow.querySelector(".lost");
-    if (lostElement) lostElement.innerText = lost;
+        let drawnElement = tableRow.querySelector(".drawn");
+        if (drawnElement) drawnElement.innerText = drawn;
 
-    let goalForElement = tableRow.querySelector(".for");
-    if (goalForElement) goalForElement.innerText = goalFor;
+        let lostElement = tableRow.querySelector(".lost");
+        if (lostElement) lostElement.innerText = lost;
 
-    let againstElement = tableRow.querySelector(".against");
-    if (againstElement) againstElement.innerText = against;
+        let goalForElement = tableRow.querySelector(".for");
+        if (goalForElement) goalForElement.innerText = goalFor;
 
-    let gdElement = tableRow.querySelector(".gd");
-    if (gdElement) gdElement.innerText = gd;
+        let againstElement = tableRow.querySelector(".against");
+        if (againstElement) againstElement.innerText = against;
 
-    let pointsElement = tableRow.querySelector(".points");
-    if (pointsElement) pointsElement.innerText = points;
+        let gdElement = tableRow.querySelector(".gd");
+        if (gdElement) gdElement.innerText = gd;
 
-    let formElement = tableRow.querySelector(".form .form_structure");
-    if (formElement) {
-        formElement.innerHTML = ''; // Clear existing form tags
-        form.reverse();
-        if(form.length > 6){
-            form = form.splice(0,6);
-        }
-        form.forEach(outcome => {
-            let formTag = document.createElement('div');
-            formTag.classList.add('form_tag');
-            formTag.innerText = outcome;
-            switch (outcome){
-                case "W":
-                    formTag.classList.add('win');
-                    break;
-                case "L":
-                    formTag.classList.add('lose');
-                    break;
-                case "D":
-                    formTag.classList.add('draw');
-                    break;
+        let pointsElement = tableRow.querySelector(".points");
+        if (pointsElement) pointsElement.innerText = points;
+
+        let formElement = tableRow.querySelector(".form .form_structure");
+        if (formElement) {
+
+            formElement.innerHTML = ''; // Clear existing form tags
+            form.reverse();
+            if (form.length > 6) { //checks if the form array content is greater than 6
+                form = form.splice(0, 6);// if yes extract the first 6 elements
             }
-            formElement.appendChild(formTag);
-        });
+            form.forEach(outcome => { //iterate through the form array
+                let formTag = document.createElement('div'); //create a new div tag
+                formTag.classList.add('form_tag'); // Adds a base class for styling
+                formTag.innerText = outcome; // Set the text to "W", "L", or "D"
+                switch (outcome) { // adds a specific class based on the outcome for color coding
+                    case "W": //for case W
+                        formTag.classList.add('win'); // add base class "win"
+                        break;
+                    case "L": //for case L
+                        formTag.classList.add('lose');// add base class "lost"
+                        break;
+                    case "D"://for case D
+                        formTag.classList.add('draw');// add base class "draw"
+                        break;
+                }
+                formElement.appendChild(formTag); // append the newly created form tag to the form container
+            });
+        }
     }
+
 }
-
-
 
 
 
@@ -275,13 +276,7 @@ let registeredPlayers ={};
             type:"GET",
             dataType:"json",
             success:function(response){
-                // console.log("Top score API call ");
-                // populateRegisteredPlayersMap(response);
-                // console.log("registered players");
-                // console.log(registeredPlayers);
                 createPremierLeagueTopScorersTable(response);
-                // registeredPlayers ={};
-                // calculatePlayerStatistics(response);
                 topScorers();
             },
             error:function(){
@@ -464,651 +459,3 @@ function updateTopScorerTableEntry(index, scorerEntry){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// function updateTableRecord(tableData){
-//     console.log("inside loadTable");
-//     // console.log(data['table']);
-//     // let tableData = data['table'];
-//     // console.log(data['table']);
-//
-//     let table = document.getElementById('league_table');
-//     for(let i = 0; i < 4; i++){
-//         let tableEntry = tableData[i];
-//         console.log("table entry: " + i );
-//         console.log(tableEntry);
-//         let tableRow = document.getElementById(String(i));
-//         console.log("table row: ");
-//         console.log(tableRow);
-//
-//         let position = String(i + 1);
-//         let team = tableEntry['name'];
-//         let logo = tableEntry['logo'];
-//         let played = tableEntry['played'];
-//         let won = tableEntry['won'];
-//         let drawn = tableEntry['drawn'];
-//         let lost = tableEntry['lost'];
-//         let goalFor = tableEntry['gf'];
-//         let against = tableEntry['ga'];
-//         let gd = tableEntry['gd'];
-//         let points = tableEntry['points'];
-//         let form = tableEntry['form'];
-//
-//         // table.appendChild(tableRow);
-//         let positionElement= tableRow.getElementsByClassName("position")[0];
-//         positionElement.setAttribute("style", "text-align:center");
-//         positionElement.style.textAlign = "center";
-//
-//         let teamParentElement= tableRow.getElementsByClassName("team")[0];
-//         let teamContainer= teamParentElement.getElementByClassName("team_container");
-//         teamContainer.style.display="flex"
-//         teamContainer.setAttribute("style", "align-items:last");
-//         teamContainer.setAttribute("style", "width:10%;");
-//
-//         teamContainer.setAttribute("style", "display:flex");
-//
-//
-//         let logoContainer= teamContainer.getElementsByClassName("logo_container")[0];
-//         // logoContainer.setAttribute("style", "width:10%");
-//         let logoImage= logoContainer.getElementsByClassName("image");
-//         console.log("logoImage element: ");
-//         console.log(logoImage);
-//
-//         let playedElement= tableRow.getElementsByClassName("played")[0];
-//         playedElement.setAttribute("style", "text-align:center");
-//         let wonElement= tableRow.getElementsByClassName("won")[0];
-//         wonElement.setAttribute("style", "text-align:center");
-//         let drawnElement= tableRow.getElementsByClassName("drawn")[0];
-//         drawnElement.setAttribute("style", "text-align:center");
-//         let lostElement= tableRow.getElementsByClassName("lost")[0];
-//         lostElement.setAttribute("style", "text-align:center");
-//         let goalForElement= tableRow.getElementsByClassName("for")[0];
-//         goalForElement.setAttribute("style", "text-align:center");
-//         let againstElement= tableRow.getElementsByClassName("against")[0];
-//         againstElement.setAttribute("style", "text-align:center");
-//         let gdElement= tableRow.getElementsByClassName("gd")[0];
-//         gdElement.setAttribute("style", "text-align:center");
-//         let pointsElement= tableRow.getElementsByClassName("points")[0];
-//         pointsElement.setAttribute("style", "text-align:center");
-//         pointsElement.style.fontSize ="large";
-//         pointsElement.style.fontWeight ="bold";
-//
-//         // let formElement= tableRow.getElementsByClassName("form");;
-//
-//
-//         positionElement.innerHTML=position;
-//         // positionElement.setAttribute("style", "text-align:center");
-//
-//         // teamParentElement.append(teamContainer);
-//         // teamContainer.appendChild(logoContainer);
-//         let text = tableRow.getElementsByTagName("b")[0];
-//         text.style.padding = "10px"
-//         text.style.border = "none";
-//         text.innerHTML = team;
-//
-//         // logoContainer[0] = logoImage
-//         // teamContainer.appendChild(text);
-//         logoImage.src = logo;
-//         // logoImage.alt = "SVG Image";
-//
-//
-//         // logoElement.innerHTML=logo;
-//         playedElement.innerHTML=played;
-//         wonElement.innerHTML=won;
-//         drawnElement.innerHTML=drawn;
-//         lostElement.innerHTML=lost;
-//         goalForElement.innerHTML=goalFor;
-//         againstElement.innerHTML=against;
-//         gdElement.innerHTML=gd;
-//         pointsElement.innerHTML= points;
-//
-//
-//         // tableRow.appendChild(positionElement);
-//
-//
-//
-//
-//     }
-//     // let tableRow = table.appendChild(document.createElement("tr"));
-// }
-//
-//
-//
-//
-//
-
-
-
-
-// function updateTableRecord(tableData){
-//     console.log("inside loadTable");
-//     // console.log(data['table']);
-//     // let tableData = data['table'];
-//     // console.log(data['table']);
-//
-//     let table = document.getElementById('league_table');
-//     for(let i = 0; i < tableData.length; i++){
-//         let tableEntry = tableData[i];
-//         let tableRow = document.getElementById(String(i));
-//         console.log("table row: ");
-//         console.log(tableRow);
-//
-//         let position = String(i + 1);
-//         let team = tableEntry['name'];
-//         let logo = tableEntry['logo'];
-//         let played = tableEntry['played'];
-//         let won = tableEntry['won'];
-//         let drawn = tableEntry['drawn'];
-//         let lost = tableEntry['lost'];
-//         let goalFor = tableEntry['gf'];
-//         let against = tableEntry['ga'];
-//         let gd = tableEntry['gd'];
-//         let points = tableEntry['points'];
-//         let form = tableEntry['form'];
-//
-//         // let positionElement= tableRow.appendChild(document.createElement("td"));
-//         // let teamParentElement= tableRow.appendChild(document.createElement("td"));
-//         // let teamContainer= document.createElement("span");
-//         // // teamContainer.setAttribute("style", "align-items:last");
-//         // // teamContainer.setAttribute("style", "width:10%;");
-//         // // teamContainer.style.display="flex"
-//         // // teamContainer.setAttribute("style", "display:flex");
-//         //
-//         //
-//         // let logoContainer= tableRow.appendChild(document.createElement("span"))
-//         // logoContainer.setAttribute("style", "width:10%");
-//         // let logoImage= tableRow.appendChild(document.createElement("img"));
-//         //
-//         //
-//         // let playedElement= tableRow.appendChild(document.createElement("td"));
-//         // playedElement.setAttribute("style", "text-align:center");
-//         // let wonElement= tableRow.appendChild(document.createElement("td"));
-//         // wonElement.setAttribute("style", "text-align:center");
-//         // let drawnElement= tableRow.appendChild(document.createElement("td"));
-//         // drawnElement.setAttribute("style", "text-align:center");
-//         // let lostElement= tableRow.appendChild(document.createElement("td"));
-//         // lostElement.setAttribute("style", "text-align:center");
-//         // let goalForElement= tableRow.appendChild(document.createElement("td"));
-//         // goalForElement.setAttribute("style", "text-align:center");
-//         // let againstElement= tableRow.appendChild(document.createElement("td"));
-//         // againstElement.setAttribute("style", "text-align:center");
-//         // let gdElement= tableRow.appendChild(document.createElement("td"));
-//         // gdElement.setAttribute("style", "text-align:center");
-//         // let pointsElement= tableRow.appendChild(document.createElement("td"));
-//         // pointsElement.setAttribute("style", "text-align:center");
-//         // pointsElement.style.fontSize ="large";
-//         // pointsElement.style.fontWeight ="bold";
-//         //
-//         // // let formElement= tableRow.appendChild(document.createElement("td"));
-//         //
-//         //
-//         // positionElement.innerHTML=position;
-//         // positionElement.setAttribute("style", "text-align:center");
-//         //
-//         // teamParentElement.append(teamContainer);
-//         // teamContainer.appendChild(logoContainer);
-//         // let text = document.createElement("b");
-//         // text.style.padding = "10px"
-//         // text.style.border = "none";
-//         // text.innerHTML = team;
-//         //
-//         // logoContainer.appendChild(logoImage)
-//         // teamContainer.appendChild(text);
-//         // logoImage.src = logo;
-//         // logoImage.alt = "SVG Image";
-//         //
-//         //
-//         // // logoElement.innerHTML=logo;
-//         // playedElement.innerHTML=played;
-//         // wonElement.innerHTML=won;
-//         // drawnElement.innerHTML=drawn;
-//         // lostElement.innerHTML=lost;
-//         // goalForElement.innerHTML=goalFor;
-//         // againstElement.innerHTML=against;
-//         // gdElement.innerHTML=gd;
-//         // pointsElement.innerHTML= points;
-//         //
-//
-//
-//         // table.appendChild(tableRow);
-//         let positionElement= tableRow.getElementsByClassName("position")[0];
-//         // positionElement.setAttribute("style", "text-align:center");
-//         // positionElement.style.textAlign = "center";
-//
-//         let teamParentElement= tableRow.getElementsByClassName("team");
-//         let teamContainer= tableRow.getElementsByClassName("team_container")[0];
-//         teamContainer.setAttribute("style", "align-items:last");
-//         teamContainer.setAttribute("style", "width:10%;");
-//         teamContainer.style.display="flex"
-//         teamContainer.setAttribute("style", "display:flex");
-//
-//
-//         let logoContainer= teamContainer.getElementsByClassName("logo_container")[0];
-//         // logoContainer.setAttribute("style", "width:10%");
-//         let logoImage= logoContainer.getElementsByClassName("image");
-//         console.log("logoImage element: ");
-//         console.log(logoImage);
-//
-//         let playedElement= tableRow.getElementsByClassName("played")[0];
-//         playedElement.setAttribute("style", "text-align:center");
-//         let wonElement= tableRow.getElementsByClassName("won")[0];
-//         wonElement.setAttribute("style", "text-align:center");
-//         let drawnElement= tableRow.getElementsByClassName("drawn")[0];
-//         drawnElement.setAttribute("style", "text-align:center");
-//         let lostElement= tableRow.getElementsByClassName("lost")[0];
-//         lostElement.setAttribute("style", "text-align:center");
-//         let goalForElement= tableRow.getElementsByClassName("for")[0];
-//         goalForElement.setAttribute("style", "text-align:center");
-//         let againstElement= tableRow.getElementsByClassName("against")[0];
-//         againstElement.setAttribute("style", "text-align:center");
-//         let gdElement= tableRow.getElementsByClassName("gd")[0];
-//         gdElement.setAttribute("style", "text-align:center");
-//         let pointsElement= tableRow.getElementsByClassName("points")[0];
-//         pointsElement.setAttribute("style", "text-align:center");
-//         pointsElement.style.fontSize ="large";
-//         pointsElement.style.fontWeight ="bold";
-//
-//         // let formElement= tableRow.getElementsByClassName("form");;
-//
-//
-//         positionElement.innerHTML=position;
-//         // positionElement.setAttribute("style", "text-align:center");
-//
-//         // teamParentElement.append(teamContainer);
-//         // teamContainer.appendChild(logoContainer);
-//         let text = tableRow.getElementsByTagName("b")[0];
-//         text.style.padding = "10px"
-//         text.style.border = "none";
-//         text.innerHTML = team;
-//
-//         // logoContainer[0] = logoImage
-//         // teamContainer.appendChild(text);
-//         logoImage.src = logo;
-//         // logoImage.alt = "SVG Image";
-//
-//
-//         // logoElement.innerHTML=logo;
-//         playedElement.innerHTML=played;
-//         wonElement.innerHTML=won;
-//         drawnElement.innerHTML=drawn;
-//         lostElement.innerHTML=lost;
-//         goalForElement.innerHTML=goalFor;
-//         againstElement.innerHTML=against;
-//         gdElement.innerHTML=gd;
-//         pointsElement.innerHTML= points;
-//
-//
-//         // tableRow.appendChild(positionElement);
-//
-//
-//
-//
-//     }
-//     // let tableRow = table.appendChild(document.createElement("tr"));
-// }
-
-
-
-// function updateTableRecord(tableData){
-//     console.log("inside loadTable");
-//     // console.log(data['table']);
-//     // let tableData = data['table'];
-//     // console.log(data['table']);
-//
-//     let table = document.getElementById('league_table');
-//     for(let i = 0; i < tableData.length; i++){
-//         let tableEntry = tableData[i];
-//         let tableRow = table.appendChild(document.createElement("tr"));
-//
-//         let position = i + 1;
-//         let team = tableEntry['name'];
-//         let logo = tableEntry['logo'];
-//         let played = tableEntry['played'];
-//         let won = tableEntry['won'];
-//         let drawn = tableEntry['drawn'];
-//         let lost = tableEntry['lost'];
-//         let goalFor = tableEntry['gf'];
-//         let against = tableEntry['ga'];
-//         let gd = tableEntry['gd'];
-//         let points = tableEntry['points'];
-//         let form = tableEntry['form'];
-//
-//
-//
-//
-//         table.appendChild(tableRow);
-//         let positionElement= tableRow.appendChild(document.createElement("td"));
-//         let teamParentElement= tableRow.appendChild(document.createElement("td"));
-//         let teamContainer= document.createElement("span");
-//         // teamContainer.setAttribute("style", "align-items:last");
-//         // teamContainer.setAttribute("style", "width:10%;");
-//         // teamContainer.style.display="flex"
-//         // teamContainer.setAttribute("style", "display:flex");
-//
-//
-//         let logoContainer= tableRow.appendChild(document.createElement("span"))
-//         logoContainer.setAttribute("style", "width:10%");
-//         let logoImage= tableRow.appendChild(document.createElement("img"));
-//
-//
-//         let playedElement= tableRow.appendChild(document.createElement("td"));
-//         playedElement.setAttribute("style", "text-align:center");
-//         let wonElement= tableRow.appendChild(document.createElement("td"));
-//         wonElement.setAttribute("style", "text-align:center");
-//         let drawnElement= tableRow.appendChild(document.createElement("td"));
-//         drawnElement.setAttribute("style", "text-align:center");
-//         let lostElement= tableRow.appendChild(document.createElement("td"));
-//         lostElement.setAttribute("style", "text-align:center");
-//         let goalForElement= tableRow.appendChild(document.createElement("td"));
-//         goalForElement.setAttribute("style", "text-align:center");
-//         let againstElement= tableRow.appendChild(document.createElement("td"));
-//         againstElement.setAttribute("style", "text-align:center");
-//         let gdElement= tableRow.appendChild(document.createElement("td"));
-//         gdElement.setAttribute("style", "text-align:center");
-//         let pointsElement= tableRow.appendChild(document.createElement("td"));
-//         pointsElement.setAttribute("style", "text-align:center");
-//         pointsElement.style.fontSize ="large";
-//         pointsElement.style.fontWeight ="bold";
-//
-//         // let formElement= tableRow.appendChild(document.createElement("td"));
-//
-//
-//         positionElement.innerHTML=position;
-//         positionElement.setAttribute("style", "text-align:center");
-//
-//         teamParentElement.append(teamContainer);
-//         teamContainer.appendChild(logoContainer);
-//         let text = document.createElement("b");
-//         text.style.padding = "10px"
-//         text.style.border = "none";
-//         text.innerHTML = team;
-//
-//         logoContainer.appendChild(logoImage)
-//         teamContainer.appendChild(text);
-//         logoImage.src = logo;
-//         logoImage.alt = "SVG Image";
-//
-//
-//         // logoElement.innerHTML=logo;
-//         playedElement.innerHTML=played;
-//         wonElement.innerHTML=won;
-//         drawnElement.innerHTML=drawn;
-//         lostElement.innerHTML=lost;
-//         goalForElement.innerHTML=goalFor;
-//         againstElement.innerHTML=against;
-//         gdElement.innerHTML=gd;
-//         pointsElement.innerHTML= points;
-//
-//
-//         // tableRow.appendChild(positionElement);
-//
-//
-//
-//     }
-//     // let tableRow = table.appendChild(document.createElement("tr"));
-// }
-//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// window.onload = makeAjaxRequest;
-
-
-
-// import data from './league1.json' with { type: 'json' };
-// // let data; // variable fromΩor holding league table data content.
-// function registerAllEvents(){
-//     // fetchData();
-//     loadTable();
-//     // console.log(data);
-//
-//
-// }
-//
-// function fetchData(){
-//     console.log("inside fetch data");
-//     // let data; // variable for holding league table data content.
-//     // fetch('./league1.json')  // to fetch data from league1.json file
-//     // .then(response =>{
-//     //         data = response.json();
-//     //         console.log(data['table']);
-//     //         // console.log(data);//read the json content into variable data
-//     //     }
-//     // )
-//     // console.log("inside loading data");
-//     console.log(data);
-//         // .then((data) => console.log(data))
-// }
-//
-// // function loadTable(){
-// //     console.log("inside loadTable");
-// //     // console.log(data['table']);
-// //     let tableData = data['table'];
-// //     console.log(data['table']);
-// //
-// //     let table = document.getElementById('league_table');
-// //     for(let i = 0; i < tableData.length; i++){
-// //         let tableEntry = tableData[i];
-// //         let tableRow = table.appendChild(document.createElement("tr"));
-// //
-// //         let position = tableEntry['position'];
-// //         let team = tableEntry['name'];
-// //         let logo = tableEntry['logo_url'];
-// //         let played = tableEntry['played'];
-// //         let won = tableEntry['won'];
-// //         let drawn = tableEntry['drawn'];
-// //         let lost = tableEntry['lost'];
-// //         let goalFor = tableEntry['for'];
-// //         let against = tableEntry['against'];
-// //         let gd = tableEntry['gd'];
-// //         let points = tableEntry['points'];
-// //         let form = tableEntry['form'];
-// //
-// //
-// //
-// //
-// //         table.appendChild(tableRow);
-// //         let positionElement= tableRow.appendChild(document.createElement("td"));
-// //         let logoElement= tableRow.appendChild(document.createElement("td"));
-// //         logoElement.setAttribute("style", "margin:0");
-// //         logoElement.setAttribute("style", "padding:0");
-// //         // logoElement.setAttribute('style', "text-align:center");
-// //         let teamParentElement= tableRow.appendChild(document.createElement("td"));
-// //         let teamContainer= document.createElement("span");
-// //         // teamContainer.setAttribute("style", "align-items:last");
-// //         // teamContainer.setAttribute("style", "width:10%;");
-// //         // teamContainer.style.display="flex"
-// //         // teamContainer.setAttribute("style", "display:flex");
-// //
-// //
-// //         // let logoContainer= tableRow.appendChild(document.createElement("span"))
-// //         // logoContainer.setAttribute("style", "width:10%;");
-// //         let logoImage= tableRow.appendChild(document.createElement("img"));
-// //
-// //
-// //
-// //         let playedElement= tableRow.appendChild(document.createElement("td"));
-// //         playedElement.setAttribute("style", "text-align:center");
-// //         let wonElement= tableRow.appendChild(document.createElement("td"));
-// //         wonElement.setAttribute("style", "text-align:center");
-// //         let drawnElement= tableRow.appendChild(document.createElement("td"));
-// //         drawnElement.setAttribute("style", "text-align:center");
-// //         let lostElement= tableRow.appendChild(document.createElement("td"));
-// //         lostElement.setAttribute("style", "text-align:center");
-// //         let goalForElement= tableRow.appendChild(document.createElement("td"));
-// //         goalForElement.setAttribute("style", "text-align:center");
-// //         let againstElement= tableRow.appendChild(document.createElement("td"));
-// //         againstElement.setAttribute("style", "text-align:center");
-// //         let gdElement= tableRow.appendChild(document.createElement("td"));
-// //         gdElement.setAttribute("style", "text-align:center");
-// //         let pointsElement= tableRow.appendChild(document.createElement("td"));
-// //         pointsElement.setAttribute("style", "text-align:center");
-// //         pointsElement.style.fontSize ="large";
-// //         pointsElement.style.fontWeight ="bold";
-// //
-// //         // let formElement= tableRow.appendChild(document.createElement("td"));
-// //
-// //
-// //         positionElement.innerHTML=position;
-// //         positionElement.setAttribute("style", "text-align:center");
-// //
-// //         teamParentElement.append(teamContainer);
-// //         // logoElement.appendChild(logoContainer);
-// //         logoElement.appendChild(logoImage);
-// //         let text = document.createElement("b");
-// //         text.style.padding = "10px"
-// //         text.style.border = "none";
-// //         text.innerHTML = team;
-// //
-// //         // logoContainer.appendChild(logoImage)
-// //         teamContainer.appendChild(text);
-// //         logoImage.src = logo;
-// //         logoImage.alt = "SVG Image";
-// //
-// //
-// //         // logoElement.innerHTML=logo;
-// //         playedElement.innerHTML=played;
-// //         wonElement.innerHTML=won;
-// //         drawnElement.innerHTML=drawn;
-// //         lostElement.innerHTML=lost;
-// //         goalForElement.innerHTML=goalFor;
-// //         againstElement.innerHTML=against;
-// //         gdElement.innerHTML=gd;
-// //         pointsElement.innerHTML= points;
-// //
-// //
-// //         // tableRow.appendChild(positionElement);
-// //
-// //
-// //
-// //     }
-// //     // let tableRow = table.appendChild(document.createElement("tr"));
-// // }
-//
-// function updateTableRecord(){
-//     console.log("inside loadTable");
-//     // console.log(data['table']);
-//     let tableData = data['table'];
-//     console.log(data['table']);
-//
-//     let table = document.getElementById('league_table');
-//     for(let i = 0; i < tableData.length; i++){
-//         let tableEntry = tableData[i];
-//         let tableRow = table.appendChild(document.createElement("tr"));
-//
-//         let position = tableEntry['position'];
-//         let team = tableEntry['name'];
-//         let logo = tableEntry['logo_url'];
-//         let played = tableEntry['played'];
-//         let won = tableEntry['won'];
-//         let drawn = tableEntry['drawn'];
-//         let lost = tableEntry['lost'];
-//         let goalFor = tableEntry['for'];
-//         let against = tableEntry['against'];
-//         let gd = tableEntry['gd'];
-//         let points = tableEntry['points'];
-//         let form = tableEntry['form'];
-//
-//
-//
-//
-//         table.appendChild(tableRow);
-//         let positionElement= tableRow.appendChild(document.createElement("td"));
-//         let teamParentElement= tableRow.appendChild(document.createElement("td"));
-//         let teamContainer= document.createElement("span");
-//         // teamContainer.setAttribute("style", "align-items:last");
-//         // teamContainer.setAttribute("style", "width:10%;");
-//         // teamContainer.style.display="flex"
-//         // teamContainer.setAttribute("style", "display:flex");
-//
-//
-//         let logoContainer= tableRow.appendChild(document.createElement("span"))
-//         logoContainer.setAttribute("style", "width:10%;");
-//         let logoImage= tableRow.appendChild(document.createElement("img"));
-//
-//
-//         let playedElement= tableRow.appendChild(document.createElement("td"));
-//         playedElement.setAttribute("style", "text-align:center");
-//         let wonElement= tableRow.appendChild(document.createElement("td"));
-//         wonElement.setAttribute("style", "text-align:center");
-//         let drawnElement= tableRow.appendChild(document.createElement("td"));
-//         drawnElement.setAttribute("style", "text-align:center");
-//         let lostElement= tableRow.appendChild(document.createElement("td"));
-//         lostElement.setAttribute("style", "text-align:center");
-//         let goalForElement= tableRow.appendChild(document.createElement("td"));
-//         goalForElement.setAttribute("style", "text-align:center");
-//         let againstElement= tableRow.appendChild(document.createElement("td"));
-//         againstElement.setAttribute("style", "text-align:center");
-//         let gdElement= tableRow.appendChild(document.createElement("td"));
-//         gdElement.setAttribute("style", "text-align:center");
-//         let pointsElement= tableRow.appendChild(document.createElement("td"));
-//         pointsElement.setAttribute("style", "text-align:center");
-//         pointsElement.style.fontSize ="large";
-//         pointsElement.style.fontWeight ="bold";
-//
-//         // let formElement= tableRow.appendChild(document.createElement("td"));
-//
-//
-//         positionElement.innerHTML=position;
-//         positionElement.setAttribute("style", "text-align:center");
-//
-//         teamParentElement.append(teamContainer);
-//         teamContainer.appendChild(logoContainer);
-//         let text = document.createElement("b");
-//         text.style.padding = "10px"
-//         text.style.border = "none";
-//         text.innerHTML = team;
-//
-//         logoContainer.appendChild(logoImage)
-//         teamContainer.appendChild(text);
-//         logoImage.src = logo;
-//         logoImage.alt = "SVG Image";
-//
-//
-//         // logoElement.innerHTML=logo;
-//         playedElement.innerHTML=played;
-//         wonElement.innerHTML=won;
-//         drawnElement.innerHTML=drawn;
-//         lostElement.innerHTML=lost;
-//         goalForElement.innerHTML=goalFor;
-//         againstElement.innerHTML=against;
-//         gdElement.innerHTML=gd;
-//         pointsElement.innerHTML= points;
-//
-//
-//         // tableRow.appendChild(positionElement);
-//
-//
-//
-//     }
-//     // let tableRow = table.appendChild(document.createElement("tr"));
-// }
-
-
-
-
-// document.addEventListener('DOMContentLoaded', registerAllEvents);

@@ -6694,7 +6694,7 @@
       "month": "January",
       "home_team": "AFC Bournemouth",
       "away_team": "Liverpool",
-      "home_goals": 0,
+      "home_goals": 1,
       "away_goals": 4,
       "home_team_players_stats": [
         {
@@ -8873,24 +8873,6 @@
         }
       ]
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     ]
 }
 
